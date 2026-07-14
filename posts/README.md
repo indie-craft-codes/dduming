@@ -37,6 +37,20 @@
 | `video` | 영상 임베드 |
 | `faq` | FAQ 아코디언 (island 대상) |
 
+## 커버 이미지 규칙
+
+`coverImage` 필드 하나로 결정된다.
+
+| 경우 | 동작 |
+|--|--|
+| `coverImage` 지정됨 (예: `"images/gift-tax.png"`) | 그 이미지를 그대로 사용 (프리미엄·직접 제작) |
+| `coverImage` 없음 | 빌드가 **텍스트 커버 SVG 자동생성** → `dist/images/auto/{slug}.svg` |
+
+- 자동 커버는 `title`·`category`·`deck`·`datePublished`에서 파생. 손댈 것 없음.
+- 카테고리별로 뱃지 색·워터마크가 자동: 기술 `</>`(파랑) / 경제 `₩`(초록) / 부동산 `㎡`(주황).
+- 무의존 SVG라 CI에서도 그대로 생성(래스터화 불필요). 소셜 OG용 고정 이미지가 필요한 글만 `coverImage`로 직접 지정.
+- 로직: `build/cover.mjs` (`autoCoverSVG`).
+
 ## 발행 상태 · 본문 없는 글 처리
 
 - `status: "published" | "draft"` — 목록 노출 여부를 이 필드로 판단.

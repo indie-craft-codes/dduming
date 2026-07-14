@@ -4,6 +4,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { css, tokens, CATEGORIES, SITE } from './theme.mjs';
 import { renderBlock, esc } from './blocks.mjs';
+import { autoCoverSVG } from './cover.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const POSTS = join(ROOT, 'posts');
@@ -42,6 +43,8 @@ function relatedOf(p) {
     : published.filter(q => q.slug !== p.slug && q.category === p.category).slice(0, 3).map(q => q.slug);
   return slugs.map(s => published.find(q => q.slug === s)).filter(Boolean);
 }
+// 커버 규칙: coverImage 있으면 사용, 없으면 자동 SVG 커버 경로
+const coverSrc = (p) => p.coverImage || `images/auto/${p.slug}.svg`;
 const badge = (catName) => {
   const c = CATEGORIES[catName]; if (!c) return '';
   return `<span class="badge" style="background:${c.color}">${c.badge}</span>`;
@@ -77,7 +80,7 @@ function page({ title, desc, active, main, base = '', ldjson = '' }) {
 // ---------- 카드 ----------
 function card(p, base = '', hero = false) {
   const cls = hero ? 'hero' : 'card';
-  const cover = p.coverImage ? `<img src="${base}${p.coverImage}" alt="${esc(p.title)}">` : '';
+  const cover = `<img src="${base}${coverSrc(p)}" alt="${esc(p.title)}">`;
   const inner = `<a href="${base}posts/${p.slug}.html">
 <div class="cover">${cover}</div><div>${badge(p.category)}
 <div class="card-title">${esc(p.title)}</div>
@@ -109,7 +112,7 @@ function buildPost(p) {
     articleSection: p.category, keywords: p.tags, inLanguage: 'ko-KR',
   };
   const ldjson = `\n<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
-  const cover = p.coverImage ? `<figure class="a-cover"><img src="../${p.coverImage}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>` : '';
+  const cover = `<figure class="a-cover"><img src="../${coverSrc(p)}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>`;
   const answer = p.answerBox ? `<div class="answerbox"><div class="lbl">핵심 요약</div><p>${esc(p.answerBox)}</p></div>` : '';
   const tocHtml = toc.length ? `<div class="toc"><div class="lbl">목차</div>${toc.map(t => `<a href="#${esc(t.id)}">${esc(t.label)}</a>`).join('')}</div>` : '';
   const body = (p.blocks || []).map(renderBlock).join('\n');
@@ -160,6 +163,12 @@ mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
 writeFileSync(join(DIST, 'assets', 'style.css'), css);
 if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
+// 커버 규칙: coverImage 없는 글은 텍스트 커버 SVG 자동생성
+mkdirSync(join(DIST, 'images', 'auto'), { recursive: true });
+let autoN = 0;
+for (const p of published) {
+  if (!p.coverImage) { writeFileSync(join(DIST, 'images', 'auto', `${p.slug}.svg`), autoCoverSVG(p)); autoN++; }
+}
 
 buildHome();
 published.forEach(buildPost);
