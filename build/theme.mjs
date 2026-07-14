@@ -21,6 +21,8 @@ export const SITE = {
   title: '뚜밍',
   brand: 'dduming',
   desc: '기술 · 경제 · 부동산을 짧고 정확하게.',
+  // canonical·OG·sitemap·RSS의 절대 URL 기준 (유일한 신규 입력)
+  baseUrl: 'https://indie-craft-codes.github.io/dduming',
 };
 
 export const css = `

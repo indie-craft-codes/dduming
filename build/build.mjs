@@ -61,10 +61,28 @@ function nav(active) {
     + link('소개', 'about.html', 'about')
     + `</nav>`;
 }
-function page({ title, desc, active, main, base = '', ldjson = '' }) {
+const abs = (path) => `${SITE.baseUrl}/${path}`.replace(/\/$/, '/') ;
+function page({ title, desc, active, main, base = '', ldjson = '', path = 'index.html', ogType = 'website', image = '' }) {
+  const canonical = path === 'index.html' ? `${SITE.baseUrl}/` : abs(path);
+  const ogImage = image ? abs(image) : '';
+  const og = [
+    `<link rel="canonical" href="${canonical}">`,
+    `<meta property="og:type" content="${ogType}">`,
+    `<meta property="og:site_name" content="${esc(SITE.title)}">`,
+    `<meta property="og:title" content="${esc(title)}">`,
+    `<meta property="og:description" content="${esc(desc)}">`,
+    `<meta property="og:url" content="${canonical}">`,
+    ogImage ? `<meta property="og:image" content="${ogImage}">` : '',
+    `<meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">`,
+    `<meta name="twitter:title" content="${esc(title)}">`,
+    `<meta name="twitter:description" content="${esc(desc)}">`,
+    ogImage ? `<meta name="twitter:image" content="${ogImage}">` : '',
+  ].filter(Boolean).join('\n');
   return `<!DOCTYPE html><html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
+${og}
+<link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="${SITE.baseUrl}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${base}assets/style.css">${ldjson}
@@ -99,6 +117,7 @@ function buildHome() {
     + (others.length ? `<div class="sec-head">최신 글</div><div class="grid">${others.map(p => card(p)).join('')}</div>` : '');
   writeFileSync(join(DIST, 'index.html'), page({
     title: `${SITE.title} · ${SITE.brand}`, desc: SITE.desc, active: 'all', main,
+    path: 'index.html', ogType: 'website', image: coverSrc(featured),
   }));
 }
 
@@ -124,6 +143,7 @@ function buildPost(p) {
 ${cover}${answer}${tocHtml}${body}${tags}${related}</article>`;
   writeFileSync(join(DIST, 'posts', `${p.slug}.html`), page({
     title: `${p.title} · ${SITE.title}`, desc: p.deck, active: p.category, main, base: '../', ldjson,
+    path: `posts/${p.slug}.html`, ogType: 'article', image: coverSrc(p),
   }));
 }
 
@@ -134,6 +154,7 @@ function buildCategory(catName) {
     + (list.length ? `<div class="grid">${list.map(p => card(p, '../')).join('')}</div>` : '<p>준비 중인 카테고리입니다.</p>');
   writeFileSync(join(DIST, 'category', `${catSlug(catName)}.html`), page({
     title: `${catName} · ${SITE.title}`, desc: `${catName} 카테고리 글 목록`, active: catName, main, base: '../',
+    path: `category/${catSlug(catName)}.html`, ogType: 'website',
   }));
 }
 
@@ -142,7 +163,50 @@ function buildAbout() {
   const main = `<article><h1 class="title">소개</h1>
 <p class="a-deck">${esc(SITE.desc)}</p>
 <p>${SITE.title}(${SITE.brand})은 기술·경제·부동산 이슈를 짧고 정확하게 정리하는 브리핑 블로그입니다. 데이터와 출처를 근거로, 결론을 먼저 전합니다.</p></article>`;
-  writeFileSync(join(DIST, 'about.html'), page({ title: `소개 · ${SITE.title}`, desc: SITE.desc, active: 'about', main }));
+  writeFileSync(join(DIST, 'about.html'), page({ title: `소개 · ${SITE.title}`, desc: SITE.desc, active: 'about', main, path: 'about.html', ogType: 'website' }));
+}
+
+// ---------- sitemap.xml (published + 목록 페이지) ----------
+function buildSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: `${SITE.baseUrl}/`, lastmod: published[0]?.dateModified || today },
+    { loc: abs('about.html'), lastmod: today },
+    ...Object.keys(CATEGORIES).map(c => ({ loc: abs(`category/${catSlug(c)}.html`), lastmod: today })),
+    ...published.map(p => ({ loc: abs(`posts/${p.slug}.html`), lastmod: p.dateModified || p.datePublished })),
+  ];
+  const body = urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n');
+  writeFileSync(join(DIST, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
+}
+
+// ---------- robots.txt ----------
+function buildRobots() {
+  writeFileSync(join(DIST, 'robots.txt'),
+    `User-agent: *\nAllow: /\n\nSitemap: ${SITE.baseUrl}/sitemap.xml\n`);
+}
+
+// ---------- RSS (feed.xml) ----------
+function rfc822(d) { return new Date(`${d}T09:00:00+09:00`).toUTCString(); }
+function buildFeed() {
+  const items = published.map(p => `    <item>
+      <title>${esc(p.title)}</title>
+      <link>${abs(`posts/${p.slug}.html`)}</link>
+      <guid isPermaLink="true">${abs(`posts/${p.slug}.html`)}</guid>
+      <description>${esc(p.deck)}</description>
+      <category>${esc(p.category)}</category>
+      <pubDate>${rfc822(p.datePublished)}</pubDate>
+    </item>`).join('\n');
+  writeFileSync(join(DIST, 'feed.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+    <title>${esc(SITE.title)}</title>
+    <link>${SITE.baseUrl}/</link>
+    <description>${esc(SITE.desc)}</description>
+    <language>ko-KR</language>
+    <lastBuildDate>${published[0] ? rfc822(published[0].datePublished) : new Date().toUTCString()}</lastBuildDate>
+${items}
+</channel></rss>\n`);
 }
 
 // ---------- index.json 재생성(파생물) ----------
@@ -175,7 +239,11 @@ published.forEach(buildPost);
 Object.keys(CATEGORIES).forEach(buildCategory);
 buildAbout();
 rebuildIndex();
+buildSitemap();
+buildRobots();
+buildFeed();
 
 console.log(`✓ build 완료 — published ${published.length}건 (draft ${posts.length - published.length} 스킵)`);
 console.log(`  홈 + 글 ${published.length} + 카테고리 ${Object.keys(CATEGORIES).length} + about + index.json`);
+console.log(`  SEO: sitemap.xml · robots.txt · feed.xml · canonical/OG (baseUrl=${SITE.baseUrl})`);
 published.forEach(p => console.log(`  · posts/${p.slug}.html  (${readingMinutes(p)}분, toc ${deriveToc(p).length})`));
