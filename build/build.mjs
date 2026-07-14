@@ -18,6 +18,12 @@ const posts = postFiles.map(f => JSON.parse(readFileSync(join(POSTS, f), 'utf8')
 const published = posts.filter(p => p.status === 'published')
   .sort((a, b) => (b.datePublished || '').localeCompare(a.datePublished || ''));
 
+// 정적 페이지 (소개·개인정보처리방침·연락처 등)
+const PAGES = join(ROOT, 'pages');
+const staticPages = existsSync(PAGES)
+  ? readdirSync(PAGES).filter(f => f.endsWith('.json')).map(f => JSON.parse(readFileSync(join(PAGES, f), 'utf8')))
+  : [];
+
 // index.json에는 있으나 본문 없는 published 슬러그 = 빌드 오류(README 규칙)
 const idxRaw = existsSync(join(POSTS, 'index.json')) ? JSON.parse(readFileSync(join(POSTS, 'index.json'), 'utf8')) : [];
 const haveSlugs = new Set(posts.map(p => p.slug));
@@ -96,7 +102,7 @@ ${og}
 <a href="${base}index.html" class="logo">${SITE.title}<span class="dot">.</span></a>${nav(active).replaceAll('href="', `href="${base}`)}
 </div><div class="rule"></div></header>
 <main>${main}</main>
-<footer class="site"><span>${SITE.title}. — ${esc(SITE.desc)}</span><span>© 2026 ${SITE.brand}</span></footer>
+<footer class="site"><span><a href="${base}about.html">소개</a> · <a href="${base}privacy.html">개인정보처리방침</a> · <a href="${base}contact.html">연락처</a></span><span>© 2026 ${SITE.brand}</span></footer>
 </div></body></html>`;
 }
 
@@ -165,12 +171,14 @@ function buildCategory(catName) {
   }));
 }
 
-// ---------- About ----------
-function buildAbout() {
-  const main = `<article><h1 class="title">소개</h1>
-<p class="a-deck">${esc(SITE.desc)}</p>
-<p>${SITE.title}(${SITE.brand})은 기술·경제·부동산 이슈를 짧고 정확하게 정리하는 브리핑 블로그입니다. 데이터와 출처를 근거로, 결론을 먼저 전합니다.</p></article>`;
-  writeFileSync(join(DIST, 'about.html'), page({ title: `소개 · ${SITE.title}`, desc: SITE.desc, active: 'about', main, path: 'about.html', ogType: 'website' }));
+// ---------- 정적 페이지 (소개·개인정보처리방침·연락처 등) ----------
+function buildStaticPage(p) {
+  const body = (p.blocks || []).map(renderBlock).join('\n');
+  const main = `<article><div class="a-head"><h1 class="title">${esc(p.title)}</h1></div>${body}</article>`;
+  writeFileSync(join(DIST, `${p.slug}.html`), page({
+    title: `${p.title} · ${SITE.title}`, desc: p.description || SITE.desc,
+    active: p.slug === 'about' ? 'about' : '', main, path: `${p.slug}.html`, ogType: 'website',
+  }));
 }
 
 // ---------- sitemap.xml (published + 목록 페이지) ----------
@@ -178,7 +186,7 @@ function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${SITE.baseUrl}/`, lastmod: published[0]?.dateModified || today },
-    { loc: abs('about.html'), lastmod: today },
+    ...staticPages.map(p => ({ loc: abs(`${p.slug}.html`), lastmod: today })),
     ...Object.keys(CATEGORIES).map(c => ({ loc: abs(`category/${catSlug(c)}.html`), lastmod: today })),
     ...published.map(p => ({ loc: abs(`posts/${p.slug}.html`), lastmod: p.dateModified || p.datePublished })),
   ];
@@ -245,7 +253,7 @@ for (const p of published) {
 buildHome();
 published.forEach(buildPost);
 Object.keys(CATEGORIES).forEach(buildCategory);
-buildAbout();
+staticPages.forEach(buildStaticPage);
 rebuildIndex();
 buildSitemap();
 buildRobots();

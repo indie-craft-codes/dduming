@@ -1,0 +1,19 @@
+{
+  "slug": "contact",
+  "title": "연락처",
+  "description": "뚜밍(dduming) 연락처 — 제휴·광고·정정 문의",
+  "blocks": [
+    { "type": "p", "text": "뚜밍에 대한 문의는 아래 이메일로 보내주세요. 확인 후 성실히 답변드리겠습니다." },
+
+    { "type": "h2", "id": "sec-email", "text": "이메일" },
+    { "type": "p", "text": "contact@dduming.com" },
+
+    { "type": "h2", "id": "sec-topics", "text": "이런 문의를 받습니다" },
+    { "type": "ul", "items": [
+      "제휴·광고 문의",
+      "게시글 내용의 오류 제보 및 정정 요청",
+      "개인정보 열람·정정·삭제 요청",
+      "기타 서비스 관련 문의"
+    ] }
+  ]
+}
