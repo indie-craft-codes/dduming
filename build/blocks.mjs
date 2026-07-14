@@ -6,12 +6,23 @@ export { esc };
 
 const cap = (t) => t ? `<div class="cap">${esc(t)}</div>` : '';
 
+// 차트 값 라벨 포맷: format='money'면 억/만원, 아니면 천단위 콤마
+const moneyKo = (n) => {
+  n = Math.round(n); if (n <= 0) return '0원';
+  const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); let s = '';
+  if (e) s += e + '억';
+  if (m) s += (s ? ' ' : '') + m.toLocaleString('ko-KR') + '만';
+  if (!s) s = n.toLocaleString('ko-KR');
+  return s + '원';
+};
+const fmtVal = (v, fmt) => fmt === 'money' ? moneyKo(v) : Number(v).toLocaleString('ko-KR');
+
 function bar(b) {
   const max = Math.max(...b.data.map(d => d.value)) || 1;
   const cols = b.data.map((d, i) => {
     const hl = b.highlightLast && i === b.data.length - 1 ? ' hl' : '';
     const h = Math.max(4, Math.round(d.value / max * 100));
-    return `<div class="col"><span class="val">${esc(String(d.value))}</span>`
+    return `<div class="col"><span class="val">${esc(fmtVal(d.value, b.format))}</span>`
       + `<div class="bar${hl}" style="height:${h}%"></div>`
       + `<span class="lab">${esc(d.label)}</span></div>`;
   }).join('');
@@ -23,7 +34,7 @@ function hbar(b) {
   const rows = b.data.map(d =>
     `<div class="row"><span>${esc(d.label)}</span>`
     + `<div class="track"><div class="fill" style="width:${Math.round(d.value / max * 100)}%"></div></div>`
-    + `<span style="text-align:right">${esc(String(d.value))}</span></div>`).join('');
+    + `<span style="text-align:right">${esc(fmtVal(d.value, b.format))}</span></div>`).join('');
   return `<div class="hbars">${rows}</div>`;
 }
 

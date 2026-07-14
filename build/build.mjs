@@ -136,7 +136,7 @@ function buildPost(p) {
     articleSection: p.category, keywords: p.tags, inLanguage: 'ko-KR',
   };
   const ldjson = `\n<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
-  const cover = `<figure class="a-cover"><img src="../${coverSrc(p)}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>`;
+  // 커버는 카드 썸네일·OG용으로만 사용. 본문에는 제목이 H1과 중복돼 표시하지 않음.
   const answer = p.answerBox ? `<div class="answerbox"><div class="lbl">핵심 요약</div><p>${esc(p.answerBox)}</p></div>` : '';
   const tocHtml = toc.length ? `<div class="toc"><div class="lbl">목차</div>${toc.map(t => `<a href="#${esc(t.id)}">${esc(t.label)}</a>`).join('')}</div>` : '';
   // 상단 고정 컴포넌트(placement:'top')는 맨 위(커버 다음)로, 나머지는 본문 흐름에
@@ -147,7 +147,7 @@ function buildPost(p) {
   const main = `<article><div class="a-head">${badge(p.category)}
 <h1 class="title">${esc(p.title)}</h1><p class="a-deck">${esc(p.deck)}</p>
 <div class="meta"><span>${fmtDate(p.datePublished)}</span><span>·</span><span>수정 ${fmtDate(p.dateModified || p.datePublished)}</span><span>·</span><span>${mins}분 읽기</span></div></div>
-${cover}${topHtml}${answer}${tocHtml}${body}${tags}${related}</article>`;
+${topHtml}${answer}${tocHtml}${body}${tags}${related}</article>`;
   writeFileSync(join(DIST, 'posts', `${p.slug}.html`), page({
     title: `${p.title} · ${SITE.title}`, desc: p.deck, active: p.category, main, base: '../', ldjson,
     path: `posts/${p.slug}.html`, ogType: 'article', image: coverSrc(p),

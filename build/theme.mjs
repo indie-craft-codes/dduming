@@ -83,6 +83,7 @@ th{font-weight:600;color:var(--sub);font-size:13.5px;border-bottom:2px solid var
 td:not(:first-child),th:not(:first-child){text-align:right}
 /* 넓은 표는 .tablewrap 안에서 좌우 스크롤 (모든 셀 nowrap) */
 .cap{font-size:12.5px;color:var(--sub);margin:6px 0 22px}
+.chart .cap{text-align:center;margin:14px 0 0}
 pre{background:#1c1c20;color:#e8e8ea;border-radius:6px;padding:18px 20px;overflow-x:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.7;margin:18px 0}
 pre .fn{display:block;color:#9a9aa2;font-size:12px;margin-bottom:10px}
 .callout{background:color-mix(in srgb,var(--point) 5%,transparent);border:1px solid var(--line);border-left:3px solid var(--point);border-radius:4px;padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
