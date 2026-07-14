@@ -58,4 +58,21 @@
 
 - Pages 소스: **GitHub Actions** (`build_type: workflow`)
 - 워크플로: `.github/workflows/deploy.yml` — push→build→`dist/` 배포
-- 사이트: `https://indie-craft-codes.github.io/dduming/` (커스텀 도메인 시 `theme.mjs`의 `baseUrl`도 함께 변경)
+- 사이트: **https://dduming.com** (커스텀 도메인, `dist/CNAME`로 지정)
+- DNS: Cloudflare — `@`/`www` CNAME → `indie-craft-codes.github.io` (DNS only, SSL/TLS Full)
+- 도메인 변경 시 `theme.mjs`의 `baseUrl`과 빌드의 `CNAME`을 함께 수정
+
+## 수익화(구글 애드센스) 준비 체크리스트
+
+기술 기반은 갖췄고, 승인 전 콘텐츠·필수 페이지가 관건.
+
+- [x] 커스텀 도메인 (`dduming.com`) — github.io 서브도메인은 승인 어려움
+- [x] 모바일 친화·빠른 로딩·시맨틱 HTML·SEO(sitemap·canonical·JSON-LD)
+- [x] 독창적 고품질 콘텐츠 (출처 기반)
+- [ ] **콘텐츠 15~20편 이상** (현재 부족 — 최대 관문)
+- [ ] **개인정보처리방침 페이지** (필수 — 쿠키·광고 데이터 고지)
+- [ ] **연락처(Contact) 페이지**
+- [ ] About 페이지 보강
+- [ ] (승인 후) `ads.txt` 추가, 광고 스크립트 삽입
+
+> 신청 전 최소: 필수 페이지(개인정보처리방침·연락처) + 충분한 글 편수. 이후 신청.
