@@ -42,7 +42,7 @@ export function render(props = {}) {
     var amt=root.querySelector('.gtc-amt'),rel=root.querySelector('.gtc-rel'),mar=root.querySelector('.gtc-mar');
     var oDed=root.querySelector('.gtc-ded'),oBase=root.querySelector('.gtc-base'),oCalc=root.querySelector('.gtc-calc'),oFinal=root.querySelector('.gtc-final');
     function num(s){return Number(String(s).replace(/[^0-9]/g,''))||0;}
-    function fmt(n){n=Math.round(n);if(n<=0)return '0원';var e=Math.floor(n/1e8),m=Math.floor((n%1e8)/1e4),s='';if(e)s+=e+'억';if(m)s+=(s?' ':'')+m.toLocaleString('ko-KR')+'만';if(!s)s=n.toLocaleString('ko-KR');return s+'원';}
+    function fmt(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
     var BR=[[1e8,.1,0],[5e8,.2,1e7],[1e9,.3,6e7],[3e9,.4,1.6e8],[Infinity,.5,4.6e8]];
     function run(){
       var a=num(amt.value),ded=num(rel.value)+(mar.checked?1e8:0),base=Math.max(0,a-ded),c=0;
