@@ -1,5 +1,22 @@
 [
   {
+    "slug": "stock-etf-tax-2026",
+    "category": "경제",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "주식세금",
+      "ETF",
+      "금투세",
+      "해외주식",
+      "손익통산"
+    ],
+    "title": "주식·ETF 세금 총정리 (2026년 현행)",
+    "deck": "국내·해외 주식, 국내상장 해외추종 ETF, 해외 ETF까지 상품별 세금과 손익통산, 폐지된 금투세를 현행 법령으로 정리한다.",
+    "datePublished": "2026-07-14",
+    "dateModified": "2026-07-14"
+  },
+  {
     "slug": "gift-tax-7eok-2026",
     "category": "경제",
     "status": "published",
