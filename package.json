@@ -1,0 +1,29 @@
+{
+  "name": "dduming",
+  "version": "1.0.0",
+  "description": "기술·경제·부동산 브리핑 블로그. **정적 HTML 우선, 나중에 DB/CMS로 확장**하는 구조.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indie-craft-codes/dduming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/indie-craft-codes/dduming/issues"
+  },
+  "homepage": "https://github.com/indie-craft-codes/dduming#readme",
+  "dependencies": {
+    "@observablehq/plot": "^0.6.17",
+    "d3-shape": "^3.2.0",
+    "jsdom": "^29.1.1"
+  }
+}
