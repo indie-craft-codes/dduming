@@ -233,6 +233,7 @@ mkdirSync(join(DIST, 'posts'), { recursive: true });
 mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
 writeFileSync(join(DIST, cssFile), fullCss);
+writeFileSync(join(DIST, 'CNAME'), 'dduming.com\n'); // GitHub Pages 커스텀 도메인
 if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
 // 커버 규칙: coverImage 없는 글은 텍스트 커버 SVG 자동생성
 mkdirSync(join(DIST, 'images', 'auto'), { recursive: true });
