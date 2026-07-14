@@ -46,6 +46,9 @@ nav.top a.active{color:var(--ink);font-weight:600}
 main{padding:44px 0 40px}
 .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;margin-bottom:44px}
 .hero .cover{aspect-ratio:16/10;background:color-mix(in srgb,var(--point) 8%,var(--line));border-radius:4px;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.a-cover{border-radius:6px;overflow:hidden;margin:4px 0 8px}
+.a-cover img{width:100%;display:block}
 .card-title{font-weight:700;letter-spacing:-.01em;line-height:1.25;margin:12px 0 8px}
 .hero .card-title{font-size:30px}
 .deck{color:var(--sub);font-size:15.5px;margin:0}

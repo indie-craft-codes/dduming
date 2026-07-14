@@ -77,8 +77,9 @@ function page({ title, desc, active, main, base = '', ldjson = '' }) {
 // ---------- 카드 ----------
 function card(p, base = '', hero = false) {
   const cls = hero ? 'hero' : 'card';
+  const cover = p.coverImage ? `<img src="${base}${p.coverImage}" alt="${esc(p.title)}">` : '';
   const inner = `<a href="${base}posts/${p.slug}.html">
-<div class="cover"></div><div>${badge(p.category)}
+<div class="cover">${cover}</div><div>${badge(p.category)}
 <div class="card-title">${esc(p.title)}</div>
 <p class="deck">${esc(p.deck)}</p>
 <div class="meta"><span>${fmtDate(p.datePublished)}</span><span>·</span><span>${readingMinutes(p)}분 읽기</span></div>
@@ -108,6 +109,7 @@ function buildPost(p) {
     articleSection: p.category, keywords: p.tags, inLanguage: 'ko-KR',
   };
   const ldjson = `\n<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
+  const cover = p.coverImage ? `<figure class="a-cover"><img src="../${p.coverImage}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>` : '';
   const answer = p.answerBox ? `<div class="answerbox"><div class="lbl">핵심 요약</div><p>${esc(p.answerBox)}</p></div>` : '';
   const tocHtml = toc.length ? `<div class="toc"><div class="lbl">목차</div>${toc.map(t => `<a href="#${esc(t.id)}">${esc(t.label)}</a>`).join('')}</div>` : '';
   const body = (p.blocks || []).map(renderBlock).join('\n');
@@ -116,7 +118,7 @@ function buildPost(p) {
   const main = `<article><div class="a-head">${badge(p.category)}
 <h1 class="title">${esc(p.title)}</h1><p class="a-deck">${esc(p.deck)}</p>
 <div class="meta"><span>${fmtDate(p.datePublished)}</span><span>·</span><span>수정 ${fmtDate(p.dateModified || p.datePublished)}</span><span>·</span><span>${mins}분 읽기</span></div></div>
-${answer}${tocHtml}${body}${tags}${related}</article>`;
+${cover}${answer}${tocHtml}${body}${tags}${related}</article>`;
   writeFileSync(join(DIST, 'posts', `${p.slug}.html`), page({
     title: `${p.title} · ${SITE.title}`, desc: p.deck, active: p.category, main, base: '../', ldjson,
   }));
@@ -157,7 +159,7 @@ mkdirSync(join(DIST, 'posts'), { recursive: true });
 mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
 writeFileSync(join(DIST, 'assets', 'style.css'), css);
-if (existsSync(join(ROOT, 'posts', 'images'))) cpSync(join(ROOT, 'posts', 'images'), join(DIST, 'posts', 'images'), { recursive: true });
+if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
 
 buildHome();
 published.forEach(buildPost);
