@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f7f2ea; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+</helmet>
+<div ref="{{ rootRef }}" style="{{ pageStyle }}">
+
+  <header style="{{ headerStyle }}">
+    <div style="{{ dateRowStyle }}">
+      <span>2026년 7월 10일, 금요일</span>
+      <span>VOL. 12</span>
+    </div>
+    <div style="{{ mastheadWrapStyle }}">
+      <h1 style="{{ mastheadStyle }}">THE ATLAS</h1>
+      <p style="{{ taglineStyle }}">기술과 자본의 기록</p>
+    </div>
+    <div style="{{ ruleThickStyle }}"></div>
+    <nav style="{{ navStyle }}">
+      <a href="#" style="{{ navLinkActiveStyle }}">전체</a>
+      <a href="#" style="{{ navLinkStyle }}">기술</a>
+      <a href="#" style="{{ navLinkStyle }}">경제</a>
+      <a href="#" style="{{ navLinkStyle }}">부동산</a>
+      <a href="#" style="{{ navLinkStyle }}">소개</a>
+    </nav>
+    <div style="{{ ruleThinStyle }}"></div>
+  </header>
+
+  <main style="{{ mainStyle }}">
+
+    <section style="{{ heroSectionStyle }}">
+      <a href="#" style="{{ heroImgWrapStyle }}">
+        <div style="{{ heroImgStyle }}"></div>
+        <span style="{{ imgLabelStyle }}">FEATURE IMAGE — 16:9</span>
+        <div style="{{ heroOverlayStyle }}">
+          <span style="{{ tagOnImageStyle }}">TECH · COVER STORY</span>
+          <h2 style="{{ heroTitleStyle }}">AI 반도체 전쟁, 엔비디아 다음은 누구인가</h2>
+        </div>
+      </a>
+      <div style="{{ heroBylineRowStyle }}">
+        <span style="{{ bylineStyle }}">사진 · 편집부</span>
+        <span style="{{ bylineStyle }}">8분 읽기</span>
+      </div>
+    </section>
+
+    <div style="{{ ruleThinStyle }}"></div>
+
+    <section style="{{ splitSectionStyle }}">
+      <div style="{{ leadColStyle }}">
+        <span style="{{ tagSerifStyle }}">ECONOMY</span>
+        <h3 style="{{ leadTitleStyle }}">기준금리 동결, 하반기 부동산 시장은?</h3>
+        <p style="{{ leadParaStyle }}"><span style="{{ dropCapStyle }}">한</span>국은행이 다섯 번째로 기준금리를 동결하면서 시장의 시선은 다시 주택 거래량으로 쏠리고 있다. 전문가들은 실수요 중심의 국지적 반등을 점치면서도, 공급 물량이 몰린 수도권 외곽 단지에 대해서는 신중한 접근을 주문한다.</p>
+        <div style="{{ pullQuoteWrapStyle }}">
+          <p style="{{ pullQuoteStyle }}">“금리가 멈췄다고 시장이 함께 멈추는 것은 아니다.”</p>
+        </div>
+        <p style="{{ leadParaStyle }}">실제로 강남권 재건축 단지의 호가는 최근 두 달간 완만하게 올랐고, 반대로 입주 물량이 집중된 지역은 전세가가 약세를 보이는 등 온도차가 뚜렷하다.</p>
+        <div style="{{ bylineRowSmallStyle }}"><span style="{{ bylineStyle }}">2026.07.09</span></div>
+      </div>
+
+      <div style="{{ briefColStyle }}">
+        <div style="{{ briefHeadStyle }}">이번 주 브리프</div>
+        <a href="#" style="{{ briefItemStyle }}">
+          <span style="{{ tagSerifSmallStyle }}">REAL ESTATE</span>
+          <h4 style="{{ briefTitleStyle }}">1기 신도시 재건축, 실제로 얼마나 빨라졌나</h4>
+          <span style="{{ bylineStyle }}">07.05</span>
+        </a>
+        <a href="#" style="{{ briefItemStyle }}">
+          <span style="{{ tagSerifSmallStyle }}">TECH</span>
+          <h4 style="{{ briefTitleStyle }}">오픈소스 LLM이 바꾸는 개발자의 하루</h4>
+          <span style="{{ bylineStyle }}">07.06</span>
+        </a>
+        <a href="#" style="{{ briefItemStyle }}">
+          <span style="{{ tagSerifSmallStyle }}">ECONOMY</span>
+          <h4 style="{{ briefTitleStyle }}">미국 증시 랠리 속 한국 개인투자자의 선택</h4>
+          <span style="{{ bylineStyle }}">07.03</span>
+        </a>
+        <a href="#" style="{{ briefItemLastStyle }}">
+          <span style="{{ tagSerifSmallStyle }}">TECH</span>
+          <h4 style="{{ briefTitleStyle }}">웹 프레임워크 없이 사이트 만들기</h4>
+          <span style="{{ bylineStyle }}">07.02</span>
+        </a>
+      </div>
+    </section>
+
+    <div style="{{ ruleThickThinStyle }}"></div>
+
+    <section style="{{ reportSectionStyle }}">
+      <div style="{{ reportHeadRowStyle }}">
+        <h3 style="{{ reportHeadStyle }}">부동산 리포트</h3>
+        <span style="{{ bylineStyle }}">EDITOR'S PICKS</span>
+      </div>
+      <div style="{{ threeColStyle }}">
+        <a href="#" style="{{ threeColItemStyle }}">
+          <div style="{{ smallImgWrapStyle }}">
+            <div style="{{ smallImgStyleA }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagSerifSmallStyle }}">REAL ESTATE</span>
+          <h4 style="{{ smallTitleStyle }}">전세사기 이후 달라진 임대차 계약 체크리스트</h4>
+          <span style="{{ bylineStyle }}">06.30</span>
+        </a>
+        <a href="#" style="{{ threeColItemStyle }}">
+          <div style="{{ smallImgWrapStyle }}">
+            <div style="{{ smallImgStyleB }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagSerifSmallStyle }}">TECH</span>
+          <h4 style="{{ smallTitleStyle }}">클라우드 비용 30% 줄인 스타트업의 인프라 개편기</h4>
+          <span style="{{ bylineStyle }}">06.28</span>
+        </a>
+        <a href="#" style="{{ threeColItemLastStyle }}">
+          <div style="{{ smallImgWrapStyle }}">
+            <div style="{{ smallImgStyleC }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagSerifSmallStyle }}">ECONOMY</span>
+          <h4 style="{{ smallTitleStyle }}">임대 수익률로 다시 보는 오피스텔 투자</h4>
+          <span style="{{ bylineStyle }}">06.26</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="{{ footerStyle }}">
+    <div style="{{ ruleThinStyle }}"></div>
+    <div style="{{ footerRowStyle }}">
+      <span style="{{ mastheadSmallStyle }}">THE ATLAS</span>
+      <span style="{{ bylineStyle }}">© 2026 The Atlas. 기술과 자본을 기록합니다.</span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { width: 1280 };
+
+  componentDidMount() {
+    if (typeof ResizeObserver !== 'undefined' && this.rootRef.current) {
+      this.ro = new ResizeObserver((entries) => {
+        const w = entries[0].contentRect.width;
+        if (Math.abs(w - this.state.width) > 2) this.setState({ width: w });
+      });
+      this.ro.observe(this.rootRef.current);
+    }
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+
+  renderVals() {
+    const w = this.state.width || 1280;
+    const m = w < 760;
+    const pad = m ? 20 : 64;
+    const ink = '#211c17';
+    const sub = '#7a6f63';
+    const line = 'rgba(33,28,23,0.16)';
+    const burgundy = '#7a1f2b';
+    const cream = '#f7f2ea';
+    const disp = "'Noto Serif KR', serif";
+    const sans = "'IBM Plex Sans KR', system-ui, sans-serif";
+
+    const stripe = (c1, c2) => `repeating-linear-gradient(135deg, ${c1}, ${c1} 12px, ${c2} 12px, ${c2} 24px)`;
+
+    return {
+      rootRef: this.rootRef,
+      pageStyle: { fontFamily: sans, color: ink, background: cream, maxWidth: 1240, margin: '0 auto' },
+
+      headerStyle: { padding: `${m ? 22 : 36}px ${pad}px 0`, textAlign: 'center' },
+      dateRowStyle: { display: 'flex', justifyContent: 'space-between', fontSize: 11, letterSpacing: '0.08em', color: sub, textTransform: 'uppercase' },
+      mastheadWrapStyle: { padding: `${m ? 18 : 28}px 0 ${m ? 10 : 16}px` },
+      mastheadStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 40 : 68, letterSpacing: '0.02em', margin: 0 },
+      taglineStyle: { fontFamily: disp, fontStyle: 'italic', fontSize: m ? 13 : 15, color: sub, margin: '8px 0 0', letterSpacing: '0.04em' },
+      ruleThickStyle: { height: 3, background: ink, marginTop: m ? 14 : 20 },
+      ruleThickThinStyle: { height: 1, background: ink, margin: `${m ? 40 : 60}px 0 0` },
+      navStyle: { display: 'flex', justifyContent: 'center', gap: m ? 16 : 32, padding: `${m ? 12 : 16}px 0`, fontSize: m ? 12.5 : 13.5, overflowX: m ? 'auto' : 'visible' },
+      navLinkStyle: { color: sub, fontWeight: 500, whiteSpace: 'nowrap', letterSpacing: '0.03em' },
+      navLinkActiveStyle: { color: ink, fontWeight: 600, whiteSpace: 'nowrap', letterSpacing: '0.03em' },
+      ruleThinStyle: { height: 1, background: line },
+
+      mainStyle: { padding: `${m ? 32 : 52}px ${pad}px ${m ? 8 : 8}px`, textAlign: 'left' },
+
+      heroSectionStyle: { display: 'flex', flexDirection: 'column', gap: 14, marginBottom: m ? 32 : 44 },
+      heroImgWrapStyle: { position: 'relative', display: 'block', width: '100%', aspectRatio: m ? '4/3' : '21/9', background: stripe('#e6ddcd', '#f2ece0'), overflow: 'hidden' },
+      heroImgStyle: { width: '100%', height: '100%' },
+      imgLabelStyle: { position: 'absolute', bottom: 10, left: 12, fontFamily: sans, fontSize: 10, letterSpacing: '0.06em', color: '#8a7d6a', background: 'rgba(247,242,234,0.85)', padding: '2px 6px' },
+      heroOverlayStyle: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: m ? '20px 16px' : '36px 40px', background: 'linear-gradient(0deg, rgba(20,16,12,0.82), rgba(20,16,12,0))', display: 'flex', flexDirection: 'column', gap: 10 },
+      tagOnImageStyle: { fontFamily: sans, fontSize: 11, letterSpacing: '0.14em', fontWeight: 600, color: '#f0c9a0', width: 'fit-content' },
+      heroTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: m ? 26 : 42, lineHeight: 1.15, color: '#fff', margin: 0, maxWidth: 820 },
+      heroBylineRowStyle: { display: 'flex', gap: 18, fontSize: 12.5 },
+      bylineRowSmallStyle: { display: 'flex', gap: 14, fontSize: 12, marginTop: 6 },
+      bylineStyle: { color: sub, fontStyle: 'italic' },
+
+      splitSectionStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 32 : 56, padding: `${m ? 28 : 44}px 0`, alignItems: 'flex-start' },
+      leadColStyle: { flex: m ? 'none' : '0 0 62%', display: 'flex', flexDirection: 'column', gap: 12 },
+      tagSerifStyle: { fontFamily: disp, fontStyle: 'italic', fontWeight: 600, fontSize: 13, color: burgundy, letterSpacing: '0.05em' },
+      tagSerifSmallStyle: { fontFamily: disp, fontStyle: 'italic', fontWeight: 600, fontSize: 11.5, color: burgundy, letterSpacing: '0.05em' },
+      leadTitleStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 24 : 32, lineHeight: 1.2, margin: '2px 0 6px' },
+      leadParaStyle: { fontSize: m ? 14.5 : 15.5, lineHeight: 1.75, color: '#3a332b', margin: 0 },
+      dropCapStyle: { fontFamily: disp, fontSize: m ? 38 : 48, fontWeight: 700, float: 'left', lineHeight: 0.8, margin: '6px 6px 0 0', color: burgundy },
+      pullQuoteWrapStyle: { borderTop: `1px solid ${line}`, borderBottom: `1px solid ${line}`, padding: `${m ? 14 : 18}px 0`, margin: `${m ? 6 : 10}px 0` },
+      pullQuoteStyle: { fontFamily: disp, fontStyle: 'italic', fontWeight: 500, fontSize: m ? 19 : 23, lineHeight: 1.45, margin: 0, color: ink },
+
+      briefColStyle: { flex: 1, display: 'flex', flexDirection: 'column', width: '100%' },
+      briefHeadStyle: { fontFamily: sans, fontSize: 11.5, letterSpacing: '0.12em', color: sub, textTransform: 'uppercase', marginBottom: 14, borderBottom: `1px solid ${ink}`, paddingBottom: 10 },
+      briefItemStyle: { display: 'flex', flexDirection: 'column', gap: 5, padding: '16px 0', borderBottom: `1px solid ${line}` },
+      briefItemLastStyle: { display: 'flex', flexDirection: 'column', gap: 5, padding: '16px 0 0' },
+      briefTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 17, lineHeight: 1.3, margin: '2px 0' },
+
+      reportSectionStyle: { padding: `${m ? 28 : 40}px 0 ${m ? 32 : 48}px` },
+      reportHeadRowStyle: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: m ? 18 : 26 },
+      reportHeadStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 22 : 26, margin: 0 },
+      threeColStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 26 : 36 },
+      threeColItemStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8, borderRight: m ? 'none' : `1px solid ${line}`, paddingRight: m ? 0 : 36 },
+      threeColItemLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8 },
+      smallImgWrapStyle: { position: 'relative', display: 'block', aspectRatio: '4/3', background: stripe('#e6ddcd', '#f2ece0'), overflow: 'hidden' },
+      smallImgStyleA: { width: '100%', height: '100%' },
+      smallImgStyleB: { width: '100%', height: '100%' },
+      smallImgStyleC: { width: '100%', height: '100%' },
+      smallTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 17, lineHeight: 1.3, margin: '2px 0 0' },
+
+      footerStyle: { padding: `0 ${pad}px ${m ? 28 : 40}px` },
+      footerRowStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 8 : 0, alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', paddingTop: 20 },
+      mastheadSmallStyle: { fontFamily: disp, fontWeight: 700, fontSize: 15, letterSpacing: '0.03em' },
+    };
+  }
+}
+</script>
+</body>
+</html>

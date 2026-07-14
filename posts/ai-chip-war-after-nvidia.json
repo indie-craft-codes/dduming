@@ -1,0 +1,131 @@
+{
+  "slug": "ai-chip-war-after-nvidia",
+  "category": "기술",
+  "status": "published",
+  "featured": true,
+  "tags": ["반도체", "AI", "엔비디아", "파운드리"],
+  "title": "AI 반도체 전쟁, 엔비디아 다음은 누구인가",
+  "deck": "파운드리부터 온디바이스 NPU까지, 다음 10년의 승자를 가릴 세 가지 축을 짚어본다. 공급망 재편 속 한국 기업의 위치도 함께 살펴본다.",
+  "answerBox": "파운드리 병목이 풀리며 반도체 경쟁의 축이 물량에서 파운드리 효율·저전력 NPU 설계·소프트웨어 생태계 세 가지로 옮겨가고 있다. 국내 기업은 저전력 설계와 고객사 다변화로 대응 중이다.",
+  "datePublished": "2026-07-08",
+  "dateModified": "2026-07-10",
+  "readingMinutes": 8,
+  "coverImage": "images/ai-chip-war.jpg",
+  "coverCaption": "TSMC 애리조나 공장 전경. 2026년 6월 촬영.",
+  "relatedPosts": [],
+  "_note": "toc·readingMinutes·relatedPosts는 빌드가 자동 파생(readingMinutes는 blocks 텍스트 길이, toc는 id 있는 h2, related는 tags/category). 자동값을 덮어쓰려면 해당 필드를 채워 override.",
+  "blocks": [
+    { "type": "p", "text": "지난 2년간 반도체 업계의 화두는 단연 GPU였다. 그러나 최근 들어 흐름이 바뀌고 있다. 파운드리 병목이 완화되고, 온디바이스 추론 수요가 늘면서 경쟁의 축이 다변화되고 있는 것이다." },
+    { "type": "p", "text": "특히 주목할 지점은 세 가지다. 첫째, 파운드리 capa 재배분. 둘째, 저전력 NPU 설계 경쟁. 셋째, 소프트웨어 스택의 종속성 완화 시도. 이 세 축이 앞으로 5년간 시장 재편의 방향을 결정할 전망이다." },
+
+    { "type": "h2", "id": "sec-foundry", "text": "파운드리, 더 이상 병목이 아니다" },
+    { "type": "p", "text": "2024년까지만 해도 첨단 공정 물량 확보는 곧 경쟁력이었다. 그러나 신규 라인 증설이 본격화되면서 상황이 달라졌다. 이제는 물량보다 설계 효율과 소프트웨어 최적화가 승부처로 떠오르고 있다." },
+    { "type": "quote", "text": "물량의 시대는 끝났다. 이제는 와트당 성능의 시대다." },
+    { "type": "p", "text": "국내 기업들도 이 흐름에서 자유롭지 않다. 팹리스 스타트업들은 저전력 NPU 설계로 방향을 틀고 있고, 대기업 계열 파운드리는 고객사 다변화에 속도를 내는 중이다." },
+
+    { "type": "h2", "id": "sec-korea", "text": "한국 기업의 위치" },
+    { "type": "p", "text": "결국 관건은 생태계다. 칩을 잘 만드는 것과, 그 칩 위에서 돌아가는 소프트웨어 생태계를 함께 갖추는 것은 전혀 다른 문제다. 다음 분기 실적 발표에서 이 질문에 대한 각 사의 답을 확인할 수 있을 것이다." },
+
+    { "type": "h2", "id": "sec-utilization", "text": "실측: 최근 5분기 파운드리 가동률" },
+    { "type": "p", "text": "가동률 반등은 3분기 연속 확인된다. 아래는 각 사 공시 자료를 취합한 분기별 평균치다." },
+    {
+      "type": "chart",
+      "chartType": "bar",
+      "caption": "파운드리 평균 가동률(%), 분기별",
+      "highlightLast": true,
+      "data": [
+        { "label": "24.3Q", "value": 38 },
+        { "label": "24.4Q", "value": 46 },
+        { "label": "25.1Q", "value": 52 },
+        { "label": "25.2Q", "value": 68 },
+        { "label": "26.1Q", "value": 84 }
+      ]
+    },
+
+    { "type": "h2", "id": "sec-charts", "text": "그래프 유형 샘플" },
+    { "type": "p", "text": "주제에 따라 아래와 같은 형태를 골라 쓸 수 있다." },
+    {
+      "type": "chart",
+      "chartType": "line",
+      "caption": "전세가 지수 5개월 추이",
+      "data": [
+        { "label": "3월", "value": 62 },
+        { "label": "4월", "value": 71 },
+        { "label": "5월", "value": 68 },
+        { "label": "6월", "value": 83 },
+        { "label": "7월", "value": 79 }
+      ]
+    },
+    { "type": "chart", "chartType": "donut", "caption": "신규 분양 중 실수요 비중", "value": 62 },
+    {
+      "type": "chart",
+      "chartType": "hbar",
+      "caption": "지역별 매수우위지수",
+      "data": [
+        { "label": "서울", "value": 82 },
+        { "label": "경기", "value": 67 },
+        { "label": "인천", "value": 54 }
+      ]
+    },
+
+    { "type": "h2", "id": "sec-pricing", "text": "지역별 평균 분양가 비교" },
+    { "type": "p", "text": "공급이 몰린 세 지역의 최근 분양가를 비교했다. 전년 대비 변동폭 차이가 뚜렷하다." },
+    {
+      "type": "table",
+      "head": ["지역", "평균 분양가(평당)", "전년 대비"],
+      "rows": [
+        ["강남 3구", "6,820만원", "+4.2%"],
+        ["1기 신도시", "3,140만원", "+2.8%"],
+        ["수도권 외곽", "2,260만원", "-1.1%"]
+      ],
+      "caption": "출처: 각 사 분양 공시자료 취합, 2026.07 기준"
+    },
+
+    { "type": "h2", "id": "sec-code", "text": "참고: 가동률 계산 스니펫" },
+    { "type": "p", "text": "공시 자료를 취합해 가동률을 계산한 간단한 스크립트다." },
+    {
+      "type": "code",
+      "fileName": "utilization.py",
+      "language": "python",
+      "code": "def utilization_rate(output, capacity):\n    return round(output / capacity * 100, 1)\n\n# 26.1Q 기준\nrate = utilization_rate(8420, 10020)\nprint(f\"가동률: {rate}%\")"
+    },
+
+    { "type": "h2", "id": "sec-blocks", "text": "콘텐츠 블록 모음" },
+    { "type": "p", "text": "글 성격에 따라 아래 블록들을 조합해 쓸 수 있다." },
+    { "type": "h3", "text": "체크리스트 — 계약 전 확인 사항" },
+    {
+      "type": "checklist",
+      "items": [
+        { "text": "등기부등본 근저당 설정액 확인", "checked": true },
+        { "text": "확정일자·전입신고 당일 처리", "checked": true },
+        { "text": "보증보험 가입 가능 여부 확인", "checked": false }
+      ]
+    },
+    { "type": "h3", "text": "번호 목록 — 진행 순서" },
+    { "type": "ol", "items": ["공시자료 취합 및 전 분기 대비 변동폭 계산", "지역별 표본 추출 후 이상치 제거", "에디터 검수 후 발행"] },
+    { "type": "h3", "text": "불릿 목록 — 이번 주 체크포인트" },
+    { "type": "ul", "items": ["파운드리 가동률 3분기 연속 반등", "1기 신도시 재건축 인허가 속도 점검 필요", "미 증시 변동성 확대, 리밸런싱 검토"] },
+    { "type": "h3", "text": "콜아웃 — 참고" },
+    { "type": "callout", "text": "본 기사의 수치는 각 사 공시자료를 기준으로 하며, 실제 계약 조건은 개별 확인이 필요하다." },
+    { "type": "h3", "text": "이미지 갤러리 — 2단" },
+    {
+      "type": "gallery",
+      "columns": 2,
+      "items": [
+        { "image": "images/line-inside.jpg", "caption": "공정 라인 내부" },
+        { "image": "images/cleanroom.jpg", "caption": "클린룸 외부 전경" }
+      ]
+    },
+    { "type": "h3", "text": "영상 임베드" },
+    { "type": "video", "src": "", "caption": "VIDEO — 16:9" },
+    { "type": "h3", "text": "FAQ" },
+    {
+      "type": "faq",
+      "items": [
+        { "q": "이번 반등이 일시적일 가능성은?", "a": "재고 조정이 일부 기여했지만, 신규 라인 가동이 겹치며 최소 2분기는 추세가 이어질 것으로 보인다." },
+        { "q": "국내 팹리스 기업도 수혜를 받을까?", "a": "설계 역량을 갖춘 곳 위주로 수주가 몰릴 전망이며, 전 분야가 고르게 수혜를 보진 않을 것이다." },
+        { "q": "분양가 상승세는 언제까지 이어질까?", "a": "공급 물량이 관건이다. 인허가 속도가 늦춰지는 지역 위주로 상승 폭이 유지될 가능성이 크다." }
+      ]
+    }
+  ]
+}

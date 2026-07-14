@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #faf9f6; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+</helmet>
+<div ref="{{ rootRef }}" style="{{ pageStyle }}">
+
+  <header style="{{ headerStyle }}">
+    <div style="{{ navRowStyle }}">
+      <a href="#" style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></a>
+      <nav style="{{ navLinksStyle }}">
+        <a href="Blog Home - Minimal.dc.html" style="{{ navLinkStyle }}">전체</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">기술</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">경제</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">부동산</a>
+        <a href="About - Minimal.dc.html" style="{{ navLinkActiveStyle }}">소개</a>
+      </nav>
+    </div>
+    <div style="{{ dividerStyle }}"></div>
+  </header>
+
+  <main style="{{ mainStyle }}">
+
+    <section style="{{ introSectionStyle }}">
+      <div style="{{ introImgWrapStyle }}">
+        <div style="{{ introImgStyle }}"></div>
+        <span style="{{ imgLabelStyle }}">PHOTO — 4:5</span>
+      </div>
+      <div style="{{ introTextStyle }}">
+        <span style="{{ labelStyle }}">ABOUT</span>
+        <h1 style="{{ h1Style }}">기술과 자본이 만나는 지점을 기록합니다</h1>
+        <p style="{{ paraStyle }}">brief.는 매일의 뉴스 속에서 진짜 신호를 골라내는 블로그입니다. 반도체와 소프트웨어 같은 기술 이슈부터, 금리와 부동산 같은 자본의 흐름까지 — 서로 다른 것 같지만 결국 연결된 이야기들을 다룹니다.</p>
+        <p style="{{ paraStyle }}">2024년, 혼자서 취재 노트를 정리하자는 생각으로 시작했습니다. 지금은 매주 3~4편의 글을 통해 독자들과 그 노트를 나누고 있습니다.</p>
+      </div>
+    </section>
+
+    <div style="{{ sectionRuleStyle }}"></div>
+
+    <section style="{{ topicsSectionStyle }}">
+      <div style="{{ listHeadStyle }}">다루는 주제</div>
+      <div style="{{ topicsGridStyle }}">
+        <div style="{{ topicCardStyle }}">
+          <span style="{{ tagTechStyle }}">TECH</span>
+          <h3 style="{{ topicTitleStyle }}">기술</h3>
+          <p style="{{ topicDescStyle }}">반도체, AI 모델, 개발 도구와 인프라. 실제로 써보고 판단합니다.</p>
+        </div>
+        <div style="{{ topicCardStyle }}">
+          <span style="{{ tagEconStyle }}">ECONOMY</span>
+          <h3 style="{{ topicTitleStyle }}">경제</h3>
+          <p style="{{ topicDescStyle }}">금리, 증시, 산업 동향. 숫자 너머의 맥락을 짚습니다.</p>
+        </div>
+        <div style="{{ topicCardLastStyle }}">
+          <span style="{{ tagRealEstateStyle }}">REAL ESTATE</span>
+          <h3 style="{{ topicTitleStyle }}">부동산</h3>
+          <p style="{{ topicDescStyle }}">정책, 재건축, 임대 시장. 실수요자 관점에서 정리합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <div style="{{ sectionRuleStyle }}"></div>
+
+    <section style="{{ contactSectionStyle }}">
+      <h2 style="{{ contactTitleStyle }}">제보나 협업 제안은 언제나 환영합니다</h2>
+      <a href="mailto:hello@brief.blog" style="{{ contactLinkStyle }}">hello@brief.blog →</a>
+    </section>
+
+  </main>
+
+  <footer style="{{ footerStyle }}">
+    <div style="{{ dividerStyle }}"></div>
+    <div style="{{ footerRowStyle }}">
+      <span style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></span>
+      <span style="{{ footerTextStyle }}">© 2026 brief. 기술과 경제를 기록합니다.</span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { width: 1280 };
+
+  componentDidMount() {
+    if (typeof ResizeObserver !== 'undefined' && this.rootRef.current) {
+      this.ro = new ResizeObserver((entries) => {
+        const w = entries[0].contentRect.width;
+        if (Math.abs(w - this.state.width) > 2) this.setState({ width: w });
+      });
+      this.ro.observe(this.rootRef.current);
+    }
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+
+  renderVals() {
+    const w = this.state.width || 1280;
+    const m = w < 760;
+    const pad = m ? 20 : 56;
+    const ink = '#18181b';
+    const sub = '#6b6b70';
+    const line = 'rgba(24,24,27,0.12)';
+    const blue = '#3b6ef5';
+    const green = '#1a7a4c';
+    const amber = '#b5680c';
+    const sans = "'IBM Plex Sans KR', system-ui, sans-serif";
+    const disp = sans;
+    const mono = "'IBM Plex Mono', monospace";
+
+    const stripe = (c1, c2) => `repeating-linear-gradient(135deg, ${c1}, ${c1} 12px, ${c2} 12px, ${c2} 24px)`;
+
+    return {
+      rootRef: this.rootRef,
+      pageStyle: { fontFamily: sans, color: ink, maxWidth: 1240, margin: '0 auto', background: '#faf9f6' },
+
+      headerStyle: { padding: `${m ? 18 : 28}px ${pad}px 0` },
+      navRowStyle: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' },
+      logoStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 20 : 22, letterSpacing: '-0.02em' },
+      navLinksStyle: { display: 'flex', gap: m ? 14 : 28, overflowX: m ? 'auto' : 'visible', fontSize: 14 },
+      navLinkStyle: { color: sub, fontWeight: 500, whiteSpace: 'nowrap' },
+      navLinkActiveStyle: { color: ink, fontWeight: 600, whiteSpace: 'nowrap' },
+      dividerStyle: { height: 1, background: line, marginTop: m ? 16 : 22 },
+
+      mainStyle: { padding: `${m ? 28 : 44}px ${pad}px ${m ? 12 : 20}px` },
+
+      introSectionStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 24 : 56, alignItems: m ? 'stretch' : 'center', marginBottom: m ? 40 : 64 },
+      introImgWrapStyle: { position: 'relative', flex: m ? 'none' : '0 0 34%', width: m ? '60%' : '34%', maxWidth: m ? 260 : 'none', aspectRatio: '4/5', background: stripe('#e7e5df', '#f3f2ee'), overflow: 'hidden' },
+      introImgStyle: { width: '100%', height: '100%' },
+      imgLabelStyle: { position: 'absolute', bottom: 10, left: 12, fontFamily: mono, fontSize: 10, letterSpacing: '0.06em', color: '#8a8a86', background: 'rgba(250,249,246,0.85)', padding: '2px 6px' },
+      introTextStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 14 },
+      labelStyle: { fontFamily: mono, fontSize: 11, letterSpacing: '0.12em', color: blue, fontWeight: 600 },
+      h1Style: { fontFamily: disp, fontWeight: 700, fontSize: m ? 26 : 38, lineHeight: 1.2, margin: '2px 0 4px' },
+      paraStyle: { fontSize: m ? 14.5 : 16, lineHeight: 1.75, color: '#3a3a3e', margin: 0, maxWidth: 560 },
+
+      sectionRuleStyle: { height: 1, background: line, margin: `${m ? 36 : 56}px 0` },
+
+      topicsSectionStyle: { marginBottom: m ? 8 : 8 },
+      listHeadStyle: { fontFamily: sans, fontWeight: 600, fontSize: 13, letterSpacing: '-0.01em', color: sub, marginBottom: 18 },
+      topicsGridStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 26 : 32 },
+      topicCardStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8, borderRight: m ? 'none' : `1px solid ${line}`, paddingRight: m ? 0 : 32 },
+      topicCardLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8 },
+      tagTechStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: blue, border: `1px solid ${blue}`, padding: '3px 7px', width: 'fit-content' },
+      tagEconStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: green, border: `1px solid ${green}`, padding: '3px 7px', width: 'fit-content' },
+      tagRealEstateStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: amber, border: `1px solid ${amber}`, padding: '3px 7px', width: 'fit-content' },
+      topicTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 20, margin: '4px 0 0' },
+      topicDescStyle: { fontSize: 14, lineHeight: 1.6, color: sub, margin: 0 },
+
+      teamSectionStyle: {},
+      teamGridStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 22 : 32 },
+      teamItemStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 6, borderRight: m ? 'none' : `1px solid ${line}`, paddingRight: m ? 0 : 32 },
+      teamItemLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 6 },
+      teamAvatarStyle: { width: 48, height: 48, background: stripe('#e7e5df', '#f3f2ee') },
+      teamNameStyle: { fontFamily: disp, fontWeight: 600, fontSize: 16, marginTop: 6 },
+      teamRoleStyle: { fontSize: 13, color: sub },
+
+      contactSectionStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 16, padding: `${m ? 32 : 44}px 0 ${m ? 8 : 8}px` },
+      contactTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: m ? 20 : 26, margin: 0, maxWidth: 480 },
+      contactLinkStyle: { fontFamily: mono, fontSize: 14, color: blue, fontWeight: 600, whiteSpace: 'nowrap' },
+
+      footerStyle: { padding: `0 ${pad}px ${m ? 28 : 40}px` },
+      footerRowStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 10 : 0, alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', paddingTop: 22 },
+      footerTextStyle: { fontSize: 12.5, color: sub },
+    };
+  }
+}
+</script>
+</body>
+</html>

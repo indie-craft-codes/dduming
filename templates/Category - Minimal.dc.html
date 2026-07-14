@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #faf9f6; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+</helmet>
+<div ref="{{ rootRef }}" style="{{ pageStyle }}">
+
+  <header style="{{ headerStyle }}">
+    <div style="{{ navRowStyle }}">
+      <a href="#" style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></a>
+      <nav style="{{ navLinksStyle }}">
+        <a href="Blog Home - Minimal.dc.html" style="{{ navLinkStyle }}">전체</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkActiveStyle }}">기술</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">경제</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">부동산</a>
+        <a href="About - Minimal.dc.html" style="{{ navLinkStyle }}">소개</a>
+      </nav>
+    </div>
+    <div style="{{ dividerStyle }}"></div>
+  </header>
+
+  <main style="{{ mainStyle }}">
+
+    <section style="{{ catHeadStyle }}">
+      <span style="{{ labelStyle }}">CATEGORY</span>
+      <h1 style="{{ h1Style }}">기술</h1>
+      <p style="{{ descStyle }}">반도체, AI, 개발 도구와 인프라까지 — 실제로 써보고 판단한 기록.</p>
+    </section>
+
+    <div style="{{ filterRowStyle }}">
+      <span style="{{ filterActiveStyle }}">전체</span>
+      <span style="{{ filterStyle }}">AI</span>
+      <span style="{{ filterStyle }}">반도체</span>
+      <span style="{{ filterStyle }}">개발도구</span>
+      <span style="{{ filterStyle }}">인프라</span>
+    </div>
+
+    <div style="{{ sectionRuleStyle }}"></div>
+
+    <section style="{{ gridSectionStyle }}">
+      <a href="Blog Post - Minimal.dc.html" style="{{ bigCardStyle }}">
+        <div style="{{ cardImgWrapStyle }}">
+          <div style="{{ cardImgStyleA }}"></div>
+          <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+        </div>
+        <span style="{{ tagTechStyle }}">TECH</span>
+        <h2 style="{{ bigCardTitleStyle }}">AI 반도체 전쟁, 엔비디아 다음은 누구인가</h2>
+        <p style="{{ cardExcerptStyle }}">파운드리부터 온디바이스 NPU까지, 다음 10년의 승자를 가릴 세 가지 축.</p>
+        <div style="{{ metaRowSmallStyle }}"><span>2026.07.08</span></div>
+      </a>
+
+      <div style="{{ listColStyle }}">
+        <a href="#" style="{{ listItemStyle }}">
+          <h3 style="{{ listItemTitleStyle }}">오픈소스 LLM이 바꾸는 개발자의 하루</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.07.06</span></div>
+        </a>
+        <a href="#" style="{{ listItemStyle }}">
+          <h3 style="{{ listItemTitleStyle }}">웹 프레임워크 없이 사이트 만들기, 다시 유행하는 이유</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.07.02</span></div>
+        </a>
+        <a href="#" style="{{ listItemLastStyle }}">
+          <h3 style="{{ listItemTitleStyle }}">클라우드 비용 30% 줄인 스타트업의 인프라 개편기</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.06.28</span></div>
+        </a>
+      </div>
+    </section>
+
+    <div style="{{ sectionRuleStyle }}"></div>
+
+    <section style="{{ threeColStyle }}">
+      <a href="#" style="{{ threeColItemStyle }}">
+        <div style="{{ cardImgWrapStyle }}">
+          <div style="{{ cardImgStyleB }}"></div>
+          <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+        </div>
+        <span style="{{ tagTechStyle }}">TECH</span>
+        <h3 style="{{ smallCardTitleStyle }}">로컬 LLM으로 코드리뷰 자동화하기</h3>
+        <div style="{{ metaRowSmallStyle }}"><span>2026.06.24</span></div>
+      </a>
+      <a href="#" style="{{ threeColItemStyle }}">
+        <div style="{{ cardImgWrapStyle }}">
+          <div style="{{ cardImgStyleC }}"></div>
+          <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+        </div>
+        <span style="{{ tagTechStyle }}">TECH</span>
+        <h3 style="{{ smallCardTitleStyle }}">엣지 디바이스용 경량 모델 벤치마크</h3>
+        <div style="{{ metaRowSmallStyle }}"><span>2026.06.20</span></div>
+      </a>
+      <a href="#" style="{{ threeColItemLastStyle }}">
+        <div style="{{ cardImgWrapStyle }}">
+          <div style="{{ cardImgStyleD }}"></div>
+          <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+        </div>
+        <span style="{{ tagTechStyle }}">TECH</span>
+        <h3 style="{{ smallCardTitleStyle }}">사내 데이터 파이프라인 재설계 후기</h3>
+        <div style="{{ metaRowSmallStyle }}"><span>2026.06.16</span></div>
+      </a>
+    </section>
+
+    <nav style="{{ paginationStyle }}">
+      <span style="{{ pageActiveStyle }}">1</span>
+      <span style="{{ pageStyle2 }}">2</span>
+      <span style="{{ pageStyle2 }}">3</span>
+      <span style="{{ pageNextStyle }}">다음 →</span>
+    </nav>
+
+  </main>
+
+  <footer style="{{ footerStyle }}">
+    <div style="{{ dividerStyle }}"></div>
+    <div style="{{ footerRowStyle }}">
+      <span style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></span>
+      <span style="{{ footerTextStyle }}">© 2026 brief. 기술과 경제를 기록합니다.</span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { width: 1280 };
+
+  componentDidMount() {
+    if (typeof ResizeObserver !== 'undefined' && this.rootRef.current) {
+      this.ro = new ResizeObserver((entries) => {
+        const w = entries[0].contentRect.width;
+        if (Math.abs(w - this.state.width) > 2) this.setState({ width: w });
+      });
+      this.ro.observe(this.rootRef.current);
+    }
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+
+  renderVals() {
+    const w = this.state.width || 1280;
+    const m = w < 760;
+    const pad = m ? 20 : 56;
+    const ink = '#18181b';
+    const sub = '#6b6b70';
+    const line = 'rgba(24,24,27,0.12)';
+    const blue = '#3b6ef5';
+    const sans = "'IBM Plex Sans KR', system-ui, sans-serif";
+    const disp = sans;
+    const mono = "'IBM Plex Mono', monospace";
+
+    const stripe = (c1, c2) => `repeating-linear-gradient(135deg, ${c1}, ${c1} 12px, ${c2} 12px, ${c2} 24px)`;
+
+    return {
+      rootRef: this.rootRef,
+      pageStyle: { fontFamily: sans, color: ink, maxWidth: 1240, margin: '0 auto', background: '#faf9f6' },
+
+      headerStyle: { padding: `${m ? 18 : 28}px ${pad}px 0` },
+      navRowStyle: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' },
+      logoStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 20 : 22, letterSpacing: '-0.02em' },
+      navLinksStyle: { display: 'flex', gap: m ? 14 : 28, overflowX: m ? 'auto' : 'visible', fontSize: 14 },
+      navLinkStyle: { color: sub, fontWeight: 500, whiteSpace: 'nowrap' },
+      navLinkActiveStyle: { color: ink, fontWeight: 600, whiteSpace: 'nowrap' },
+      dividerStyle: { height: 1, background: line, marginTop: m ? 16 : 22 },
+
+      mainStyle: { padding: `${m ? 28 : 44}px ${pad}px ${m ? 24 : 32}px` },
+
+      catHeadStyle: { display: 'flex', flexDirection: 'column', gap: 8, marginBottom: m ? 20 : 26 },
+      labelStyle: { fontFamily: mono, fontSize: 11, letterSpacing: '0.12em', color: blue, fontWeight: 600 },
+      h1Style: { fontFamily: disp, fontWeight: 700, fontSize: m ? 32 : 48, margin: '2px 0 0' },
+      descStyle: { fontSize: m ? 14.5 : 16, lineHeight: 1.6, color: sub, margin: 0, maxWidth: 560 },
+
+      filterRowStyle: { display: 'flex', gap: m ? 14 : 20, overflowX: m ? 'auto' : 'visible', fontSize: 13.5, marginBottom: m ? 24 : 30, paddingBottom: 4 },
+      filterActiveStyle: { color: '#fff', background: ink, padding: '6px 12px', fontWeight: 600, whiteSpace: 'nowrap' },
+      filterStyle: { color: sub, padding: '6px 12px', border: `1px solid ${line}`, whiteSpace: 'nowrap' },
+
+      sectionRuleStyle: { height: 1, background: line, margin: `${m ? 32 : 40}px 0` },
+
+      gridSectionStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 32 : 48 },
+      bigCardStyle: { flex: m ? 'none' : '0 0 58%', display: 'flex', flexDirection: 'column', gap: 10 },
+      cardImgWrapStyle: { position: 'relative', display: 'block', aspectRatio: '4/3', background: stripe('#e9e6e0', '#f4f3ef'), overflow: 'hidden' },
+      cardImgStyleA: { width: '100%', height: '100%' },
+      cardImgStyleB: { width: '100%', height: '100%' },
+      cardImgStyleC: { width: '100%', height: '100%' },
+      cardImgStyleD: { width: '100%', height: '100%' },
+      imgLabelStyle: { position: 'absolute', bottom: 10, left: 12, fontFamily: mono, fontSize: 10, letterSpacing: '0.06em', color: '#8a8a86', background: 'rgba(250,249,246,0.85)', padding: '2px 6px' },
+      tagTechStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: blue, border: `1px solid ${blue}`, padding: '3px 7px', width: 'fit-content' },
+      bigCardTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: m ? 21 : 25, lineHeight: 1.25, margin: '2px 0 0' },
+      cardExcerptStyle: { fontSize: 14, lineHeight: 1.6, color: sub, margin: 0 },
+      metaRowSmallStyle: { display: 'flex', gap: 8, fontSize: 12.5, color: sub, marginTop: 6 },
+      dotStyle: { color: 'rgba(24,24,27,0.3)' },
+
+      listColStyle: { flex: 1, display: 'flex', flexDirection: 'column' },
+      listItemStyle: { display: 'flex', flexDirection: 'column', gap: 6, padding: '18px 0', borderBottom: `1px solid ${line}` },
+      listItemLastStyle: { display: 'flex', flexDirection: 'column', gap: 6, padding: '18px 0 0' },
+      listItemTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 17, lineHeight: 1.3, margin: 0 },
+
+      threeColStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 28 : 32 },
+      threeColItemStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 9, borderRight: m ? 'none' : `1px solid ${line}`, paddingRight: m ? 0 : 0 },
+      threeColItemLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 9 },
+      smallCardTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 17, lineHeight: 1.32, margin: '2px 0 0' },
+
+      paginationStyle: { display: 'flex', gap: 10, alignItems: 'center', justifyContent: 'center', marginTop: m ? 36 : 48, fontSize: 13.5 },
+      pageActiveStyle: { width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', background: ink, color: '#fff', fontWeight: 600 },
+      pageStyle2: { width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', color: sub, border: `1px solid ${line}` },
+      pageNextStyle: { color: sub, marginLeft: 8, fontWeight: 500 },
+
+      footerStyle: { padding: `0 ${pad}px ${m ? 28 : 40}px` },
+      footerRowStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 10 : 0, alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', paddingTop: 22 },
+      footerTextStyle: { fontSize: 12.5, color: sub },
+    };
+  }
+}
+</script>
+</body>
+</html>

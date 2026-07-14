@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #faf9f6; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 반도체 전쟁, 엔비디아 다음은 누구인가",
+    "description": "파운드리부터 온디바이스 NPU까지, 다음 10년의 승자를 가릴 세 가지 축을 짚어본다. 공급망 재편 속 한국 기업의 위치도 함께 살펴본다.",
+    "datePublished": "2026-07-08",
+    "dateModified": "2026-07-10",
+    "author": { "@type": "Organization", "name": "brief." },
+    "publisher": { "@type": "Organization", "name": "brief." },
+    "articleSection": "기술",
+    "keywords": ["반도체", "AI", "엔비디아", "파운드리"],
+    "inLanguage": "ko-KR"
+  }
+  </script>
+</helmet>
+<div ref="{{ rootRef }}" style="{{ pageStyle }}">
+
+  <header style="{{ headerStyle }}">
+    <div style="{{ navRowStyle }}">
+      <a href="#" style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></a>
+      <nav style="{{ navLinksStyle }}">
+        <a href="Blog Home - Minimal.dc.html" style="{{ navLinkStyle }}">전체</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkActiveStyle }}">기술</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">경제</a>
+        <a href="Category - Minimal.dc.html" style="{{ navLinkStyle }}">부동산</a>
+        <a href="About - Minimal.dc.html" style="{{ navLinkStyle }}">소개</a>
+      </nav>
+    </div>
+    <div style="{{ dividerStyle }}"></div>
+  </header>
+
+  <main style="{{ mainStyle }}">
+
+    <article style="{{ articleWrapStyle }}">
+      <div style="{{ articleHeadStyle }}">
+        <span style="{{ tagTechStyle }}">TECH</span>
+        <h1 style="{{ titleStyle }}">AI 반도체 전쟁, 엔비디아 다음은 누구인가</h1>
+        <p style="{{ deckStyle }}">파운드리부터 온디바이스 NPU까지, 다음 10년의 승자를 가릴 세 가지 축을 짚어본다. 공급망 재편 속 한국 기업의 위치도 함께 살펴본다.</p>
+        <div style="{{ metaRowStyle }}">
+          <span>2026.07.08</span><span style="{{ dotStyle }}">·</span><span>수정 2026.07.10</span><span style="{{ dotStyle }}">·</span><span>8분 읽기</span>
+        </div>
+      </div>
+
+      <div style="{{ answerBoxStyle }}">
+        <span style="{{ answerLabelStyle }}">핵심 요약</span>
+        <p style="{{ answerTextStyle }}">파운드리 병목이 풀리며 반도체 경쟁의 축이 물량에서 파운드리 효율·저전력 NPU 설계·소프트웨어 생태계 세 가지로 옮겨가고 있다. 국내 기업은 저전력 설계와 고객사 다변화로 대응 중이다.</p>
+      </div>
+
+      <nav style="{{ tocBoxStyle }}">
+        <div style="{{ tocHeadStyle }}">목차</div>
+        <a href="#sec-foundry" style="{{ tocLinkStyle }}">1. 파운드리, 더 이상 병목이 아니다</a>
+        <a href="#sec-korea" style="{{ tocLinkStyle }}">2. 한국 기업의 위치</a>
+        <a href="#sec-utilization" style="{{ tocLinkStyle }}">3. 실측: 최근 5분기 파운드리 가동률</a>
+        <a href="#sec-charts" style="{{ tocLinkStyle }}">4. 그래프 유형 샘플</a>
+        <a href="#sec-pricing" style="{{ tocLinkStyle }}">5. 지역별 평균 분양가 비교</a>
+        <a href="#sec-code" style="{{ tocLinkStyle }}">6. 참고: 가동률 계산 스니펫</a>
+        <a href="#sec-blocks" style="{{ tocLinkLastStyle }}">7. 콘텐츠 블록 모음</a>
+      </nav>
+
+      <div style="{{ heroImgWrapStyle }}">
+        <div style="{{ heroImgStyle }}"></div>
+        <span style="{{ imgLabelStyle }}">FEATURE IMAGE — 16:9</span>
+      </div>
+      <div style="{{ captionStyle }}">TSMC 애리조나 공장 전경. 2026년 6월 촬영.</div>
+
+      <div style="{{ bodyColStyle }}">
+        <p style="{{ paraStyle }}">지난 2년간 반도체 업계의 화두는 단연 GPU였다. 그러나 최근 들어 흐름이 바뀌고 있다. 파운드리 병목이 완화되고, 온디바이스 추론 수요가 늘면서 경쟁의 축이 다변화되고 있는 것이다.</p>
+        <p style="{{ paraStyle }}">특히 주목할 지점은 세 가지다. 첫째, 파운드리 capa 재배분. 둘째, 저전력 NPU 설계 경쟁. 셋째, 소프트웨어 스택의 종속성 완화 시도. 이 세 축이 앞으로 5년간 시장 재편의 방향을 결정할 전망이다.</p>
+
+<h2 id="sec-foundry" style="{{ h2Style }}">파운드리, 더 이상 병목이 아니다</h2>
+        <p style="{{ paraStyle }}">2024년까지만 해도 첨단 공정 물량 확보는 곧 경쟁력이었다. 그러나 신규 라인 증설이 본격화되면서 상황이 달라졌다. 이제는 물량보다 설계 효율과 소프트웨어 최적화가 승부처로 떠오르고 있다.</p>
+
+        <div style="{{ pullQuoteWrapStyle }}">
+          <p style="{{ pullQuoteStyle }}">“물량의 시대는 끝났다. 이제는 와트당 성능의 시대다.”</p>
+        </div>
+
+        <p style="{{ paraStyle }}">국내 기업들도 이 흐름에서 자유롭지 않다. 팹리스 스타트업들은 저전력 NPU 설계로 방향을 틀고 있고, 대기업 계열 파운드리는 고객사 다변화에 속도를 내는 중이다.</p>
+
+<h2 id="sec-korea" style="{{ h2Style }}">한국 기업의 위치</h2>
+        <p style="{{ paraStyle }}">결국 관건은 생태계다. 칩을 잘 만드는 것과, 그 칩 위에서 돌아가는 소프트웨어 생태계를 함께 갖추는 것은 전혀 다른 문제다. 다음 분기 실적 발표에서 이 질문에 대한 각 사의 답을 확인할 수 있을 것이다.</p>
+
+<h2 id="sec-utilization" style="{{ h2Style }}">실측: 최근 5분기 파운드리 가동률</h2>
+        <p style="{{ paraStyle }}">가동률 반등은 3분기 연속 확인된다. 아래는 각 사 공시 자료를 취합한 분기별 평균치다.</p>
+        <div style="{{ chartBoxStyle }}">
+          <div style="{{ chartBarsRowStyle }}">
+            <div style="{{ chartBarColStyle }}"><div style="{{ chartBar1Style }}"></div><span style="{{ chartBarLabelStyle }}">24.3Q</span></div>
+            <div style="{{ chartBarColStyle }}"><div style="{{ chartBar2Style }}"></div><span style="{{ chartBarLabelStyle }}">24.4Q</span></div>
+            <div style="{{ chartBarColStyle }}"><div style="{{ chartBar3Style }}"></div><span style="{{ chartBarLabelStyle }}">25.1Q</span></div>
+            <div style="{{ chartBarColStyle }}"><div style="{{ chartBar4Style }}"></div><span style="{{ chartBarLabelStyle }}">25.2Q</span></div>
+            <div style="{{ chartBarColStyle }}"><div style="{{ chartBar5Style }}"></div><span style="{{ chartBarLabelStyle }}">26.1Q</span></div>
+          </div>
+          <span style="{{ chartCaptionStyle }}">CHART — 파운드리 평균 가동률(%), 분기별</span>
+        </div>
+
+<h2 id="sec-charts" style="{{ h2Style }}">그래프 유형 샘플</h2>
+        <p style="{{ paraStyle }}">주제에 따라 아래와 같은 형태를 골라 쓸 수 있다.</p>
+        <div style="{{ chartsGridStyle }}">
+          <div style="{{ chartCardStyle }}">
+            <div style="{{ chartCardHeadStyle }}">선 그래프</div>
+            <svg viewBox="0 0 240 100" style="{{ lineSvgStyle }}">
+              <polyline points="{{ linePoints }}" style="{{ linePolylineStyle }}" fill="none"></polyline>
+              <sc-for list="{{ lineDots }}" as="dot" hint-placeholder-count="5">
+                <circle cx="{{ dot.x }}" cy="{{ dot.y }}" r="3" style="{{ lineDotStyle }}"></circle>
+              </sc-for>
+            </svg>
+            <span style="{{ chartCaptionSmallStyle }}">전세가 지수 5개월 추이</span>
+          </div>
+          <div style="{{ chartCardStyle }}">
+            <div style="{{ chartCardHeadStyle }}">도넛 그래프</div>
+            <div style="{{ donutOuterStyle }}">
+              <div style="{{ donutRingStyle }}"></div>
+              <div style="{{ donutHoleStyle }}"><span style="{{ donutPctStyle }}">62%</span></div>
+            </div>
+            <span style="{{ chartCaptionSmallStyle }}">신규 분양 중 실수요 비중</span>
+          </div>
+          <div style="{{ chartCardLastStyle }}">
+            <div style="{{ chartCardHeadStyle }}">가로 막대 그래프</div>
+            <div style="{{ hBarListStyle }}">
+              <div style="{{ hBarRowStyle }}"><span style="{{ hBarLabelStyle }}">서울</span><div style="{{ hBarTrackStyle }}"><div style="{{ hBarFillStyle1 }}"></div></div><span style="{{ hBarValStyle }}">82</span></div>
+              <div style="{{ hBarRowStyle }}"><span style="{{ hBarLabelStyle }}">경기</span><div style="{{ hBarTrackStyle }}"><div style="{{ hBarFillStyle2 }}"></div></div><span style="{{ hBarValStyle }}">67</span></div>
+              <div style="{{ hBarRowStyle }}"><span style="{{ hBarLabelStyle }}">인천</span><div style="{{ hBarTrackStyle }}"><div style="{{ hBarFillStyle3 }}"></div></div><span style="{{ hBarValStyle }}">54</span></div>
+            </div>
+            <span style="{{ chartCaptionSmallStyle }}">지역별 매수우위지수</span>
+          </div>
+        </div>
+
+<h2 id="sec-pricing" style="{{ h2Style }}">지역별 평균 분양가 비교</h2>
+        <p style="{{ paraStyle }}">공급이 몰린 세 지역의 최근 분양가를 비교했다. 전년 대비 변동폭 차이가 뚜렷하다.</p>
+        <table style="{{ tableStyle }}">
+          <thead>
+            <tr>
+              <th style="{{ thStyle }}">지역</th>
+              <th style="{{ thStyle }}">평균 분양가(평당)</th>
+              <th style="{{ thStyle }}">전년 대비</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="{{ tdStyle }}">강남 3구</td><td style="{{ tdStyle }}">6,820만원</td><td style="{{ tdUpStyle }}">+4.2%</td></tr>
+            <tr><td style="{{ tdStyle }}">1기 신도시</td><td style="{{ tdStyle }}">3,140만원</td><td style="{{ tdUpStyle }}">+2.8%</td></tr>
+            <tr><td style="{{ tdLastStyle }}">수도권 외곽</td><td style="{{ tdLastStyle }}">2,260만원</td><td style="{{ tdDownLastStyle }}">-1.1%</td></tr>
+          </tbody>
+        </table>
+        <div style="{{ tableCaptionStyle }}">출처: 각 사 분양 공시자료 취합, 2026.07 기준</div>
+
+<h2 id="sec-code" style="{{ h2Style }}">참고: 가동률 계산 스니펫</h2>
+        <p style="{{ paraStyle }}">공시 자료를 취합해 가동률을 계산한 간단한 스크립트다.</p>
+        <div style="{{ codeBlockStyle }}">
+          <div style="{{ codeHeadStyle }}">
+            <span style="{{ codeDotStyle }}"></span><span style="{{ codeDotStyle }}"></span><span style="{{ codeDotStyle }}"></span>
+            <span style="{{ codeFileNameStyle }}">utilization.py</span>
+          </div>
+          <pre style="{{ codePreStyle }}"><span style="{{ codeKeywordStyle }}">def</span> <span style="{{ codeFnStyle }}">utilization_rate</span>(output, capacity):
+    <span style="{{ codeKeywordStyle }}">return</span> round(output / capacity * <span style="{{ codeNumStyle }}">100</span>, <span style="{{ codeNumStyle }}">1</span>)
+
+<span style="{{ codeCommentStyle }}"># 26.1Q 기준</span>
+rate = utilization_rate(<span style="{{ codeNumStyle }}">8420</span>, <span style="{{ codeNumStyle }}">10020</span>)
+print(f<span style="{{ codeStrStyle }}">"가동률: {"</span>{rate}<span style="{{ codeStrStyle }}">"}%"</span>)</pre>
+        </div>
+
+        <h2 id="sec-blocks" style="{{ h2Style }}">콘텐츠 블록 모음</h2>
+        <p style="{{ paraStyle }}">글 성격에 따라 아래 블록들을 조합해 쓸 수 있다.</p>
+
+        <h3 style="{{ h3Style }}">체크리스트 — 계약 전 확인 사항</h3>
+        <div style="{{ checklistStyle }}">
+          <div style="{{ checkItemStyle }}"><span style="{{ checkBoxStyle }}">✓</span><span>등기부등본 근저당 설정액 확인</span></div>
+          <div style="{{ checkItemStyle }}"><span style="{{ checkBoxStyle }}">✓</span><span>확정일자·전입신고 당일 처리</span></div>
+          <div style="{{ checkItemLastStyle }}"><span style="{{ checkBoxEmptyStyle }}"></span><span>보증보험 가입 가능 여부 확인</span></div>
+        </div>
+
+        <h3 style="{{ h3Style }}">번호 목록 — 진행 순서</h3>
+        <ol style="{{ olStyle }}">
+          <li style="{{ liStyle }}">공시자료 취합 및 전 분기 대비 변동폭 계산</li>
+          <li style="{{ liStyle }}">지역별 표본 추출 후 이상치 제거</li>
+          <li style="{{ liStyleLast }}">에디터 검수 후 발행</li>
+        </ol>
+
+        <h3 style="{{ h3Style }}">불릿 목록 — 이번 주 체크포인트</h3>
+        <ul style="{{ ulStyle }}">
+          <li style="{{ liStyle }}">파운드리 가동률 3분기 연속 반등</li>
+          <li style="{{ liStyle }}">1기 신도시 재건축 인허가 속도 점검 필요</li>
+          <li style="{{ liStyleLast }}">미 증시 변동성 확대, 리밸런싱 검토</li>
+        </ul>
+
+        <h3 style="{{ h3Style }}">콜아웃 — 참고</h3>
+        <div style="{{ calloutStyle }}">
+          <span style="{{ calloutIconStyle }}">i</span>
+          <p style="{{ calloutTextStyle }}">본 기사의 수치는 각 사 공시자료를 기준으로 하며, 실제 계약 조건은 개별 확인이 필요하다.</p>
+        </div>
+
+        <h3 style="{{ h3Style }}">이미지 갤러리 — 2단</h3>
+        <div style="{{ galleryRowStyle }}">
+          <div style="{{ galleryItemStyle }}">
+            <div style="{{ galleryImgWrapStyle }}"><div style="{{ galleryImgStyleA }}"></div><span style="{{ imgLabelStyle }}">IMAGE — 1:1</span></div>
+            <span style="{{ galleryCaptionStyle }}">공정 라인 내부</span>
+          </div>
+          <div style="{{ galleryItemLastStyle }}">
+            <div style="{{ galleryImgWrapStyle }}"><div style="{{ galleryImgStyleB }}"></div><span style="{{ imgLabelStyle }}">IMAGE — 1:1</span></div>
+            <span style="{{ galleryCaptionStyle }}">클린룸 외부 전경</span>
+          </div>
+        </div>
+
+        <h3 style="{{ h3Style }}">영상 임베드</h3>
+        <div style="{{ videoWrapStyle }}">
+          <div style="{{ videoPlayBtnStyle }}">▶</div>
+          <span style="{{ imgLabelStyle }}">VIDEO — 16:9</span>
+        </div>
+
+        <h3 style="{{ h3Style }}">FAQ</h3>
+        <div style="{{ faqListStyle }}">
+          <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="3">
+            <div style="{{ faqItemStyle }}">
+              <button style="{{ faqQStyle }}" onClick="{{ item.toggle }}">{{ item.q }}<span style="{{ faqIconStyle }}">{{ item.iconChar }}</span></button>
+              <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+                <p style="{{ faqAStyle }}">{{ item.a }}</p>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="{{ tagRowStyle }}">
+        <span style="{{ pillTagStyle }}">#반도체</span>
+        <span style="{{ pillTagStyle }}">#AI</span>
+        <span style="{{ pillTagStyle }}">#엔비디아</span>
+        <span style="{{ pillTagStyle }}">#파운드리</span>
+      </div>
+
+    </article>
+
+    <div style="{{ sectionRuleStyle }}"></div>
+
+    <section style="{{ relatedSectionStyle }}">
+      <div style="{{ listHeadStyle }}">관련 글</div>
+      <div style="{{ threeColStyle }}">
+        <a href="#" style="{{ threeColItemStyle }}">
+          <div style="{{ cardImgWrapStyle }}">
+            <div style="{{ cardImgStyleA }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagTechStyle }}">TECH</span>
+          <h3 style="{{ smallCardTitleStyle }}">오픈소스 LLM이 바꾸는 개발자의 하루</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.07.06</span></div>
+        </a>
+        <a href="#" style="{{ threeColItemStyle }}">
+          <div style="{{ cardImgWrapStyle }}">
+            <div style="{{ cardImgStyleB }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagTechStyle }}">TECH</span>
+          <h3 style="{{ smallCardTitleStyle }}">클라우드 비용 30% 줄인 스타트업의 인프라 개편기</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.06.28</span></div>
+        </a>
+        <a href="#" style="{{ threeColItemLastStyle }}">
+          <div style="{{ cardImgWrapStyle }}">
+            <div style="{{ cardImgStyleC }}"></div>
+            <span style="{{ imgLabelStyle }}">IMAGE — 4:3</span>
+          </div>
+          <span style="{{ tagEconStyle }}">ECONOMY</span>
+          <h3 style="{{ smallCardTitleStyle }}">미국 증시 랠리 속 한국 개인투자자의 선택</h3>
+          <div style="{{ metaRowSmallStyle }}"><span>2026.07.03</span></div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="{{ footerStyle }}">
+    <div style="{{ dividerStyle }}"></div>
+    <div style="{{ footerRowStyle }}">
+      <span style="{{ logoStyle }}">brief<span style="color:#3b6ef5">.</span></span>
+      <span style="{{ footerTextStyle }}">© 2026 brief. 기술과 경제를 기록합니다.</span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { width: 1280, openFaq: 0 };
+  faqData = [
+    { q: '이번 반등이 일시적일 가능성은?', a: '재고 조정이 일부 기여했지만, 신규 라인 가동이 겹치며 최소 2분기는 추세가 이어질 것으로 보인다.' },
+    { q: '국내 팹리스 기업도 수혜를 받을까?', a: '설계 역량을 갖춘 곳 위주로 수주가 몰릴 전망이며, 전 분야가 고르게 수혜를 보진 않을 것이다.' },
+    { q: '분양가 상승세는 언제까지 이어질까?', a: '공급 물량이 관건이다. 인허가 속도가 늦춰지는 지역 위주로 상승 폭이 유지될 가능성이 크다.' },
+  ];
+
+  componentDidMount() {
+    if (typeof ResizeObserver !== 'undefined' && this.rootRef.current) {
+      this.ro = new ResizeObserver((entries) => {
+        const w = entries[0].contentRect.width;
+        if (Math.abs(w - this.state.width) > 2) this.setState({ width: w });
+      });
+      this.ro.observe(this.rootRef.current);
+    }
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+
+  renderVals() {
+    const w = this.state.width || 1280;
+    const m = w < 760;
+    const pad = m ? 20 : 56;
+    const ink = '#18181b';
+    const sub = '#6b6b70';
+    const line = 'rgba(24,24,27,0.12)';
+    const blue = '#3b6ef5';
+    const green = '#1a7a4c';
+    const sans = "'IBM Plex Sans KR', system-ui, sans-serif";
+    const disp = sans;
+    const mono = "'IBM Plex Mono', monospace";
+
+    const stripe = (c1, c2) => `repeating-linear-gradient(135deg, ${c1}, ${c1} 12px, ${c2} 12px, ${c2} 24px)`;
+
+    const faqItems = this.faqData.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: this.state.openFaq === i,
+      iconChar: this.state.openFaq === i ? '−' : '+',
+      toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
+    }));
+
+    return {
+      rootRef: this.rootRef,
+      faqItems,
+      pageStyle: { fontFamily: sans, color: ink, maxWidth: 1240, margin: '0 auto', background: '#faf9f6' },
+
+      headerStyle: { padding: `${m ? 18 : 28}px ${pad}px 0` },
+      navRowStyle: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' },
+      logoStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 20 : 22, letterSpacing: '-0.02em' },
+      navLinksStyle: { display: 'flex', gap: m ? 14 : 28, overflowX: m ? 'auto' : 'visible', fontSize: 14 },
+      navLinkStyle: { color: sub, fontWeight: 500, whiteSpace: 'nowrap' },
+      navLinkActiveStyle: { color: ink, fontWeight: 600, whiteSpace: 'nowrap' },
+      dividerStyle: { height: 1, background: line, marginTop: m ? 16 : 22 },
+
+      mainStyle: { padding: `${m ? 28 : 44}px ${pad}px ${m ? 12 : 20}px` },
+
+      articleWrapStyle: { maxWidth: 760, margin: '0 auto' },
+      articleHeadStyle: { display: 'flex', flexDirection: 'column', gap: 12, marginBottom: m ? 24 : 34 },
+      titleStyle: { fontFamily: disp, fontWeight: 700, fontSize: m ? 28 : 44, lineHeight: 1.14, letterSpacing: '-0.01em', margin: '4px 0 0' },
+      deckStyle: { fontSize: m ? 15 : 17, lineHeight: 1.6, color: sub, margin: 0 },
+      metaRowStyle: { display: 'flex', gap: 8, fontSize: 13, color: sub },
+      dotStyle: { color: 'rgba(24,24,27,0.3)' },
+      tagTechStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: blue, border: `1px solid ${blue}`, padding: '3px 7px', width: 'fit-content' },
+      tagEconStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', fontWeight: 600, color: green, border: `1px solid ${green}`, padding: '3px 7px', width: 'fit-content' },
+
+      h3Style: { fontFamily: sans, fontWeight: 600, fontSize: m ? 17 : 19, lineHeight: 1.3, margin: `${m ? 20 : 26}px 0 0`, color: ink },
+
+      checklistStyle: { display: 'flex', flexDirection: 'column', border: `1px solid ${line}` },
+      checkItemStyle: { display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', borderBottom: `1px solid ${line}`, fontSize: 14.5 },
+      checkItemLastStyle: { display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', fontSize: 14.5 },
+      checkBoxStyle: { width: 18, height: 18, flex: '0 0 18px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${green}`, color: green, fontSize: 12, fontWeight: 700, background: 'rgba(26,122,76,0.08)' },
+      checkBoxEmptyStyle: { width: 18, height: 18, flex: '0 0 18px', border: `1px solid ${line}` },
+
+      olStyle: { margin: 0, padding: '0 0 0 20px', display: 'flex', flexDirection: 'column', gap: 10 },
+      ulStyle: { margin: 0, padding: '0 0 0 20px', display: 'flex', flexDirection: 'column', gap: 10, listStyle: 'disc' },
+      liStyle: { fontSize: m ? 15 : 16, lineHeight: 1.7, color: '#2c2c30' },
+      liStyleLast: { fontSize: m ? 15 : 16, lineHeight: 1.7, color: '#2c2c30' },
+
+      calloutStyle: { display: 'flex', gap: 12, alignItems: 'flex-start', background: 'rgba(24,24,27,0.04)', padding: m ? '14px 16px' : '16px 20px' },
+      calloutIconStyle: { width: 20, height: 20, flex: '0 0 20px', borderRadius: '50%', background: ink, color: '#faf9f6', fontSize: 12, fontStyle: 'italic', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' },
+      calloutTextStyle: { fontSize: 14, lineHeight: 1.65, color: '#3a3a3e', margin: 0 },
+
+      galleryRowStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 16 : 20 },
+      galleryItemStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8 },
+      galleryItemLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 8 },
+      galleryImgWrapStyle: { position: 'relative', aspectRatio: '1/1', background: stripe('#e7e5df', '#f3f2ee'), overflow: 'hidden' },
+      galleryImgStyleA: { width: '100%', height: '100%' },
+      galleryImgStyleB: { width: '100%', height: '100%' },
+      galleryCaptionStyle: { fontSize: 12.5, color: sub },
+
+      videoWrapStyle: { position: 'relative', width: '100%', aspectRatio: '16/9', background: '#17171a', display: 'flex', alignItems: 'center', justifyContent: 'center' },
+      videoPlayBtnStyle: { width: 56, height: 56, borderRadius: '50%', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' },
+
+      faqListStyle: { display: 'flex', flexDirection: 'column', border: `1px solid ${line}` },
+      faqItemStyle: { borderBottom: `1px solid ${line}`, padding: '4px 0' },
+      faqQStyle: { width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, background: 'none', border: 'none', textAlign: 'left', font: 'inherit', fontFamily: sans, fontWeight: 600, fontSize: m ? 14.5 : 15.5, color: ink, padding: '14px 16px', cursor: 'pointer' },
+      faqIconStyle: { fontFamily: mono, fontSize: 16, color: sub, flex: '0 0 auto' },
+      faqAStyle: { fontSize: 14, lineHeight: 1.7, color: sub, margin: '0 16px 16px' },
+
+      answerBoxStyle: { display: 'flex', flexDirection: 'column', gap: 8, background: 'rgba(59,110,245,0.06)', borderLeft: `2px solid ${blue}`, padding: m ? '14px 16px' : '18px 22px', margin: m ? '4px 0 20px' : '4px 0 28px' },
+      answerLabelStyle: { fontFamily: mono, fontSize: 10.5, letterSpacing: '0.08em', color: blue, fontWeight: 600 },
+      answerTextStyle: { fontSize: m ? 14.5 : 15.5, lineHeight: 1.7, color: '#2c2c30', margin: 0 },
+
+      tocBoxStyle: { display: 'flex', flexDirection: 'column', gap: 9, border: `1px solid ${line}`, padding: m ? '16px 18px' : '20px 24px', margin: m ? '4px 0 24px' : '4px 0 32px' },
+      tocHeadStyle: { fontFamily: sans, fontWeight: 600, fontSize: 12.5, letterSpacing: '-0.01em', color: sub, marginBottom: 2 },
+      tocLinkStyle: { fontSize: m ? 13.5 : 14.5, color: '#2c2c30', paddingBottom: 9, borderBottom: `1px solid ${line}` },
+      tocLinkLastStyle: { fontSize: m ? 13.5 : 14.5, color: '#2c2c30' },
+
+      heroImgWrapStyle: { position: 'relative', display: 'block', width: '100%', aspectRatio: m ? '4/3' : '16/8', background: stripe('#e7e5df', '#f3f2ee'), overflow: 'hidden', marginBottom: m ? 8 : 10 },
+      heroImgStyle: { width: '100%', height: '100%' },
+      imgLabelStyle: { position: 'absolute', bottom: 10, left: 12, fontFamily: mono, fontSize: 10, letterSpacing: '0.06em', color: '#8a8a86', background: 'rgba(250,249,246,0.85)', padding: '2px 6px' },
+      captionStyle: { fontSize: 12.5, color: sub, marginBottom: m ? 28 : 40 },
+
+      bodyColStyle: { display: 'flex', flexDirection: 'column', gap: m ? 18 : 22 },
+      paraStyle: { fontSize: m ? 15.5 : 17, lineHeight: 1.8, color: '#2c2c30', margin: 0 },
+      h2Style: { fontFamily: disp, fontWeight: 600, fontSize: m ? 21 : 25, lineHeight: 1.3, margin: `${m ? 10 : 14}px 0 0`, scrollMarginTop: 24 },
+      pullQuoteWrapStyle: { borderLeft: `2px solid ${ink}`, padding: `4px 0 4px ${m ? 16 : 24}px`, margin: `${m ? 6 : 10}px 0` },
+      pullQuoteStyle: { fontFamily: disp, fontWeight: 500, fontSize: m ? 19 : 23, lineHeight: 1.45, margin: 0, fontStyle: 'italic' },
+
+      chartBoxStyle: { border: `1px solid ${line}`, padding: m ? '20px 16px 14px' : '28px 32px 18px', display: 'flex', flexDirection: 'column', gap: 10 },
+      chartBarsRowStyle: { display: 'flex', alignItems: 'flex-end', gap: m ? 14 : 24, height: m ? 120 : 160 },
+      chartBarColStyle: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', gap: 8, height: '100%' },
+      chartBar1Style: { width: '100%', height: '38%', background: '#d8d6cf', borderRadius: '2px 2px 0 0' },
+      chartBar2Style: { width: '100%', height: '46%', background: '#d8d6cf', borderRadius: '2px 2px 0 0' },
+      chartBar3Style: { width: '100%', height: '52%', background: '#d8d6cf', borderRadius: '2px 2px 0 0' },
+      chartBar4Style: { width: '100%', height: '68%', background: '#d8d6cf', borderRadius: '2px 2px 0 0' },
+      chartBar5Style: { width: '100%', height: '84%', background: blue, borderRadius: '2px 2px 0 0' },
+      chartBarLabelStyle: { fontFamily: mono, fontSize: 11, color: sub },
+      chartCaptionStyle: { fontFamily: sans, fontSize: 12, letterSpacing: '-0.01em', color: '#8a8a86' },
+
+      chartsGridStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 20 : 24, marginBottom: m ? 8 : 8 },
+      chartCardStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 10, border: `1px solid ${line}`, padding: m ? '16px' : '18px 20px', borderRight: m ? `1px solid ${line}` : `1px solid ${line}` },
+      chartCardLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 10, border: `1px solid ${line}`, padding: m ? '16px' : '18px 20px' },
+      chartCardHeadStyle: { fontFamily: sans, fontWeight: 600, fontSize: 12, letterSpacing: '-0.01em', color: sub },
+      chartCaptionSmallStyle: { fontFamily: sans, fontSize: 12, letterSpacing: '-0.01em', color: '#8a8a86' },
+
+      lineSvgStyle: { width: '100%', height: 90, display: 'block' },
+      linePoints: '10,62 65,51.5 120,55 175,39.6 230,43.8',
+      lineDots: [
+        { x: 10, y: 62 }, { x: 65, y: 51.5 }, { x: 120, y: 55 }, { x: 175, y: 39.6 }, { x: 230, y: 43.8 },
+      ],
+      linePolylineStyle: { stroke: blue, strokeWidth: 2 },
+      lineDotStyle: { fill: blue },
+
+      donutOuterStyle: { position: 'relative', width: 84, height: 84, alignSelf: 'center', margin: '4px 0' },
+      donutRingStyle: { position: 'absolute', inset: 0, borderRadius: '50%', background: `conic-gradient(${blue} 0% 62%, #e5e3dc 62% 100%)` },
+      donutHoleStyle: { position: 'absolute', inset: 12, borderRadius: '50%', background: '#faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center' },
+      donutPctStyle: { fontFamily: disp, fontWeight: 700, fontSize: 15 },
+
+      hBarListStyle: { display: 'flex', flexDirection: 'column', gap: 10, flex: 1, justifyContent: 'center' },
+      hBarRowStyle: { display: 'flex', alignItems: 'center', gap: 10 },
+      hBarLabelStyle: { fontSize: 12.5, color: sub, width: 30, flex: '0 0 30px' },
+      hBarTrackStyle: { flex: 1, height: 8, background: '#eceae3' },
+      hBarFillStyle1: { width: '82%', height: '100%', background: blue },
+      hBarFillStyle2: { width: '67%', height: '100%', background: blue },
+      hBarFillStyle3: { width: '54%', height: '100%', background: blue },
+      hBarValStyle: { fontSize: 12.5, color: ink, fontWeight: 600, width: 22, flex: '0 0 22px', textAlign: 'right' },
+
+      tableStyle: { width: '100%', borderCollapse: 'collapse', fontSize: m ? 13.5 : 14.5 },
+      thStyle: { textAlign: 'left', fontFamily: sans, fontWeight: 600, fontSize: 12.5, letterSpacing: '-0.01em', color: sub, padding: '0 0 10px', borderBottom: `1px solid ${ink}` },
+      tdStyle: { padding: '13px 0', borderBottom: `1px solid ${line}`, color: '#2c2c30' },
+      tdLastStyle: { padding: '13px 0', color: '#2c2c30' },
+      tdUpStyle: { padding: '13px 0', borderBottom: `1px solid ${line}`, color: green, fontWeight: 600 },
+      tdDownLastStyle: { padding: '13px 0', color: '#b5452e', fontWeight: 600 },
+      tableCaptionStyle: { fontSize: 12.5, color: sub, marginTop: 10 },
+
+      codeBlockStyle: { background: '#17171a', overflow: 'hidden' },
+      codeHeadStyle: { display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.08)' },
+      codeDotStyle: { width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.18)' },
+      codeFileNameStyle: { fontFamily: mono, fontSize: 11.5, color: 'rgba(255,255,255,0.45)', marginLeft: 8 },
+      codePreStyle: { margin: 0, padding: m ? '16px' : '20px 22px', fontFamily: mono, fontSize: m ? 12.5 : 13.5, lineHeight: 1.7, color: '#e4e4e6', overflowX: 'auto' },
+      codeKeywordStyle: { color: '#7dabf8' },
+      codeFnStyle: { color: '#e8c07a' },
+      codeNumStyle: { color: '#c99cf1' },
+      codeStrStyle: { color: '#8fd39c' },
+      codeCommentStyle: { color: 'rgba(255,255,255,0.35)' },
+
+      tagRowStyle: { display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: m ? 32 : 44 },
+      pillTagStyle: { fontFamily: sans, fontSize: 12.5, color: sub, border: `1px solid ${line}`, padding: '5px 10px' },
+
+      authorBoxStyle: { display: 'flex', gap: 14, alignItems: 'center', marginTop: m ? 28 : 36, padding: `${m ? 18 : 22}px 0`, borderTop: `1px solid ${line}`, borderBottom: `1px solid ${line}` },
+      authorAvatarStyle: { width: 44, height: 44, flex: '0 0 44px', background: stripe('#e7e5df', '#f3f2ee') },
+      authorTextWrapStyle: { display: 'flex', flexDirection: 'column', gap: 3 },
+      authorNameStyle: { fontFamily: disp, fontWeight: 600, fontSize: 15 },
+      authorBioStyle: { fontSize: 13, color: sub },
+
+      sectionRuleStyle: { height: 1, background: line, margin: `${m ? 44 : 64}px 0 ${m ? 32 : 44}px` },
+      relatedSectionStyle: {},
+      listHeadStyle: { fontFamily: sans, fontWeight: 600, fontSize: 13, letterSpacing: '-0.01em', color: sub, marginBottom: 18 },
+      threeColStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 28 : 32, marginBottom: m ? 40 : 64 },
+      threeColItemStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 9, borderRight: m ? 'none' : `1px solid ${line}`, paddingRight: m ? 0 : 0 },
+      threeColItemLastStyle: { flex: 1, display: 'flex', flexDirection: 'column', gap: 9 },
+      cardImgWrapStyle: { position: 'relative', display: 'block', aspectRatio: '4/3', background: stripe('#e9e6e0', '#f4f3ef'), overflow: 'hidden' },
+      cardImgStyleA: { width: '100%', height: '100%' },
+      cardImgStyleB: { width: '100%', height: '100%' },
+      cardImgStyleC: { width: '100%', height: '100%' },
+      smallCardTitleStyle: { fontFamily: disp, fontWeight: 600, fontSize: 17, lineHeight: 1.32, margin: '2px 0 0' },
+      metaRowSmallStyle: { display: 'flex', gap: 8, fontSize: 12.5, color: sub, marginTop: 6 },
+
+      footerStyle: { padding: `0 ${pad}px ${m ? 28 : 40}px` },
+      footerRowStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 10 : 0, alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', paddingTop: 22 },
+      footerTextStyle: { fontSize: 12.5, color: sub },
+    };
+  }
+}
+</script>
+</body>
+</html>
