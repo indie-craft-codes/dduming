@@ -107,6 +107,30 @@ function donutChart(b) {
     + `</svg>`;
 }
 
+// 히스토그램(빗살무늬 분포) — data:[{bin(억), value}], threshold: 강조선(억)
+function histogramChart(b) {
+  const th = b.threshold;
+  const maxV = Math.max(...b.data.map(d => d.value));
+  const marks = [
+    Plot.rectY(b.data, { x: 'bin', y: 'value', interval: b.binSize || 0.1,
+      fill: (d) => th != null && Math.abs(d.bin - th) < 0.001 ? '#d1495b' : POINT, fillOpacity: 0.9 }),
+    Plot.ruleY([0], { stroke: LINE }),
+  ];
+  if (th != null) {
+    marks.push(Plot.ruleX([th], { stroke: '#d1495b', strokeWidth: 1.4, strokeDasharray: '4 4' }));
+    marks.push(Plot.text([{ x: th, y: maxV }], { x: 'x', y: 'y', text: () => `${th}억`, dy: -6, dx: 5, textAnchor: 'start', fill: '#d1495b', fontWeight: 700, fontSize: 13 }));
+  }
+  const chart = Plot.plot({
+    document, width: 680, height: 340,
+    marginTop: 24, marginRight: 16, marginBottom: 40, marginLeft: 48,
+    style: baseStyle,
+    x: { label: null, tickFormat: (d) => d + '억', tickSize: 0 },
+    y: { label: null, grid: true, ticks: 4, tickSize: 0 },
+    marks,
+  });
+  return responsive(chart);
+}
+
 export function renderChart(b) {
   const cap = b.caption ? `<div class="cap" style="text-align:center;margin:14px 0 0">${esc(b.caption)}</div>` : '';
   let body;
@@ -114,6 +138,7 @@ export function renderChart(b) {
     body = b.chartType === 'line' ? lineChart(b)
       : b.chartType === 'donut' ? donutChart(b)
       : b.chartType === 'hbar' ? hbarChart(b)
+      : b.chartType === 'histogram' ? histogramChart(b)
       : barChart(b);
   } catch (e) {
     body = `<!-- chart error: ${esc(e.message)} -->`;

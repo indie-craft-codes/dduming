@@ -1,5 +1,21 @@
 [
   {
+    "slug": "seoul-apt-15eok-wall",
+    "category": "부동산",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "부동산",
+      "실거래",
+      "대출규제",
+      "데이터"
+    ],
+    "title": "서울 아파트값은 왜 '15억'에 몰릴까",
+    "deck": "국토부 실거래 데이터를 보면 가격이 억 단위마다 뾰족하게 솟는다. 특히 15억. 대출규제와 '라운드넘버' 심리가 만든 벽을 데이터로 뜯어본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
     "slug": "stock-etf-tax-2026",
     "category": "경제",
     "status": "published",
