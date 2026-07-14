@@ -36,6 +36,16 @@
 | `gallery` | 이미지 갤러리(2단) |
 | `video` | 영상 임베드 |
 | `faq` | FAQ 아코디언 (native `<details>`, zero-JS) |
+| `giftTaxCalc` | 증여세 계산기 (인터랙티브 컴포넌트/island). 옵션: `title`·`defaultAmount`·`presets` |
+
+### 인터랙티브 컴포넌트
+
+정적 블록 외에 JS가 필요한 위젯은 `build/components/`에 컴포넌트로 둔다. 각 컴포넌트 파일은 `render(props)`·`css`·`name`·`placement`를 export하고, `build/components/index.mjs` 레지스트리에 등록하면 블록 `type`으로 바로 쓸 수 있다.
+
+- 사용: `{ "type": "giftTaxCalc" }` (props 생략 시 기본값). 여러 글에서 재사용 가능.
+- `placement: 'top'`이면 커버 다음(요약 위)에 자동 배치.
+- 인스턴스별 고유 id로 스코프 → 한 페이지에 여러 개 배치 가능.
+- 새 위젯은 `components/`에 파일 하나 추가 + 레지스트리 한 줄.
 
 ## 커버 이미지 규칙
 

@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { css, tokens, CATEGORIES, SITE } from './theme.mjs';
 import { renderBlock, esc } from './blocks.mjs';
 import { autoCoverSVG } from './cover.mjs';
+import { componentsCss, topComponents } from './components/index.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const POSTS = join(ROOT, 'posts');
@@ -44,8 +45,9 @@ function relatedOf(p) {
     : published.filter(q => q.slug !== p.slug && q.category === p.category).slice(0, 3).map(q => q.slug);
   return slugs.map(s => published.find(q => q.slug === s)).filter(Boolean);
 }
-// 캐시 버스팅: CSS 내용 해시를 파일명에 박아 배포 즉시 새 파일로 인식되게
-const cssFile = `assets/style.${createHash('sha1').update(css).digest('hex').slice(0, 8)}.css`;
+// 공용 CSS + 컴포넌트 CSS 합본. 캐시 버스팅: 내용 해시를 파일명에 박음
+const fullCss = css + componentsCss;
+const cssFile = `assets/style.${createHash('sha1').update(fullCss).digest('hex').slice(0, 8)}.css`;
 // 커버 규칙: coverImage 있으면 사용, 없으면 자동 SVG 커버 경로
 const coverSrc = (p) => p.coverImage || `images/auto/${p.slug}.svg`;
 const badge = (catName) => {
@@ -137,10 +139,9 @@ function buildPost(p) {
   const cover = `<figure class="a-cover"><img src="../${coverSrc(p)}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>`;
   const answer = p.answerBox ? `<div class="answerbox"><div class="lbl">핵심 요약</div><p>${esc(p.answerBox)}</p></div>` : '';
   const tocHtml = toc.length ? `<div class="toc"><div class="lbl">목차</div>${toc.map(t => `<a href="#${esc(t.id)}">${esc(t.label)}</a>`).join('')}</div>` : '';
-  // 계산기 등 상단 고정 블록은 맨 위(커버 다음)로, 나머지는 본문 흐름에
-  const topTypes = new Set(['giftTaxCalc']);
-  const topHtml = (p.blocks || []).filter(b => topTypes.has(b.type)).map(renderBlock).join('\n');
-  const body = (p.blocks || []).filter(b => !topTypes.has(b.type)).map(renderBlock).join('\n');
+  // 상단 고정 컴포넌트(placement:'top')는 맨 위(커버 다음)로, 나머지는 본문 흐름에
+  const topHtml = (p.blocks || []).filter(b => topComponents.has(b.type)).map(renderBlock).join('\n');
+  const body = (p.blocks || []).filter(b => !topComponents.has(b.type)).map(renderBlock).join('\n');
   const tags = p.tags?.length ? `<div class="tags">${p.tags.map(t => `<span class="tag"># ${esc(t)}</span>`).join('')}</div>` : '';
   const related = rel.length ? `<div class="sec-head" style="margin-top:48px">관련 글</div><div class="grid">${rel.map(q => card(q, '../')).join('')}</div>` : '';
   const main = `<article><div class="a-head">${badge(p.category)}
@@ -231,7 +232,7 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, 'posts'), { recursive: true });
 mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
-writeFileSync(join(DIST, cssFile), css);
+writeFileSync(join(DIST, cssFile), fullCss);
 if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
 // 커버 규칙: coverImage 없는 글은 텍스트 커버 SVG 자동생성
 mkdirSync(join(DIST, 'images', 'auto'), { recursive: true });
