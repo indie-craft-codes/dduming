@@ -66,7 +66,7 @@ function chart(b) {
 function table(b) {
   const head = b.head ? `<thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>` : '';
   const rows = b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('');
-  return `<table>${head}<tbody>${rows}</tbody></table>${cap(b.caption)}`;
+  return `<div class="tablewrap"><table>${head}<tbody>${rows}</tbody></table></div>${cap(b.caption)}`;
 }
 
 function faq(b) {

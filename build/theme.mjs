@@ -76,8 +76,9 @@ article h2{font-size:25px;font-weight:600;letter-spacing:-.01em;margin:44px 0 14
 article h3{font-size:19px;font-weight:600;margin:28px 0 10px}
 article p{font-size:17px;margin:0 0 18px}
 blockquote{border-left:3px solid var(--point);margin:24px 0;padding:6px 0 6px 20px;font-size:19px;font-weight:500;color:var(--ink)}
-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
 th{font-weight:600;color:var(--sub);font-size:13.5px;border-bottom:2px solid var(--line)}
 td:not(:first-child),th:not(:first-child){text-align:right}
 .cap{font-size:12.5px;color:var(--sub);margin:6px 0 22px}
