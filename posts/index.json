@@ -1,5 +1,22 @@
 [
   {
+    "slug": "gift-tax-7eok-2026",
+    "category": "경제",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "증여세",
+      "절세",
+      "세금",
+      "상속증여세법"
+    ],
+    "title": "7억 증여하면 세금 얼마? 2026년 증여세 정리",
+    "deck": "성년 자녀가 부모에게 7억원을 받을 때 세금이 얼마인지, 혼인·출산 공제로 얼마나 줄일 수 있는지 실제 계산으로 짚는다.",
+    "datePublished": "2026-07-14",
+    "dateModified": "2026-07-14",
+    "coverImage": "images/gift-tax.jpg"
+  },
+  {
     "slug": "ai-chip-war-after-nvidia",
     "category": "기술",
     "status": "published",
