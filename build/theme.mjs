@@ -81,6 +81,8 @@ table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
 th{font-weight:600;color:var(--sub);font-size:13.5px;border-bottom:2px solid var(--line)}
 td:not(:first-child),th:not(:first-child){text-align:right}
+/* 첫 열(라벨)은 줄바꿈 허용 → 긴 텍스트로 표가 넓어지는 것 방지. 숫자 열은 nowrap 유지 */
+td:first-child,th:first-child{white-space:normal;min-width:5.5em}
 .cap{font-size:12.5px;color:var(--sub);margin:6px 0 22px}
 pre{background:#1c1c20;color:#e8e8ea;border-radius:6px;padding:18px 20px;overflow-x:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.7;margin:18px 0}
 pre .fn{display:block;color:#9a9aa2;font-size:12px;margin-bottom:10px}
@@ -123,5 +125,7 @@ footer.site{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 48px
  h1.title{font-size:28px}
  article h2{font-size:21px}
  nav.top{gap:14px;overflow-x:auto}
+ table{font-size:13.5px}
+ th,td{padding:8px 9px}
 }
 `;
