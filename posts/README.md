@@ -35,7 +35,7 @@
 | `callout` | 콜아웃 |
 | `gallery` | 이미지 갤러리(2단) |
 | `video` | 영상 임베드 |
-| `faq` | FAQ 아코디언 (island 대상) |
+| `faq` | FAQ 아코디언 (native `<details>`, zero-JS) |
 
 ## 커버 이미지 규칙
 
@@ -54,7 +54,7 @@
 ## 발행 상태 · 본문 없는 글 처리
 
 - `status: "published" | "draft"` — 목록 노출 여부를 이 필드로 판단.
-- **index엔 있는데 본문(post 파일) 없는 글**: 빌드가 `status`로 판별 — `draft`면 목록에서 스킵(상세 페이지 미생성), `published`인데 본문 없으면 빌드 오류로 처리. 지금 index의 7건은 카드 샘플(본문 미작성) 상태.
+- **index엔 있는데 본문(post 파일) 없는 글**: 빌드가 `status`로 판별 — `draft`면 목록에서 스킵(상세 페이지 미생성), `published`인데 본문 없으면 빌드 오류로 처리.
 
 ## 카테고리 → 뱃지 매핑
 

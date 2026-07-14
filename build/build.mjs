@@ -2,6 +2,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import { css, tokens, CATEGORIES, SITE } from './theme.mjs';
 import { renderBlock, esc } from './blocks.mjs';
 import { autoCoverSVG } from './cover.mjs';
@@ -43,6 +44,8 @@ function relatedOf(p) {
     : published.filter(q => q.slug !== p.slug && q.category === p.category).slice(0, 3).map(q => q.slug);
   return slugs.map(s => published.find(q => q.slug === s)).filter(Boolean);
 }
+// 캐시 버스팅: CSS 내용 해시를 파일명에 박아 배포 즉시 새 파일로 인식되게
+const cssFile = `assets/style.${createHash('sha1').update(css).digest('hex').slice(0, 8)}.css`;
 // 커버 규칙: coverImage 있으면 사용, 없으면 자동 SVG 커버 경로
 const coverSrc = (p) => p.coverImage || `images/auto/${p.slug}.svg`;
 const badge = (catName) => {
@@ -85,7 +88,7 @@ ${og}
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="${SITE.baseUrl}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${base}assets/style.css">${ldjson}
+<link rel="stylesheet" href="${base}${cssFile}">${ldjson}
 </head><body>
 <div class="wrap"><header class="site"><div class="navrow">
 <a href="${base}index.html" class="logo">${SITE.title}<span class="dot">.</span></a>${nav(active).replaceAll('href="', `href="${base}`)}
@@ -225,7 +228,7 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, 'posts'), { recursive: true });
 mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
-writeFileSync(join(DIST, 'assets', 'style.css'), css);
+writeFileSync(join(DIST, cssFile), css);
 if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
 // 커버 규칙: coverImage 없는 글은 텍스트 커버 SVG 자동생성
 mkdirSync(join(DIST, 'images', 'auto'), { recursive: true });
