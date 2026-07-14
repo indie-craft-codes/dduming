@@ -92,6 +92,10 @@ function page({ title, desc, active, main, base = '', ldjson = '', path = 'index
   return `<!DOCTYPE html><html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#3b6ef5">
 ${og}
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="${SITE.baseUrl}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -242,6 +246,11 @@ mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
 writeFileSync(join(DIST, cssFile), fullCss);
 writeFileSync(join(DIST, 'CNAME'), 'dduming.com\n'); // GitHub Pages 커스텀 도메인
+// 파비콘/앱아이콘을 사이트 루트로 복사
+for (const f of ['favicon.svg', 'favicon-96.png', 'apple-touch-icon.png', 'icon-512.png']) {
+  const src = join(ROOT, 'images', f);
+  if (existsSync(src)) cpSync(src, join(DIST, f));
+}
 if (existsSync(join(ROOT, 'images'))) cpSync(join(ROOT, 'images'), join(DIST, 'images'), { recursive: true });
 // 커버 규칙: coverImage 없는 글은 텍스트 커버 SVG 자동생성
 mkdirSync(join(DIST, 'images', 'auto'), { recursive: true });
