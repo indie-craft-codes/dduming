@@ -28,7 +28,7 @@
 | `h2` / `h3` | 소제목 (H2는 목차 앵커) |
 | `p` | 본문 문단 |
 | `quote` | 인용 풀쿼트 |
-| `chart` (`bar`/`line`/`donut`/`hbar`) | 그래프 4종 |
+| `chart` (`bar`/`line`/`donut`/`hbar`) | 그래프 4종. 값 라벨은 천단위 콤마. `"format":"money"`면 억/만원 표기 |
 | `table` | 표 |
 | `code` | 코드 블록 |
 | `checklist` / `ol` / `ul` | 체크리스트·번호·불릿 목록 |
@@ -43,7 +43,7 @@
 정적 블록 외에 JS가 필요한 위젯은 `build/components/`에 컴포넌트로 둔다. 각 컴포넌트 파일은 `render(props)`·`css`·`name`·`placement`를 export하고, `build/components/index.mjs` 레지스트리에 등록하면 블록 `type`으로 바로 쓸 수 있다.
 
 - 사용: `{ "type": "giftTaxCalc" }` (props 생략 시 기본값). 여러 글에서 재사용 가능.
-- `placement: 'top'`이면 커버 다음(요약 위)에 자동 배치.
+- `placement: 'top'`이면 본문 맨 위(핵심요약 위)에 자동 배치.
 - 인스턴스별 고유 id로 스코프 → 한 페이지에 여러 개 배치 가능.
 - 새 위젯은 `components/`에 파일 하나 추가 + 레지스트리 한 줄.
 
@@ -59,6 +59,7 @@
 - 자동 커버는 `title`·`category`·`deck`·`datePublished`에서 파생. 손댈 것 없음.
 - 카테고리별로 뱃지 색·워터마크가 자동: 기술 `</>`(파랑) / 경제 `₩`(초록) / 부동산 `㎡`(주황).
 - 무의존 SVG라 CI에서도 그대로 생성(래스터화 불필요). 소셜 OG용 고정 이미지가 필요한 글만 `coverImage`로 직접 지정.
+- 커버는 **홈·카테고리 카드 썸네일 + OG(소셜 공유) 전용**. 제목이 H1과 중복되어 **글 본문에는 넣지 않음**.
 - 로직: `build/cover.mjs` (`autoCoverSVG`).
 
 ## 발행 상태 · 본문 없는 글 처리

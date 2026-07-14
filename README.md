@@ -49,7 +49,8 @@
 - [x] 8. JS 최소화 — 차트 CSS/SVG + FAQ native `<details>`로 **zero-JS** 달성 (부분 하이드레이션 불필요)
 - [x] SEO/GEO — Answer Box·JSON-LD·OG·canonical·sitemap·robots·RSS
 - [x] 배포 — GitHub Actions(`.github/workflows/deploy.yml`) → Pages
-- [ ] (선택) 자산 cache-busting (`style.[hash].css`)
+- [x] 자산 cache-busting (`style.[hash].css`)
+- [x] 인터랙티브 컴포넌트 시스템 (`build/components/`) — 증여세 계산기(island)
 - [ ] (추후) DB 연결 → `posts` 테이블 + `post_blocks(JSONB)`로 승격
 - [ ] (추후) 관리자 CMS
 
