@@ -68,8 +68,8 @@ export const css = `
 .calc-presets{display:flex;gap:6px;margin-top:8px}
 .calc-presets button{flex:1;padding:8px 4px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
 .calc-presets button:hover{border-color:var(--point);color:var(--point)}
-.calc-check{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink);margin-top:16px;cursor:pointer}
-.calc-check input{width:18px;height:18px;flex:none;accent-color:var(--point)}
+.calc-check{display:flex;align-items:center;gap:8px;font-size:14.5px;line-height:1.3;color:var(--ink);margin-top:16px;cursor:pointer}
+.calc-check input{width:18px;height:18px;flex:none;margin:0;accent-color:var(--point)}
 .calc-out{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:9px}
 .calc-out>div{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--sub)}
 .calc-out b{font-size:15px;color:var(--ink);font-weight:600}
