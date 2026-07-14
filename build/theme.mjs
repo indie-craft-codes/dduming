@@ -46,7 +46,8 @@ nav.top a.active{color:var(--ink);font-weight:600}
 .badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:4px;color:#fff}
 /* cards */
 main{padding:44px 0 40px}
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;margin-bottom:44px}
+.hero{margin-bottom:44px}
+.hero>a{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}
 .hero .cover{aspect-ratio:16/10;background:color-mix(in srgb,var(--point) 8%,var(--line));border-radius:4px;overflow:hidden}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
 .a-cover{border-radius:6px;overflow:hidden;margin:4px 0 8px}
@@ -120,7 +121,7 @@ footer.site{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 48px
 .videobox{aspect-ratio:16/9;background:color-mix(in srgb,var(--point) 8%,var(--line));border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:13px;margin:18px 0}
 @media(max-width:760px){
  .wrap{padding:0 20px}
- .hero{grid-template-columns:1fr;gap:16px}
+ .hero>a{grid-template-columns:1fr;gap:14px}
  .grid{grid-template-columns:1fr}
  h1.title{font-size:28px}
  article h2{font-size:21px}
