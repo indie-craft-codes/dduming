@@ -74,6 +74,54 @@ function faq(b) {
     `<details class="faq"><summary>${esc(it.q)}</summary><div class="ans">${esc(it.a)}</div></details>`).join('');
 }
 
+// 증여세 간편 계산기 (인터랙티브 island — vanilla JS)
+export function renderGiftTaxCalc() {
+  return `<div class="calc" role="region" aria-label="증여세 간편 계산기">
+  <div class="calc-h">증여세 간편 계산기</div>
+  <label for="gtc-amt">증여금액</label>
+  <div class="calc-amt"><input id="gtc-amt" type="text" inputmode="numeric" value="700,000,000" aria-label="증여금액(원)"><span>원</span></div>
+  <div class="calc-presets">
+    <button type="button" data-v="100000000">1억</button>
+    <button type="button" data-v="300000000">3억</button>
+    <button type="button" data-v="500000000">5억</button>
+    <button type="button" data-v="700000000">7억</button>
+    <button type="button" data-v="1000000000">10억</button>
+  </div>
+  <label for="gtc-rel">관계 (증여자 → 받는 사람)</label>
+  <select id="gtc-rel">
+    <option value="600000000">배우자 (6억 공제)</option>
+    <option value="50000000" selected>직계존속 → 성년 자녀 (5천만)</option>
+    <option value="20000000">직계존속 → 미성년 자녀 (2천만)</option>
+    <option value="50000000">직계비속 → 직계존속 (5천만)</option>
+    <option value="10000000">기타 친족 (1천만)</option>
+  </select>
+  <label class="calc-check"><input id="gtc-mar" type="checkbox"> 혼인·출산 공제 적용 (+1억)</label>
+  <div class="calc-out">
+    <div><span>증여재산공제</span><b id="gtc-ded">–</b></div>
+    <div><span>과세표준</span><b id="gtc-base">–</b></div>
+    <div><span>산출세액</span><b id="gtc-calc">–</b></div>
+    <div class="calc-final"><span>예상 납부세액 <em>(신고세액공제 3% 반영)</em></span><b id="gtc-final">–</b></div>
+  </div>
+  <div class="calc-note">2026년 현행 세율 기준 간이 계산입니다. 실제 세액은 재산 종류·평가액·기존 증여 이력에 따라 달라질 수 있으니 신고 전 확인하세요.</div>
+  <script>(function(){
+    var amt=document.getElementById('gtc-amt'),rel=document.getElementById('gtc-rel'),mar=document.getElementById('gtc-mar');
+    var oDed=document.getElementById('gtc-ded'),oBase=document.getElementById('gtc-base'),oCalc=document.getElementById('gtc-calc'),oFinal=document.getElementById('gtc-final');
+    function num(s){return Number(String(s).replace(/[^0-9]/g,''))||0;}
+    function fmt(n){n=Math.round(n);if(n<=0)return '0원';var e=Math.floor(n/1e8),m=Math.floor((n%1e8)/1e4),s='';if(e)s+=e+'억';if(m)s+=(s?' ':'')+m.toLocaleString('ko-KR')+'만';if(!s)s=n.toLocaleString('ko-KR');return s+'원';}
+    var BR=[[1e8,.1,0],[5e8,.2,1e7],[1e9,.3,6e7],[3e9,.4,1.6e8],[Infinity,.5,4.6e8]];
+    function run(){
+      var a=num(amt.value),ded=num(rel.value)+(mar.checked?1e8:0),base=Math.max(0,a-ded),c=0;
+      for(var i=0;i<BR.length;i++){if(base<=BR[i][0]){c=base*BR[i][1]-BR[i][2];break;}}
+      oDed.textContent=fmt(ded);oBase.textContent=fmt(base);oCalc.textContent=fmt(c);oFinal.textContent=fmt(c*0.97);
+    }
+    amt.addEventListener('input',function(){var p=num(amt.value);amt.value=p?p.toLocaleString('ko-KR'):'';run();});
+    rel.addEventListener('change',run);mar.addEventListener('change',run);
+    Array.prototype.forEach.call(document.querySelectorAll('.calc-presets button'),function(b){b.addEventListener('click',function(){amt.value=Number(b.dataset.v).toLocaleString('ko-KR');run();});});
+    run();
+  })();</script>
+</div>`;
+}
+
 // 블록 하나 렌더
 export function renderBlock(b) {
   switch (b.type) {
@@ -97,6 +145,7 @@ export function renderBlock(b) {
     case 'video':
       return `<div class="videobox">${esc(b.caption || 'VIDEO')}</div>`;
     case 'faq': return faq(b);
+    case 'giftTaxCalc': return renderGiftTaxCalc();
     default: return `<!-- unknown block: ${esc(b.type)} -->`;
   }
 }

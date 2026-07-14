@@ -137,13 +137,16 @@ function buildPost(p) {
   const cover = `<figure class="a-cover"><img src="../${coverSrc(p)}" alt="${esc(p.title)}">${p.coverCaption ? `<figcaption class="cap">${esc(p.coverCaption)}</figcaption>` : ''}</figure>`;
   const answer = p.answerBox ? `<div class="answerbox"><div class="lbl">핵심 요약</div><p>${esc(p.answerBox)}</p></div>` : '';
   const tocHtml = toc.length ? `<div class="toc"><div class="lbl">목차</div>${toc.map(t => `<a href="#${esc(t.id)}">${esc(t.label)}</a>`).join('')}</div>` : '';
-  const body = (p.blocks || []).map(renderBlock).join('\n');
+  // 계산기 등 상단 고정 블록은 맨 위(커버 다음)로, 나머지는 본문 흐름에
+  const topTypes = new Set(['giftTaxCalc']);
+  const topHtml = (p.blocks || []).filter(b => topTypes.has(b.type)).map(renderBlock).join('\n');
+  const body = (p.blocks || []).filter(b => !topTypes.has(b.type)).map(renderBlock).join('\n');
   const tags = p.tags?.length ? `<div class="tags">${p.tags.map(t => `<span class="tag"># ${esc(t)}</span>`).join('')}</div>` : '';
   const related = rel.length ? `<div class="sec-head" style="margin-top:48px">관련 글</div><div class="grid">${rel.map(q => card(q, '../')).join('')}</div>` : '';
   const main = `<article><div class="a-head">${badge(p.category)}
 <h1 class="title">${esc(p.title)}</h1><p class="a-deck">${esc(p.deck)}</p>
 <div class="meta"><span>${fmtDate(p.datePublished)}</span><span>·</span><span>수정 ${fmtDate(p.dateModified || p.datePublished)}</span><span>·</span><span>${mins}분 읽기</span></div></div>
-${cover}${answer}${tocHtml}${body}${tags}${related}</article>`;
+${cover}${topHtml}${answer}${tocHtml}${body}${tags}${related}</article>`;
   writeFileSync(join(DIST, 'posts', `${p.slug}.html`), page({
     title: `${p.title} · ${SITE.title}`, desc: p.deck, active: p.category, main, base: '../', ldjson,
     path: `posts/${p.slug}.html`, ogType: 'article', image: coverSrc(p),

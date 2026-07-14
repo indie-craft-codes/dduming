@@ -118,6 +118,28 @@ footer.site{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 48px
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
 .gallery .cell .ph{aspect-ratio:4/3;background:color-mix(in srgb,var(--point) 8%,var(--line));border-radius:4px}
 .videobox{aspect-ratio:16/9;background:color-mix(in srgb,var(--point) 8%,var(--line));border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:13px;margin:18px 0}
+/* 증여세 계산기 (island) */
+.calc{border:1px solid var(--line);border-radius:12px;padding:22px;margin:0 0 30px;background:#fff}
+.calc-h{font-weight:700;font-size:18px;margin-bottom:8px}
+.calc label{display:block;font-size:13px;color:var(--sub);font-weight:500;margin:14px 0 6px}
+.calc input[type=text],.calc select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+.calc-amt{display:flex;align-items:center;gap:8px}
+.calc-amt input{text-align:right;font-weight:600}
+.calc-amt span{color:var(--sub);flex:none}
+.calc-presets{display:flex;gap:6px;margin-top:8px}
+.calc-presets button{flex:1;padding:8px 4px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+.calc-presets button:hover{border-color:var(--point);color:var(--point)}
+.calc-check{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink);margin-top:16px;cursor:pointer}
+.calc-check input{width:18px;height:18px;flex:none;accent-color:var(--point)}
+.calc-out{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:9px}
+.calc-out>div{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--sub)}
+.calc-out b{font-size:15px;color:var(--ink);font-weight:600}
+.calc-final{border-top:1px dashed var(--line);margin-top:6px;padding-top:13px}
+.calc-final span{color:var(--ink);font-weight:600;max-width:60%}
+.calc-final em{color:var(--sub);font-weight:400;font-style:normal;font-size:11.5px;display:block}
+.calc-final b{font-size:21px}
+.calc-final b#gtc-final{color:var(--point)}
+.calc-note{font-size:12px;color:var(--sub);margin-top:14px;line-height:1.6}
 @media(max-width:760px){
  .wrap{padding:0 20px}
  .hero{grid-template-columns:1fr;gap:16px}
