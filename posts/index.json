@@ -1,9 +1,25 @@
 [
   {
-    "slug": "seoul-apt-15eok-wall",
+    "slug": "seoul-apt-market-20yr",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "서울아파트",
+      "실거래",
+      "시장분석"
+    ],
+    "title": "서울 아파트 20년, 실거래로 본 시장",
+    "deck": "국토부 실거래 140만 건으로 서울 아파트값과 거래량의 20년을 그렸다. 상승장, 거래절벽, 그리고 회복까지 데이터로 정리한다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seoul-apt-15eok-wall",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "실거래",

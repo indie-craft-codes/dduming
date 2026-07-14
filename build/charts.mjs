@@ -43,19 +43,31 @@ function responsive(el) {
 
 const baseStyle = { background: 'transparent', color: SUB, fontSize: '13px', fontFamily: 'inherit' };
 
+// 다점 시계열이면 x축 눈금을 ~7개로 솎고 값 라벨 생략
+function thinTicks(data, n = 7) {
+  if (data.length <= 10) return undefined;
+  const step = Math.ceil(data.length / n);
+  return data.filter((_, i) => i % step === 0).map(d => d.label);
+}
+
 function barChart(b) {
-  const data = b.data.map((d, i) => ({ ...d, _hl: b.highlightLast && i === b.data.length - 1 }));
+  const last = b.data.length - 1;
+  const data = b.data.map((d, i) => ({ ...d, _hl: b.highlightLast && i === last }));
+  const many = data.length > 10;
+  const showVals = b.showValues ?? !many;
+  const fill = (d) => b.highlight && d.label == b.highlight ? '#d1495b' : (d._hl ? POINT : (b.highlight ? POINT : MUTED));
+  const marks = [
+    Plot.barY(data, { x: 'label', y: 'value', fill, rx: many ? 2 : 4, insetLeft: many ? 1 : 6, insetRight: many ? 1 : 6 }),
+    Plot.ruleY([0], { stroke: LINE }),
+  ];
+  if (showVals) marks.push(Plot.text(data, { x: 'label', y: 'value', text: (d) => fmtVal(d.value, b.format), dy: -9, fill: INK, fontWeight: 600, fontSize: 12 }));
   const chart = Plot.plot({
     document, width: 680, height: 320,
     marginTop: 28, marginRight: 16, marginBottom: 40, marginLeft: 64,
     style: baseStyle,
-    x: { label: null, tickSize: 0 },
+    x: { type: 'band', label: null, tickSize: 0, ticks: thinTicks(data) },
     y: { label: null, grid: true, ticks: 4, tickFormat: axisFmt(b.format), tickSize: 0 },
-    marks: [
-      Plot.barY(data, { x: 'label', y: 'value', fill: (d) => d._hl ? POINT : MUTED, rx: 4, insetLeft: 6, insetRight: 6 }),
-      Plot.ruleY([0], { stroke: LINE }),
-      Plot.text(data, { x: 'label', y: 'value', text: (d) => fmtVal(d.value, b.format), dy: -9, fill: INK, fontWeight: 600, fontSize: 12 }),
-    ],
+    marks,
   });
   return responsive(chart);
 }
@@ -77,18 +89,21 @@ function hbarChart(b) {
 }
 
 function lineChart(b) {
+  const many = b.data.length > 10;
+  const showVals = b.showValues ?? !many;
+  const marks = [
+    Plot.areaY(b.data, { x: 'label', y: 'value', fill: POINT, fillOpacity: 0.08, curve: 'catmull-rom' }),
+    Plot.lineY(b.data, { x: 'label', y: 'value', stroke: POINT, strokeWidth: 2.5, curve: 'catmull-rom' }),
+    Plot.dot(b.data, { x: 'label', y: 'value', fill: POINT, r: many ? 2.5 : 4 }),
+  ];
+  if (showVals) marks.push(Plot.text(b.data, { x: 'label', y: 'value', text: (d) => fmtVal(d.value, b.format), dy: -12, fill: SUB, fontSize: 11 }));
   const chart = Plot.plot({
     document, width: 680, height: 320,
     marginTop: 24, marginRight: 20, marginBottom: 40, marginLeft: 64,
     style: baseStyle,
-    x: { label: null, tickSize: 0 },
+    x: { type: 'point', label: null, tickSize: 0, ticks: thinTicks(b.data) },
     y: { label: null, grid: true, ticks: 4, tickFormat: axisFmt(b.format), tickSize: 0 },
-    marks: [
-      Plot.areaY(b.data, { x: 'label', y: 'value', fill: POINT, fillOpacity: 0.08, curve: 'catmull-rom' }),
-      Plot.lineY(b.data, { x: 'label', y: 'value', stroke: POINT, strokeWidth: 2.5, curve: 'catmull-rom' }),
-      Plot.dot(b.data, { x: 'label', y: 'value', fill: POINT, r: 4 }),
-      Plot.text(b.data, { x: 'label', y: 'value', text: (d) => fmtVal(d.value, b.format), dy: -12, fill: SUB, fontSize: 11 }),
-    ],
+    marks,
   });
   return responsive(chart);
 }
