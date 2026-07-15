@@ -30,7 +30,7 @@ export function renderBlock(b) {
     case 'h2': return `<h2 id="${esc(b.id || '')}">${esc(b.text)}</h2>`;
     case 'h3': return `<h3>${esc(b.text)}</h3>`;
     case 'quote': return `<blockquote>${esc(b.text)}</blockquote>`;
-    case 'callout': return `<div class="callout">${esc(b.text)}</div>`;
+    case 'callout': return `<div class="callout">${esc(b.text)}${b.href ? ` <a class="clink" href="${esc(b.href)}">${esc(b.linkText || '자세히 보기')}</a>` : ''}</div>`;
     case 'chart': return renderChart(b);
     case 'table': return table(b);
     case 'code':

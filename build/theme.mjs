@@ -88,12 +88,19 @@ table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
 th{font-weight:600;color:var(--sub);font-size:13.5px;border-bottom:2px solid var(--line)}
 td:not(:first-child),th:not(:first-child){text-align:right}
+/* 표 안 링크는 명확히 클릭 가능하게 (전역 a 리셋 위에 덮어씀) */
+td a{color:var(--point);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,var(--point) 45%,transparent)}
+td a::after{content:'\\2197';font-size:11px;margin-left:2px;color:color-mix(in srgb,var(--point) 60%,transparent);vertical-align:1px}
+td a:hover{text-decoration-color:var(--point)}
 /* 넓은 표는 .tablewrap 안에서 좌우 스크롤 (모든 셀 nowrap) */
 .cap{font-size:12.5px;color:var(--sub);margin:6px 0 22px}
 .chart .cap{text-align:center;margin:14px 0 0}
 pre{background:#1c1c20;color:#e8e8ea;border-radius:6px;padding:18px 20px;overflow-x:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.7;margin:18px 0}
 pre .fn{display:block;color:#9a9aa2;font-size:12px;margin-bottom:10px}
 .callout{background:color-mix(in srgb,var(--point) 5%,transparent);border:1px solid var(--line);border-left:3px solid var(--point);border-radius:4px;padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
+.callout .clink{display:inline-block;margin-left:4px;color:var(--point);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--point) 45%,transparent)}
+.callout .clink::after{content:'\\2197';font-size:11px;margin-left:2px}
+.callout .clink:hover{text-decoration-color:var(--point)}
 ul.blk,ol.blk{margin:18px 0;padding-left:22px;font-size:16.5px}
 ul.blk li,ol.blk li{margin:7px 0}
 .check{list-style:none;padding:0;margin:18px 0}
