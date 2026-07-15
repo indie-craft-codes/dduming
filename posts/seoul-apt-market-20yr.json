@@ -2,7 +2,7 @@
   "slug": "seoul-apt-market-20yr",
   "category": "부동산",
   "status": "published",
-  "featured": true,
+  "featured": false,
   "tags": [
     "부동산",
     "서울아파트",
@@ -1601,5 +1601,6 @@
       "type": "callout",
       "text": "면책·출처: 국토교통부 실거래 신고 데이터(서울 아파트 매매) 기준. 2026년은 상반기까지 잠정치이며, 중앙값은 시장 전반 지표로 개별 지역·단지와 다를 수 있다. 투자 판단의 책임은 본인에게 있다."
     }
-  ]
+  ],
+  "publishedAt": "2026-07-15T10:00:00+09:00"
 }

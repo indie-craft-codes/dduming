@@ -16,7 +16,7 @@ const DIST = join(ROOT, 'dist');
 const postFiles = readdirSync(POSTS).filter(f => f.endsWith('.json') && f !== 'index.json');
 const posts = postFiles.map(f => JSON.parse(readFileSync(join(POSTS, f), 'utf8')));
 const published = posts.filter(p => p.status === 'published')
-  .sort((a, b) => (b.datePublished || '').localeCompare(a.datePublished || ''));
+  .sort((a, b) => (b.publishedAt || b.datePublished || '').localeCompare(a.publishedAt || a.datePublished || ''));
 
 // 정적 페이지 (소개·개인정보처리방침·연락처 등)
 const PAGES = join(ROOT, 'pages');
