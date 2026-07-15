@@ -88,20 +88,31 @@ function hbarChart(b) {
   return responsive(chart);
 }
 
+// 'YYYY-MM' 월별 라벨이면 연 시작(-01) 라벨을 ~7개 골라 연도만 표기
+function yearTicks(data) {
+  const jans = data.filter(d => /-01$/.test(d.label));
+  if (!jans.length) return thinTicks(data);
+  const step = Math.max(1, Math.ceil(jans.length / 7));
+  return jans.filter((_, i) => i % step === 0).map(d => d.label);
+}
+
 function lineChart(b) {
+  const monthly = b.data.length && /^\d{4}-\d{2}$/.test(b.data[0].label);
   const many = b.data.length > 10;
+  const curve = b.curve || 'catmull-rom';
   const showVals = b.showValues ?? !many;
+  const showDots = b.data.length <= 30;
   const marks = [
-    Plot.areaY(b.data, { x: 'label', y: 'value', fill: POINT, fillOpacity: 0.08, curve: 'catmull-rom' }),
-    Plot.lineY(b.data, { x: 'label', y: 'value', stroke: POINT, strokeWidth: 2.5, curve: 'catmull-rom' }),
-    Plot.dot(b.data, { x: 'label', y: 'value', fill: POINT, r: many ? 2.5 : 4 }),
+    Plot.areaY(b.data, { x: 'label', y: 'value', fill: POINT, fillOpacity: 0.08, curve }),
+    Plot.lineY(b.data, { x: 'label', y: 'value', stroke: POINT, strokeWidth: 2.5, curve }),
   ];
+  if (showDots) marks.push(Plot.dot(b.data, { x: 'label', y: 'value', fill: POINT, r: many ? 2.5 : 4 }));
   if (showVals) marks.push(Plot.text(b.data, { x: 'label', y: 'value', text: (d) => fmtVal(d.value, b.format), dy: -12, fill: SUB, fontSize: 11 }));
   const chart = Plot.plot({
     document, width: 680, height: 320,
     marginTop: 24, marginRight: 20, marginBottom: 40, marginLeft: 64,
     style: baseStyle,
-    x: { type: 'point', label: null, tickSize: 0, ticks: thinTicks(b.data) },
+    x: { type: 'point', label: null, tickSize: 0, ticks: monthly ? yearTicks(b.data) : thinTicks(b.data), tickFormat: monthly ? ((d) => d.slice(0, 4)) : undefined },
     y: { label: null, grid: true, ticks: 4, tickFormat: axisFmt(b.format), tickSize: 0 },
     marks,
   });
