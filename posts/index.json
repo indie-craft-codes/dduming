@@ -1,9 +1,26 @@
 [
   {
+    "slug": "economic-indicators-guide",
+    "category": "경제",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "경제",
+      "지표",
+      "금리",
+      "환율",
+      "투자"
+    ],
+    "title": "경제 지표 완전정리 — 뭘 보고, 누가 발표하나 (미국·한국)",
+    "deck": "금리·물가·고용·성장·시장·환율. 개인 투자자가 꼭 봐야 할 경제 지표와, 그걸 발표·관리하는 기관을 미국과 한국으로 나눠 한눈에 정리했다.",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16"
+  },
+  {
     "slug": "seoul-apt-district-ranking",
     "category": "부동산",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "부동산",
       "서울",
