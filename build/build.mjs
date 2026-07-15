@@ -99,6 +99,7 @@ function page({ title, desc, active, main, base = '', ldjson = '', path = 'index
   ].filter(Boolean).join('\n');
   return `<!DOCTYPE html><html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>*{box-sizing:border-box}html,body{margin:0}body{background:color-mix(in srgb,${tokens.point} 4%,${tokens.bg});color:${tokens.ink};font-family:'IBM Plex Sans KR',system-ui,sans-serif;line-height:1.8}</style>
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 ${SITE.googleVerify ? `<meta name="google-site-verification" content="${SITE.googleVerify}">` : ''}
 ${SITE.naverVerify ? `<meta name="naver-site-verification" content="${SITE.naverVerify}">` : ''}
