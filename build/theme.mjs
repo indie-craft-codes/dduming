@@ -27,6 +27,8 @@ export const SITE = {
   cfBeacon: '4b7b84be85354dffa7d600c414f679e0',
   // Google Search Console 소유권 확인 코드
   googleVerify: 'i0dzcQxZ5VX6GEwbE_HFdXqGN7M0dOZAHF0txHnY9tA',
+  // 네이버 서치어드바이저 소유 확인 코드
+  naverVerify: '1596dca8c265a24f545a67939a2437b24ab63ad0',
 };
 
 export const css = `
