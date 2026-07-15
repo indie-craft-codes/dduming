@@ -1,9 +1,26 @@
 [
   {
+    "slug": "investment-account-types-2026",
+    "category": "경제",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "투자",
+      "ISA",
+      "연금저축",
+      "IRP",
+      "절세"
+    ],
+    "title": "증권 계좌 완전정리 — 일반·ISA·연금·IRP·RIA (2026)",
+    "deck": "계좌마다 담을 수 있는 상품과 세금이 다르다. 일반·ISA·연금저축·IRP, 그리고 2026 한시 RIA까지 무엇을 어디에 담아야 하는지 한 표로 정리했다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
     "slug": "apt-buy-cost-2026",
     "category": "부동산",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "부동산",
       "취득세",
@@ -51,7 +68,7 @@
     "slug": "stock-etf-tax-2026",
     "category": "경제",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "주식세금",
       "ETF",
