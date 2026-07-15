@@ -1,5 +1,23 @@
 [
   {
+    "slug": "songpa-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "부동산",
+      "송파구",
+      "실거래",
+      "서울",
+      "데이터",
+      "잠실"
+    ],
+    "title": "데이터로 보는 송파구 아파트 (실거래 20년)",
+    "deck": "잠실·헬리오시티의 송파구. 실거래로 20년 궤적과 거래량, 대표 단지, 강남·서울과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
     "slug": "seoul-apt-report-2026-01",
     "category": "부동산",
     "status": "published",
@@ -221,7 +239,7 @@
     "slug": "seoul-apt-report-2026-05",
     "category": "부동산",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "부동산",
       "서울",
