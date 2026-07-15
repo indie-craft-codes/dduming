@@ -92,6 +92,7 @@ function page({ title, desc, active, main, base = '', ldjson = '', path = 'index
   return `<!DOCTYPE html><html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
+${SITE.googleVerify ? `<meta name="google-site-verification" content="${SITE.googleVerify}">` : ''}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">

@@ -25,6 +25,8 @@ export const SITE = {
   baseUrl: 'https://dduming.com',
   // Cloudflare Web Analytics 비콘 토큰 (공개용, 페이지에 삽입됨)
   cfBeacon: '4b7b84be85354dffa7d600c414f679e0',
+  // Google Search Console 소유권 확인 코드
+  googleVerify: 'i0dzcQxZ5VX6GEwbE_HFdXqGN7M0dOZAHF0txHnY9tA',
 };
 
 export const css = `
