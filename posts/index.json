@@ -1,9 +1,27 @@
 [
   {
-    "slug": "gangdong-apt-data",
+    "slug": "seoul-apt-district-ranking",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "서울",
+      "자치구",
+      "실거래",
+      "순위",
+      "비교"
+    ],
+    "title": "서울 25개 구 아파트값 순위 — 실거래 한눈에 (2025)",
+    "deck": "국토부 실거래로 서울 25개 자치구를 한 줄로 세웠다. 중앙 실거래가·20년 상승배수·거래량을 비교하고, 각 구의 상세 데이터로 바로 연결한다.",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16"
+  },
+  {
+    "slug": "gangdong-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "강동구",

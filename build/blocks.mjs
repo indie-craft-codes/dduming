@@ -8,8 +8,11 @@ export { esc };
 const cap = (t) => t ? `<div class="cap">${esc(t)}</div>` : '';
 
 function table(b) {
+  const cell = (c) => (c && typeof c === 'object' && c.href)
+    ? `<a href="${esc(c.href)}">${esc(c.text)}</a>`
+    : esc(c);
   const head = b.head ? `<thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>` : '';
-  const rows = b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('');
+  const rows = b.rows.map(r => `<tr>${r.map(c => `<td>${cell(c)}</td>`).join('')}</tr>`).join('');
   return `<div class="tablewrap"><table>${head}<tbody>${rows}</tbody></table></div>${cap(b.caption)}`;
 }
 
