@@ -1,9 +1,26 @@
 [
   {
+    "slug": "real-estate-investing-basics",
+    "category": "부동산",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "부동산",
+      "투자",
+      "기초",
+      "갭투자",
+      "리츠"
+    ],
+    "title": "부동산 투자 기초 — 뭘 알고 시작해야 하나",
+    "deck": "막막한 부동산 투자, 개념부터 잡아보자. 돈 버는 방식, 꼭 아는 용어, 봐야 할 지표와 리스크까지 초보 눈높이로 정리했다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
     "slug": "investment-account-types-2026",
     "category": "경제",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "투자",
       "ISA",
