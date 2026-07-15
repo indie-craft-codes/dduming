@@ -1,9 +1,26 @@
 [
   {
-    "slug": "gangnam-apt-data",
+    "slug": "seoul-apt-report-2026-01",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "서울",
+      "실거래",
+      "월간리포트",
+      "아파트"
+    ],
+    "title": "월간 서울 아파트 실거래 리포트 — 2026년 1월",
+    "deck": "국토부 실거래로 보는 서울 아파트 시장. 2026년 1월 거래량·중앙가, 자치구별 순위, 대표 거래를 데이터로 정리한다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "gangnam-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "강남구",
