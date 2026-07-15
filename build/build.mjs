@@ -15,6 +15,14 @@ const DIST = join(ROOT, 'dist');
 // ---------- 로드 ----------
 const postFiles = readdirSync(POSTS).filter(f => f.endsWith('.json') && f !== 'index.json');
 const posts = postFiles.map(f => JSON.parse(readFileSync(join(POSTS, f), 'utf8')));
+// publishedAt 자동 스탬프: 없으면 현재 시각으로 채워 원본 파일에 기록(최초 1회) → 최신순 안정화
+posts.forEach((p, i) => {
+  if (!p.publishedAt) {
+    p.publishedAt = new Date().toISOString();
+    writeFileSync(join(POSTS, postFiles[i]), JSON.stringify(p, null, 2) + '\n');
+    console.log(`  + publishedAt 자동 스탬프: ${p.slug} → ${p.publishedAt}`);
+  }
+});
 const published = posts.filter(p => p.status === 'published')
   .sort((a, b) => (b.publishedAt || b.datePublished || '').localeCompare(a.publishedAt || a.datePublished || ''));
 

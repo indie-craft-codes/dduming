@@ -18,6 +18,9 @@
 | `index.json` | 각 post의 title·deck·date·cover·category·tags·featured | (파생물 — 직접 편집 금지) |
 | `readingMinutes` | blocks 텍스트 길이 | post에 값 넣으면 override |
 | `relatedPosts` | 같은 tags/category 자동 추천 | post에 slug 배열 넣으면 수동 지정 |
+| `publishedAt` | **빌드가 최초 1회 현재 시각으로 자동 기록**(정렬 기준) | post에 값 넣으면 그 시각 사용 |
+
+정렬(홈·목록)은 `publishedAt` 내림차순(최신순). 새 글에 `publishedAt`이 없으면 빌드가 현재 시각을 파일에 써넣으니, 신경 안 써도 항상 등록순으로 정렬된다.
 
 → post 스키마에서 `toc`는 뺐다(자동). `readingMinutes`·`relatedPosts`는 필드만 두고 비워둠(자동 채움).
 
