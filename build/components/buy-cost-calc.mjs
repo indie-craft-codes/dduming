@@ -33,7 +33,7 @@ export function render(props = {}) {
     <div class="bc-hint">추가 비용 — 편차가 커서 <b>기본값은 예시</b>입니다. 상황에 맞게 조정하거나 0으로 지우세요.</div>
     <div class="bc-row"><span>국민주택채권 할인손실 <em>대략</em></span><span><input class="bc-bond" type="text" inputmode="numeric">원</span></div>
     <div class="bc-row"><span>법무사비</span><span><input class="bc-legal" type="text" inputmode="numeric" value="400,000">원</span></div>
-    <div class="bc-row"><span>이사비용</span><span><input class="bc-move" type="text" inputmode="numeric" value="1,500,000">원</span></div>
+    <div class="bc-row"><span>이사비용</span><span><input class="bc-move" type="text" inputmode="numeric" value="2,000,000">원</span></div>
     <div class="bc-row"><span>인테리어</span><span><input class="bc-reno" type="text" inputmode="numeric" value="0">원</span></div>
     <div class="bc-row"><span>선수관리비</span><span><input class="bc-mgmt" type="text" inputmode="numeric" value="300,000">원</span></div>
   </div>
@@ -83,8 +83,8 @@ export const css = `
 .bc-extra{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
 .bc-extra .bc-hint{font-size:12px;color:var(--sub);line-height:1.6;margin-bottom:10px}
 .bc-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:9px 0}
-.bc-row>span:first-child{font-size:13.5px;color:var(--sub)}
+.bc-row>span:first-child{font-size:13.5px;color:var(--sub);flex:1;min-width:0}
 .bc-row em{font-style:normal;color:var(--orange);font-size:11px}
-.bc-row>span:last-child{color:var(--sub);font-size:13px;white-space:nowrap}
-.bc-row input{width:130px;text-align:right;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:15px;margin-right:4px}
+.bc-row>span:last-child{color:var(--sub);font-size:13px;white-space:nowrap;flex:none}
+.bc-row input[type=text]{width:98px;text-align:right;padding:8px 9px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14.5px;margin-right:4px}
 `;
