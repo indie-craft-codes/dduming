@@ -1,7 +1,8 @@
 // 컴포넌트 레지스트리 — 새 인터랙티브 컴포넌트는 여기에 한 줄만 추가.
 import * as giftTaxCalc from './gift-tax-calc.mjs';
+import * as buyCostCalc from './buy-cost-calc.mjs';
 
-const modules = [giftTaxCalc];
+const modules = [giftTaxCalc, buyCostCalc];
 
 // 이름 → 컴포넌트 모듈
 export const components = Object.fromEntries(modules.map(m => [m.name, m]));

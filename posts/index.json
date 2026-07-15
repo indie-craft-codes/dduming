@@ -1,9 +1,25 @@
 [
   {
-    "slug": "seoul-apt-market-20yr",
+    "slug": "apt-buy-cost-2026",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "취득세",
+      "중개보수",
+      "매수비용"
+    ],
+    "title": "10억 아파트 살 때 드는 비용 총정리 (2026)",
+    "deck": "집값 말고 '더' 드는 돈 — 취득세, 중개보수, 인지세, 부대비용을 10억 아파트 기준으로 계산한다. 맨 위 계산기로 내 조건도 바로 확인.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seoul-apt-market-20yr",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "서울아파트",
