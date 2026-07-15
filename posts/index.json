@@ -1,9 +1,26 @@
 [
   {
-    "slug": "seongbuk-apt-data",
+    "slug": "gangnam-apt-data",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "강남구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 강남구 아파트 (실거래 20년)",
+    "deck": "대한민국 집값의 기준, 강남구. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·성북과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seongbuk-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "성북구",
