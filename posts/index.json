@@ -1,9 +1,383 @@
 [
   {
-    "slug": "songpa-apt-data",
+    "slug": "gangdong-apt-data",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "강동구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 강동구 아파트 (실거래 20년)",
+    "deck": "올림픽파크포레온(둔촌주공)으로 최근 가장 주목받은 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seocho-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "서초구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 서초구 아파트 (실거래 20년)",
+    "deck": "반포를 앞세운 강남3구 최상급지. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "gwanak-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "관악구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 관악구 아파트 (실거래 20년)",
+    "deck": "서울대와 신림·봉천을 낀 서남권. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "dongjak-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "동작구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 동작구 아파트 (실거래 20년)",
+    "deck": "흑석뉴타운과 노량진을 낀 강남 접근성 좋은 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "yeongdeungpo-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "영등포구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 영등포구 아파트 (실거래 20년)",
+    "deck": "여의도 금융 중심과 신길 재개발을 품은 서남권 요지. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "geumcheon-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "금천구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 금천구 아파트 (실거래 20년)",
+    "deck": "독산·시흥 중심의 서울 최저가권. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "guro-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "구로구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 구로구 아파트 (실거래 20년)",
+    "deck": "신도림 역세권과 구로디지털단지 배후. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "gangseo-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "강서구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 강서구 아파트 (실거래 20년)",
+    "deck": "마곡 업무지구 개발로 성장한 서남권. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "yangcheon-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "양천구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 양천구 아파트 (실거래 20년)",
+    "deck": "목동을 빼놓고 말할 수 없는 곳. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "mapo-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "마포구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 마포구 아파트 (실거래 20년)",
+    "deck": "강북 대장으로 꼽히는 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seodaemun-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "서대문구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 서대문구 아파트 (실거래 20년)",
+    "deck": "DMC와 도심 사이. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "eunpyeong-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "은평구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 은평구 아파트 (실거래 20년)",
+    "deck": "은평뉴타운으로 대표되는 신흥 주거지. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "nowon-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "노원구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 노원구 아파트 (실거래 20년)",
+    "deck": "서울에서 거래가 가장 많은 구. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "dobong-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "도봉구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 도봉구 아파트 (실거래 20년)",
+    "deck": "창동·방학·쌍문 중심. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "gangbuk-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "강북구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 강북구 아파트 (실거래 20년)",
+    "deck": "미아·수유·번동 중심. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "jungnang-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "중랑구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 중랑구 아파트 (실거래 20년)",
+    "deck": "면목·상봉·묵동 중심의 중저가 실수요 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "dongdaemun-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "동대문구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 동대문구 아파트 (실거래 20년)",
+    "deck": "청량리 역세권 재개발로 탈바꿈 중인 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "gwangjin-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "광진구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 광진구 아파트 (실거래 20년)",
+    "deck": "한강 조망과 학군을 갖춘 강북 인기 주거지. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "seongdong-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "성동구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 성동구 아파트 (실거래 20년)",
+    "deck": "성수동을 중심으로 급부상한 신흥 고가 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "yongsan-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "용산구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 용산구 아파트 (실거래 20년)",
+    "deck": "한강과 남산 사이, 강북 최고가 지역. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "junggu-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "중구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 중구 아파트 (실거래 20년)",
+    "deck": "서울 도심 업무의 심장. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "jongno-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
+    "tags": [
+      "부동산",
+      "종로구",
+      "실거래",
+      "서울",
+      "데이터"
+    ],
+    "title": "데이터로 보는 종로구 아파트 (실거래 20년)",
+    "deck": "서울의 중심이자 600년 도읍. 실거래로 20년 궤적과 거래량, 대표 단지, 서울·강남과의 격차를 데이터로 본다.",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15"
+  },
+  {
+    "slug": "songpa-apt-data",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "송파구",
