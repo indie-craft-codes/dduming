@@ -107,7 +107,8 @@ ${og}
 </div><div class="rule"></div></header>
 <main>${main}</main>
 <footer class="site"><span><a href="${base}about.html">소개</a> · <a href="${base}privacy.html">개인정보처리방침</a> · <a href="${base}contact.html">연락처</a></span><span>© 2026 ${SITE.brand}</span></footer>
-</div></body></html>`;
+</div>${SITE.cfBeacon ? `\n<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${SITE.cfBeacon}"}'></script>` : ''}
+</body></html>`;
 }
 
 // ---------- 카드 ----------

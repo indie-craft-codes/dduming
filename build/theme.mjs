@@ -23,6 +23,8 @@ export const SITE = {
   desc: '기술 · 경제 · 부동산을 짧고 정확하게.',
   // canonical·OG·sitemap·RSS의 절대 URL 기준 (커스텀 도메인)
   baseUrl: 'https://dduming.com',
+  // Cloudflare Web Analytics 비콘 토큰 (공개용, 페이지에 삽입됨)
+  cfBeacon: '4b7b84be85354dffa7d600c414f679e0',
 };
 
 export const css = `
