@@ -1,9 +1,26 @@
 [
   {
-    "slug": "economic-indicators-guide",
+    "slug": "economic-calendar-2026-h2",
     "category": "경제",
     "status": "published",
     "featured": true,
+    "tags": [
+      "경제",
+      "지표",
+      "캘린더",
+      "금리",
+      "FOMC"
+    ],
+    "title": "경제 지표 발표 일정 캘린더 — 미국·한국 (2026 하반기)",
+    "deck": "값이 계속 변하는 시세 말고, '발표일이 정해진' 지표만 모았다. FOMC·CPI·고용·금통위 등 미국·한국 주요 지표 일정을 한국시각과 함께, 다음 발표까지 D-day로 보여준다.",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16"
+  },
+  {
+    "slug": "economic-indicators-guide",
+    "category": "경제",
+    "status": "published",
+    "featured": false,
     "tags": [
       "경제",
       "지표",
