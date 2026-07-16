@@ -126,6 +126,12 @@ ul.blk li,ol.blk li{margin:7px 0}
 .donut{display:flex;align-items:center;gap:20px}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 0;padding-top:24px;border-top:1px solid var(--line)}
 .tag{font-size:13px;color:var(--sub);background:color-mix(in srgb,var(--point) 8%,transparent);padding:5px 12px;border-radius:999px}
+.pager{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;margin:44px 0 8px}
+.pager a,.pager span{font-size:14px;line-height:1;padding:9px 13px;border:1px solid var(--line);border-radius:6px;color:var(--sub)}
+.pager a:hover{border-color:var(--point);color:var(--point)}
+.pager .pg-cur{background:var(--point);border-color:var(--point);color:#fff;font-weight:600}
+.pager .pg-off{opacity:.4}
+.pager .pg-nav{font-weight:500}
 details.faq{border-bottom:1px solid var(--line);padding:2px 0}
 details.faq summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:600;font-size:16px;display:flex;justify-content:space-between;gap:12px}
 details.faq summary::-webkit-details-marker{display:none}

@@ -136,17 +136,39 @@ function card(p, base = '', hero = false) {
   return hero ? `<div class="hero">${inner}</div>` : `<div class="card">${inner}</div>`;
 }
 
+// ---------- 페이징 ----------
+const PAGE_SIZE = 12;
+const chunk = (arr, n) => { const out = []; for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n)); return out.length ? out : [[]]; };
+function pager(cur, total, urlFor) {
+  if (total <= 1) return '';
+  const nums = [];
+  for (let n = 1; n <= total; n++) nums.push(n === cur
+    ? `<span class="pg-n pg-cur" aria-current="page">${n}</span>`
+    : `<a class="pg-n" href="${urlFor(n)}">${n}</a>`);
+  const prev = cur > 1 ? `<a class="pg-nav" href="${urlFor(cur - 1)}" rel="prev">← 이전</a>` : `<span class="pg-nav pg-off">← 이전</span>`;
+  const next = cur < total ? `<a class="pg-nav" href="${urlFor(cur + 1)}" rel="next">다음 →</a>` : `<span class="pg-nav pg-off">다음 →</span>`;
+  return `<nav class="pager" aria-label="페이지 이동">${prev}${nums.join('')}${next}</nav>`;
+}
+
 // ---------- 홈 ----------
 function buildHome() {
-  const [head, ...rest] = published;
-  const featured = published.find(p => p.featured) || head;
+  const featured = published.find(p => p.featured) || published[0];
   const others = published.filter(p => p.slug !== featured.slug);
-  const main = card(featured, '', true)
-    + (others.length ? `<div class="sec-head">최신 글</div><div class="grid">${others.map(p => card(p)).join('')}</div>` : '');
-  writeFileSync(join(DIST, 'index.html'), page({
-    title: `${SITE.title} · ${SITE.brand}`, desc: SITE.desc, active: 'all', main,
-    path: 'index.html', ogType: 'website', image: coverSrc(featured),
-  }));
+  const pages = chunk(others, PAGE_SIZE);
+  const total = pages.length;
+  const urlFor = n => n === 1 ? '/' : `/page/${n}.html`;
+  pages.forEach((items, i) => {
+    const n = i + 1, base = n === 1 ? '' : '../';
+    const label = n === 1 ? '최신 글' : `전체 글 · ${n}페이지`;
+    const grid = items.length ? `<div class="sec-head">${label}</div><div class="grid">${items.map(p => card(p, base)).join('')}</div>` : '';
+    const main = (n === 1 ? card(featured, '', true) : '') + grid + pager(n, total, urlFor);
+    if (n > 1) mkdirSync(join(DIST, 'page'), { recursive: true });
+    writeFileSync(n === 1 ? join(DIST, 'index.html') : join(DIST, 'page', `${n}.html`), page({
+      title: n === 1 ? `${SITE.title} · ${SITE.brand}` : `전체 글 ${n}페이지 · ${SITE.title}`,
+      desc: SITE.desc, active: 'all', main, base,
+      path: n === 1 ? 'index.html' : `page/${n}.html`, ogType: 'website', image: coverSrc(featured),
+    }));
+  });
 }
 
 // ---------- 글 상세 ----------
@@ -183,12 +205,21 @@ ${topHtml}${answer}${adTop}${tocHtml}${body}${adBottom}${tags}${related}</articl
 // ---------- 카테고리 ----------
 function buildCategory(catName) {
   const list = published.filter(p => p.category === catName);
-  const main = `<div class="sec-head">${esc(catName)} · ${list.length}건</div>`
-    + (list.length ? `<div class="grid">${list.map(p => card(p, '../')).join('')}</div>` : '<p>준비 중인 카테고리입니다.</p>');
-  writeFileSync(join(DIST, 'category', `${catSlug(catName)}.html`), page({
-    title: `${catName} · ${SITE.title}`, desc: `${catName} 카테고리 글 목록`, active: catName, main, base: '../',
-    path: `category/${catSlug(catName)}.html`, ogType: 'website',
-  }));
+  const slug = catSlug(catName);
+  const pages = chunk(list, PAGE_SIZE);
+  const total = pages.length;
+  const urlFor = n => n === 1 ? `/category/${slug}.html` : `/category/${slug}/${n}.html`;
+  pages.forEach((items, i) => {
+    const n = i + 1, base = n === 1 ? '../' : '../../';
+    const head = `<div class="sec-head">${esc(catName)} · ${list.length}건${total > 1 ? ` (${n}/${total})` : ''}</div>`;
+    const grid = items.length ? `<div class="grid">${items.map(p => card(p, base)).join('')}</div>` : '<p>준비 중인 카테고리입니다.</p>';
+    const main = head + grid + pager(n, total, urlFor);
+    if (n > 1) mkdirSync(join(DIST, 'category', slug), { recursive: true });
+    writeFileSync(n === 1 ? join(DIST, 'category', `${slug}.html`) : join(DIST, 'category', slug, `${n}.html`), page({
+      title: `${catName}${n > 1 ? ` · ${n}페이지` : ''} · ${SITE.title}`, desc: `${catName} 카테고리 글 목록`,
+      active: catName, main, base, path: n === 1 ? `category/${slug}.html` : `category/${slug}/${n}.html`, ogType: 'website',
+    }));
+  });
 }
 
 // ---------- 정적 페이지 (소개·개인정보처리방침·연락처 등) ----------
@@ -204,10 +235,18 @@ function buildStaticPage(p) {
 // ---------- sitemap.xml (published + 목록 페이지) ----------
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
+  const homePages = Math.max(1, Math.ceil((published.length - 1) / PAGE_SIZE));
+  const homeExtra = Array.from({ length: homePages - 1 }, (_, i) => ({ loc: abs(`page/${i + 2}.html`), lastmod: today }));
+  const catExtra = Object.keys(CATEGORIES).flatMap(c => {
+    const n = Math.ceil(published.filter(p => p.category === c).length / PAGE_SIZE);
+    return Array.from({ length: Math.max(0, n - 1) }, (_, i) => ({ loc: abs(`category/${catSlug(c)}/${i + 2}.html`), lastmod: today }));
+  });
   const urls = [
     { loc: `${SITE.baseUrl}/`, lastmod: published[0]?.dateModified || today },
+    ...homeExtra,
     ...staticPages.map(p => ({ loc: abs(`${p.slug}.html`), lastmod: today })),
     ...Object.keys(CATEGORIES).map(c => ({ loc: abs(`category/${catSlug(c)}.html`), lastmod: today })),
+    ...catExtra,
     ...published.map(p => ({ loc: abs(`posts/${p.slug}.html`), lastmod: p.dateModified || p.datePublished })),
   ];
   const body = urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n');
