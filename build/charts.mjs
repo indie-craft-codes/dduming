@@ -157,11 +157,40 @@ function histogramChart(b) {
   return responsive(chart);
 }
 
+// 이중축 라인 — data:[{label,left,right}]. left=주지표(왼쪽축), right=보조지표(스케일 달라 재매핑, 점 위 실제값 표기)
+function dualLineChart(b) {
+  const ORANGE = '#e08a2e';
+  const L = b.data.map(d => d.left), R = b.data.map(d => d.right);
+  const lMin = Math.min(...L), lMax = Math.max(...L), rMin = Math.min(...R), rMax = Math.max(...R);
+  const map = (v) => rMax === rMin ? (lMin + lMax) / 2 : (v - rMin) / (rMax - rMin) * (lMax - lMin) + lMin;
+  const data = b.data.map(d => ({ label: d.label, left: d.left, rs: map(d.right), rv: d.right }));
+  const marks = [
+    Plot.lineY(data, { x: 'label', y: 'left', stroke: POINT, strokeWidth: 2.5, curve: 'linear' }),
+    Plot.lineY(data, { x: 'label', y: 'rs', stroke: ORANGE, strokeWidth: 2.5, curve: 'linear' }),
+    Plot.dot(data, { x: 'label', y: 'left', fill: POINT, r: 3.5 }),
+    Plot.dot(data, { x: 'label', y: 'rs', fill: ORANGE, r: 3.5 }),
+    Plot.text(data, { x: 'label', y: 'left', text: (d) => commaNum(d.left), dy: -11, fill: POINT, fontSize: 11, fontWeight: 600 }),
+    Plot.text(data, { x: 'label', y: 'rs', text: (d) => commaNum(d.rv), dy: 16, fill: ORANGE, fontSize: 10.5 }),
+  ];
+  const chart = Plot.plot({
+    document, width: 680, height: 340,
+    marginTop: 28, marginRight: 20, marginBottom: 40, marginLeft: 52,
+    style: baseStyle,
+    x: { type: 'point', label: null, tickSize: 0 },
+    y: { label: null, grid: true, ticks: 4, tickSize: 0 },
+    marks,
+  });
+  const lg = (c, t) => `<span style="display:inline-flex;align-items:center;gap:5px"><i style="width:10px;height:10px;border-radius:2px;background:${c};display:inline-block"></i>${t}</span>`;
+  const legend = `<div style="display:flex;gap:18px;justify-content:center;font-size:12.5px;color:${SUB};margin:0 0 2px">${lg(POINT, esc(b.leftName || 'V-KOSPI'))}${lg(ORANGE, esc(b.rightName || '코스피'))}</div>`;
+  return legend + responsive(chart);
+}
+
 export function renderChart(b) {
   const cap = b.caption ? `<div class="cap" style="text-align:center;margin:14px 0 0">${esc(b.caption)}</div>` : '';
   let body;
   try {
     body = b.chartType === 'line' ? lineChart(b)
+      : b.chartType === 'dualLine' ? dualLineChart(b)
       : b.chartType === 'donut' ? donutChart(b)
       : b.chartType === 'hbar' ? hbarChart(b)
       : b.chartType === 'histogram' ? histogramChart(b)
