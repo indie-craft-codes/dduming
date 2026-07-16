@@ -8,8 +8,9 @@ export const name = 'econCalendar';
 
 let seq = 0;
 
-// 2026년 하반기 확정 일정. d=발표일(현지), kst=한국시각, org=발표기관, ctry='US'|'KR', imp=중요도(2~3)
-const EVENTS = [
+// d=발표일(현지), kst=한국시각, org=발표기관, ctry='US'|'KR', imp=중요도(2~3)
+// 미 서머타임: 2026년 3/8~11/1. EST(겨울) 8:30ET=22:30KST·FOMC 익일04:00 / EDT(여름) 21:30KST·FOMC 익일03:00
+const EVENTS_H2 = [
   // 7월
   { d: '2026-07-02', kst: '21:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
   { d: '2026-07-14', kst: '21:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
@@ -58,11 +59,62 @@ const EVENTS = [
   { d: '2026-12-31', kst: '08:00', name: '소비자물가(12월·연간)', org: '통계청', ctry: 'KR', imp: 2 },
 ];
 
+// 2026년 상반기(1~6월) — 아카이브. 미 서머타임 이전(1~3.7)은 EST(22:30/익일04:00), 이후는 EDT(21:30/익일03:00).
+const EVENTS_H1 = [
+  // 1월 (EST)
+  { d: '2026-01-09', kst: '22:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-01-13', kst: '22:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-01-15', kst: '오전', name: '기준금리(금통위)', org: '한국은행', ctry: 'KR', imp: 3 },
+  { d: '2026-01-15', kst: '22:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-01-28', kst: '익일 04:00', name: 'FOMC 기준금리', org: '연준(Fed)', ctry: 'US', imp: 3 },
+  { d: '2026-01-29', kst: '22:30', name: 'GDP 4Q25 속보', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  { d: '2026-01-29', kst: '22:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  // 2월 (EST)
+  { d: '2026-02-03', kst: '08:00', name: '소비자물가(1월분)', org: '통계청', ctry: 'KR', imp: 2 },
+  { d: '2026-02-06', kst: '22:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-02-11', kst: '22:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-02-17', kst: '22:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-02-26', kst: '22:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  { d: '2026-02-26', kst: '오전', name: '기준금리(금통위)', org: '한국은행', ctry: 'KR', imp: 3 },
+  // 3월 (3/6 EST, 이후 EDT)
+  { d: '2026-03-06', kst: '22:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-03-06', kst: '08:00', name: '소비자물가(2월분)', org: '통계청', ctry: 'KR', imp: 2 },
+  { d: '2026-03-11', kst: '21:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-03-16', kst: '21:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-03-18', kst: '익일 03:00', name: 'FOMC 기준금리', org: '연준(Fed)', ctry: 'US', imp: 3 },
+  { d: '2026-03-27', kst: '21:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  // 4월 (EDT)
+  { d: '2026-04-02', kst: '08:00', name: '소비자물가(3월분)', org: '통계청', ctry: 'KR', imp: 2 },
+  { d: '2026-04-03', kst: '21:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-04-10', kst: '21:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-04-10', kst: '오전', name: '기준금리(금통위)', org: '한국은행', ctry: 'KR', imp: 3 },
+  { d: '2026-04-16', kst: '21:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-04-29', kst: '익일 03:00', name: 'FOMC 기준금리', org: '연준(Fed)', ctry: 'US', imp: 3 },
+  { d: '2026-04-30', kst: '21:30', name: 'GDP 1Q 속보', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  { d: '2026-04-30', kst: '21:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  // 5월 (EDT)
+  { d: '2026-05-06', kst: '08:00', name: '소비자물가(4월분)', org: '통계청', ctry: 'KR', imp: 2 },
+  { d: '2026-05-08', kst: '21:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-05-12', kst: '21:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-05-14', kst: '21:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-05-28', kst: '21:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+  { d: '2026-05-28', kst: '오전', name: '기준금리(금통위)', org: '한국은행', ctry: 'KR', imp: 3 },
+  // 6월 (EDT)
+  { d: '2026-06-02', kst: '08:00', name: '소비자물가(5월분)', org: '통계청', ctry: 'KR', imp: 2 },
+  { d: '2026-06-05', kst: '21:30', name: '고용보고서(실업률)', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-06-10', kst: '21:30', name: '소비자물가 CPI', org: '노동부 BLS', ctry: 'US', imp: 3 },
+  { d: '2026-06-17', kst: '21:30', name: '소매판매', org: '센서스국', ctry: 'US', imp: 2 },
+  { d: '2026-06-17', kst: '익일 03:00', name: 'FOMC 기준금리', org: '연준(Fed)', ctry: 'US', imp: 3 },
+  { d: '2026-06-25', kst: '21:30', name: 'PCE 물가', org: '상무부 BEA', ctry: 'US', imp: 2 },
+];
+
 const WD = ['일', '월', '화', '수', '목', '금', '토'];
 
 export function render(props = {}) {
   const id = `ec-${++seq}`;
-  const title = props.title || '경제 지표 발표 일정 (2026 하반기)';
+  const period = props.period === 'h1' ? 'h1' : 'h2';
+  const EVENTS = period === 'h1' ? EVENTS_H1 : EVENTS_H2;
+  const title = props.title || `경제 지표 발표 일정 (2026 ${period === 'h1' ? '상반기' : '하반기'})`;
   const stars = (n) => '★'.repeat(n);
 
   // 월별 그룹
@@ -103,15 +155,19 @@ export function render(props = {}) {
   <script>(function(){
     var root=document.getElementById('${id}');
     var today=new Date();today.setHours(0,0,0,0);
-    var rows=root.querySelectorAll('tr[data-date]');
-    var nextEl=null,nextDiff=1e9;
-    rows.forEach(function(r){
+    var rows=[].slice.call(root.querySelectorAll('tr[data-date]'));
+    var info=rows.map(function(r){
       var d=new Date(r.getAttribute('data-date')+'T00:00:00');
-      var diff=Math.round((d-today)/86400000);
-      var b=r.querySelector('.ec-dday');
-      if(diff<0){r.classList.add('ec-past');if(b)b.textContent='지남';}
-      else{if(b){b.textContent=diff===0?'D-DAY':'D-'+diff;b.classList.add('on');}
-        if(diff<nextDiff){nextDiff=diff;nextEl=r;}}
+      return {r:r,diff:Math.round((d-today)/86400000)};
+    });
+    // 미래 발표가 하나도 없으면 아카이브(지난 반기) → D-day·흐림 표시 안 함
+    if(!info.some(function(x){return x.diff>=0;}))return;
+    var nextEl=null,nextDiff=1e9;
+    info.forEach(function(x){
+      var b=x.r.querySelector('.ec-dday');
+      if(x.diff<0){x.r.classList.add('ec-past');if(b)b.textContent='지남';}
+      else{if(b){b.textContent=x.diff===0?'D-DAY':'D-'+x.diff;b.classList.add('on');}
+        if(x.diff<nextDiff){nextDiff=x.diff;nextEl=x.r;}}
     });
     if(nextEl){nextEl.classList.add('ec-next');
       var b=nextEl.querySelector('.ec-dday');if(b)b.classList.add('soon');}
