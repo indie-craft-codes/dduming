@@ -1,9 +1,27 @@
 [
   {
-    "slug": "bok-rate-hike-2026-07",
+    "slug": "kospi-volatility-leverage",
     "category": "경제",
     "status": "published",
     "featured": true,
+    "tags": [
+      "경제",
+      "주식",
+      "변동성",
+      "레버리지",
+      "ETF",
+      "투자"
+    ],
+    "title": "국내주식 변동성과 레버리지 — 급락기 데이터로 보는 위험",
+    "deck": "코스피는 언제, 얼마나 무너졌나. 주요 급락기의 낙폭을 데이터로 보고, 변동성 장에서 레버리지가 왜 특히 위험한지(변동성 끌림·반대매매) 정리했다.",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16"
+  },
+  {
+    "slug": "bok-rate-hike-2026-07",
+    "category": "경제",
+    "status": "published",
+    "featured": false,
     "tags": [
       "경제",
       "기준금리",
