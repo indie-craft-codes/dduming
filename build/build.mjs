@@ -103,6 +103,7 @@ function page({ title, desc, active, main, base = '', ldjson = '', path = 'index
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 ${SITE.googleVerify ? `<meta name="google-site-verification" content="${SITE.googleVerify}">` : ''}
 ${SITE.naverVerify ? `<meta name="naver-site-verification" content="${SITE.naverVerify}">` : ''}
+${SITE.adsenseClient ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : ''}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -166,10 +167,13 @@ function buildPost(p) {
   const body = (p.blocks || []).filter(b => !topComponents.has(b.type)).map(renderBlock).join('\n');
   const tags = p.tags?.length ? `<div class="tags">${p.tags.map(t => `<span class="tag"># ${esc(t)}</span>`).join('')}</div>` : '';
   const related = rel.length ? `<div class="sec-head" style="margin-top:48px">관련 글</div><div class="grid">${rel.map(q => card(q, '../')).join('')}</div>` : '';
+  // 광고(수동·공간예약형). SITE.adsenseClient + 슬롯 미설정이면 빈 문자열 → 노출 없음.
+  const adTop = renderBlock({ type: 'adSlot', pos: 'articleTop' });
+  const adBottom = renderBlock({ type: 'adSlot', pos: 'articleBottom' });
   const main = `<article><div class="a-head">${badge(p.category)}
 <h1 class="title">${esc(p.title)}</h1><p class="a-deck">${esc(p.deck)}</p>
 <div class="meta"><span>${fmtDate(p.datePublished)}</span><span>·</span><span>수정 ${fmtDate(p.dateModified || p.datePublished)}</span><span>·</span><span>${mins}분 읽기</span></div></div>
-${topHtml}${answer}${tocHtml}${body}${tags}${related}</article>`;
+${topHtml}${answer}${adTop}${tocHtml}${body}${adBottom}${tags}${related}</article>`;
   writeFileSync(join(DIST, 'posts', `${p.slug}.html`), page({
     title: `${p.title} · ${SITE.title}`, desc: p.deck, active: p.category, main, base: '../', ldjson,
     path: `posts/${p.slug}.html`, ogType: 'article', image: coverSrc(p),
@@ -258,6 +262,10 @@ mkdirSync(join(DIST, 'category'), { recursive: true });
 mkdirSync(join(DIST, 'assets'), { recursive: true });
 writeFileSync(join(DIST, cssFile), fullCss);
 writeFileSync(join(DIST, 'CNAME'), 'dduming.com\n'); // GitHub Pages 커스텀 도메인
+if (SITE.adsenseClient) { // AdSense ads.txt (pub-XXXX 형식)
+  const pub = SITE.adsenseClient.replace(/^ca-/, '');
+  writeFileSync(join(DIST, 'ads.txt'), `google.com, ${pub}, DIRECT, f08c47fec0942fa0\n`);
+}
 // 파비콘/앱아이콘을 사이트 루트로 복사
 for (const f of ['favicon.svg', 'favicon-96.png', 'apple-touch-icon.png', 'icon-512.png']) {
   const src = join(ROOT, 'images', f);

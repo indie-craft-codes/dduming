@@ -2,8 +2,9 @@
 import * as giftTaxCalc from './gift-tax-calc.mjs';
 import * as buyCostCalc from './buy-cost-calc.mjs';
 import * as econCalendar from './econ-calendar.mjs';
+import * as adSlot from './ad-slot.mjs';
 
-const modules = [giftTaxCalc, buyCostCalc, econCalendar];
+const modules = [giftTaxCalc, buyCostCalc, econCalendar, adSlot];
 
 // 이름 → 컴포넌트 모듈
 export const components = Object.fromEntries(modules.map(m => [m.name, m]));
