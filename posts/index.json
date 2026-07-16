@@ -1,9 +1,27 @@
 [
   {
-    "slug": "economic-calendar-2026-h2",
+    "slug": "bok-rate-hike-2026-07",
     "category": "경제",
     "status": "published",
     "featured": true,
+    "tags": [
+      "경제",
+      "기준금리",
+      "한국은행",
+      "금통위",
+      "대출",
+      "부동산"
+    ],
+    "title": "한은 기준금리 2.75%로 인상 — 3년 6개월 만의 긴축, 내 대출·집값은?",
+    "deck": "2026년 7월 16일, 한국은행이 기준금리를 2.50%에서 2.75%로 올렸다. 3년 6개월 만의 인상 배경과, 대출 이자·부동산 시장에 미칠 영향을 정리했다.",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16"
+  },
+  {
+    "slug": "economic-calendar-2026-h2",
+    "category": "경제",
+    "status": "published",
+    "featured": false,
     "tags": [
       "경제",
       "지표",
