@@ -30,7 +30,7 @@ export const SITE = {
   // 네이버 서치어드바이저 소유 확인 코드
   naverVerify: '1596dca8c265a24f545a67939a2437b24ab63ad0',
   // Google AdSense — 승인 신청 시 'ca-pub-XXXXXXXXXXXXXXXX' 입력(비우면 광고·스크립트·ads.txt 모두 비활성)
-  adsenseClient: '',
+  adsenseClient: 'ca-pub-4977445987108311',
   // 승인 후 콘솔에서 만든 광고 유닛 슬롯 ID(숫자). 두 위치 모두 채워야 해당 위치에 광고 노출.
   adsenseSlots: { articleTop: '', articleBottom: '' },
 };
