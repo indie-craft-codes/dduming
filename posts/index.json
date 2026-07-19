@@ -1,9 +1,25 @@
 [
   {
-    "slug": "ttuming-intro",
+    "slug": "ttuming-1-gift-split",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "뚜밍이네",
+      "증여세",
+      "내집마련"
+    ],
+    "title": "뚜밍이네 매매기 ①: 7억 증여, 부부가 나눠 받으니 2,600만원 굳었다",
+    "deck": "아버지의 7억 증여, 밍이 혼자 받으면 증여세가 1.3억. 그런데 뚜랑 나눠 받았더니 세금이 1억으로 줄었다. 우리가 실제로 계산한 과정을 공유한다.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
+    "slug": "ttuming-intro",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "뚜밍이네",
