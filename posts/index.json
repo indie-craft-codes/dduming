@@ -1,9 +1,26 @@
 [
   {
-    "slug": "mortgage-cap-3eok-2026",
+    "slug": "redevelopment-basics",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "재건축",
+      "용적률",
+      "대지지분",
+      "투자"
+    ],
+    "title": "재건축, 이것만은 봐야 한다 — 용적률·대지지분·사업성",
+    "deck": "재건축 아파트를 볼 때 뭘 봐야 하나. 용적률·건폐율·대지지분이 층수와 어떻게 얽히는지, 왜 저층이 대장인지, 사업 단계와 비용까지 핵심만 정리했다.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
+    "slug": "mortgage-cap-3eok-2026",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "주택담보대출",
