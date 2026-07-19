@@ -1,9 +1,26 @@
 [
   {
-    "slug": "redevelopment-basics",
+    "slug": "ttuming-intro",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "뚜밍이네",
+      "내집마련",
+      "아파트매매",
+      "실전"
+    ],
+    "title": "뚜밍이네, 서울에 집 사러 갑니다 — 첫 아파트 매매 도전기 (0편)",
+    "deck": "30대 무주택 부부 뚜와 밍이가 서울에 첫 집을 사기까지. 증여·대출·집값과 씨름하는 진짜 과정을, 같은 고민 하는 분들에게 도움되라고 기록합니다.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
+    "slug": "redevelopment-basics",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "재건축",
