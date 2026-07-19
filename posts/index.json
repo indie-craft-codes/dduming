@@ -1,9 +1,26 @@
 [
   {
-    "slug": "ttuming-1-gift-split",
+    "slug": "ttuming-2-loan",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "뚜밍이네",
+      "대출",
+      "DSR",
+      "주담대"
+    ],
+    "title": "뚜밍이네 매매기 ②: 대출 3억, 밍이 연봉 6천으로 될까? (DSR의 벽)",
+    "deck": "주담대 3억을 받으려는데, 진짜 벽은 정부 규제가 아니라 '소득'이었다. 밍이 연봉 6천으로 DSR·스트레스금리를 계산해보니 3억이 아슬아슬. 자영업 뚜는 얼마나 보탤 수 있을까.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
+    "slug": "ttuming-1-gift-split",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "뚜밍이네",
