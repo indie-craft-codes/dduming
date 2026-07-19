@@ -1,9 +1,26 @@
 [
   {
-    "slug": "ttuming-2-loan",
+    "slug": "ttuming-3-where",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "뚜밍이네",
+      "실거래",
+      "서울",
+      "내집마련"
+    ],
+    "title": "뚜밍이네 매매기 ③: 10억으로 서울 어디, 몇 평 살 수 있나 (실거래로 후보 뽑기)",
+    "deck": "자금 10억이 완성됐으니 이제 집을 찾을 차례. 감이 아니라 2026년 실거래로, 전용 50~85㎡·500세대 대단지·10억 이하를 구별로 훑어 거래 많은 후보 단지를 뽑았다.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
+    "slug": "ttuming-2-loan",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "뚜밍이네",
