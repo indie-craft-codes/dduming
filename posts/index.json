@@ -1,9 +1,27 @@
 [
   {
+    "slug": "mortgage-cap-3eok-2026",
+    "category": "부동산",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "부동산",
+      "주택담보대출",
+      "대출규제",
+      "서울",
+      "노도강",
+      "정책"
+    ],
+    "title": "주담대 6억→3억 축소 — 서울 집값, 어디가 흔들리나 (2026)",
+    "deck": "2026년 7월, 주택구입 주담대 한도가 6억에서 3억으로 반토막 났다. 대출 반토막이 어느 가격대를 때리고, 왜 노도강 등 외곽을 자극하는지 실거래 데이터로 분석한다.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19"
+  },
+  {
     "slug": "kospi-volatility-leverage",
     "category": "경제",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "경제",
       "주식",
