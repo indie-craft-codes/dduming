@@ -1,9 +1,26 @@
 [
   {
-    "slug": "ttuming-3-where",
+    "slug": "cheongyak-wolgye-junghung-2026",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "청약",
+      "노원",
+      "분양",
+      "월계"
+    ],
+    "title": "월계 중흥S-클래스 리비에르 청약 안내 — 노원 월계동 재건축 (2026)",
+    "deck": "노원구 월계동 재건축 단지 '월계 중흥S-클래스 리비에르'의 입주자모집공고 핵심 정보 정리. 일정·공급 세대·분양가·청약 자격을 표로 안내한다. (분석 없이 정보만)",
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20"
+  },
+  {
+    "slug": "ttuming-3-where",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "뚜밍이네",
