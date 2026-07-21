@@ -1,9 +1,26 @@
 [
   {
+    "slug": "bigtech-earnings-2026-q2",
+    "category": "기술",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "기술",
+      "빅테크",
+      "실적",
+      "반도체",
+      "AI"
+    ],
+    "title": "2026년 2분기 빅테크 실적 정리 — 국내 반도체 역대급, 해외는 'AI 성적표' 대기",
+    "deck": "삼성전자 영업이익 89.4조로 세계 1위, SK하이닉스 63조. 국내 반도체가 HBM 슈퍼사이클로 역대급 실적을 냈다. 네이버·카카오와 미국 빅테크(M7)의 발표 일정과 관전 포인트까지 한 번에 정리한다.",
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21"
+  },
+  {
     "slug": "ttuming-4-newborn-special",
     "category": "부동산",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "부동산",
       "뚜밍이네",
