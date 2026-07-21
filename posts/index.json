@@ -1,9 +1,26 @@
 [
   {
-    "slug": "cheongyak-wolgye-junghung-2026",
+    "slug": "newborn-special-loan-deadline-2026",
     "category": "부동산",
     "status": "published",
     "featured": true,
+    "tags": [
+      "부동산",
+      "신생아특례",
+      "대출",
+      "내집마련",
+      "디딤돌"
+    ],
+    "title": "만 2세 데드라인 — 몇 달 차이로 아파트 이자 수천만원이 갈린다 (신생아 특례)",
+    "deck": "아이 낳은 집이라면 '만 2세'가 대출의 분기점이다. 이 선을 넘기 전에 사면 신생아 특례로 이자를 시중의 1/3로 낮춘다. 집값이 1억 더 비싸도, 특례로 아끼는 돈이 그보다 크다.",
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21"
+  },
+  {
+    "slug": "cheongyak-wolgye-junghung-2026",
+    "category": "부동산",
+    "status": "published",
+    "featured": false,
     "tags": [
       "부동산",
       "청약",
