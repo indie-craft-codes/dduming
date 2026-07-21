@@ -1,9 +1,26 @@
 [
   {
+    "slug": "retail-sales-guide",
+    "category": "경제",
+    "status": "published",
+    "featured": true,
+    "tags": [
+      "경제",
+      "소매판매",
+      "지표",
+      "소비",
+      "미국"
+    ],
+    "title": "소매판매 완전정리 — 소비가 만드는 경기 체온계 (미국·한국)",
+    "deck": "미국 GDP의 약 70%가 소비다. 그 소비를 가장 빨리 보여주는 지표가 소매판매. 무엇을·누가·언제 발표하고, 어떻게 읽고, 왜 시장이 밤새 지켜보는지 정리했다.",
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21"
+  },
+  {
     "slug": "bigtech-earnings-2026-q2",
     "category": "기술",
     "status": "published",
-    "featured": true,
+    "featured": false,
     "tags": [
       "기술",
       "빅테크",
