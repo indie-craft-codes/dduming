@@ -1,10 +1,9 @@
 {
   "slug": "bigtech-earnings-2026-q2",
-  "category": "기술",
+  "category": "경제",
   "status": "published",
   "featured": true,
   "tags": [
-    "기술",
     "빅테크",
     "실적",
     "반도체",
@@ -134,6 +133,12 @@
         "미국 빅테크 — 실적 자체보다 'AI 투자 대비 성과'가 주가를 가른다",
         "일정 — (한국시각) 23일 구글·테슬라 → 30~31일 MS·메타·애플·아마존 → 8월 엔비디아"
       ]
+    },
+    {
+      "type": "callout",
+      "text": "업데이트: 한국시각 7월 23일 새벽, 어닝시즌의 문을 연 알파벳·테슬라 실적과 발표 당일 시장 상황을 후속편에서 정리했다.",
+      "href": "/posts/bigtech-earnings-2026-07-23.html",
+      "linkText": "구글·테슬라 실적 발표 정리 →"
     },
     {
       "type": "callout",

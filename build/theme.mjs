@@ -12,7 +12,6 @@ export const tokens = {
 
 // 카테고리 → 뱃지 라벨·색·URL슬러그 (posts/README 매핑표)
 export const CATEGORIES = {
-  '기술':   { badge: 'TECH',        color: tokens.point,  slug: 'tech' },
   '경제':   { badge: 'ECONOMY',     color: tokens.green,  slug: 'economy' },
   '부동산': { badge: 'REAL ESTATE', color: tokens.orange, slug: 'realestate' },
 };
@@ -20,7 +19,7 @@ export const CATEGORIES = {
 export const SITE = {
   title: '뚜밍',
   brand: 'dduming',
-  desc: '기술 · 경제 · 부동산을 짧고 정확하게.',
+  desc: '경제 · 부동산을 짧고 정확하게.',
   // canonical·OG·sitemap·RSS의 절대 URL 기준 (커스텀 도메인)
   baseUrl: 'https://dduming.com',
   // Cloudflare Web Analytics 비콘 토큰 (공개용, 페이지에 삽입됨)
