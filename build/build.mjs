@@ -104,6 +104,7 @@ function page({ title, desc, active, main, base = '', ldjson = '', path = 'index
 ${SITE.googleVerify ? `<meta name="google-site-verification" content="${SITE.googleVerify}">` : ''}
 ${SITE.naverVerify ? `<meta name="naver-site-verification" content="${SITE.naverVerify}">` : ''}
 ${SITE.adsenseClient ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : ''}
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -306,7 +307,7 @@ if (SITE.adsenseClient) { // AdSense ads.txt (pub-XXXX 형식)
   writeFileSync(join(DIST, 'ads.txt'), `google.com, ${pub}, DIRECT, f08c47fec0942fa0\n`);
 }
 // 파비콘/앱아이콘을 사이트 루트로 복사
-for (const f of ['favicon.svg', 'favicon-96.png', 'apple-touch-icon.png', 'icon-512.png']) {
+for (const f of ['favicon.ico', 'favicon.svg', 'favicon-96.png', 'apple-touch-icon.png', 'icon-512.png']) {
   const src = join(ROOT, 'images', f);
   if (existsSync(src)) cpSync(src, join(DIST, f));
 }
