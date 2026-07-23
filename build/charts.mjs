@@ -65,7 +65,7 @@ function barChart(b) {
     document, width: 680, height: 320,
     marginTop: 28, marginRight: 16, marginBottom: 40, marginLeft: 64,
     style: baseStyle,
-    x: { type: 'band', label: null, tickSize: 0, ticks: thinTicks(data) },
+    x: { type: 'band', label: null, tickSize: 0, ticks: thinTicks(data), domain: b.ordered ? data.map(d => d.label) : undefined },
     y: { label: null, grid: true, ticks: 4, tickFormat: axisFmt(b.format), tickSize: 0 },
     marks,
   });
@@ -112,7 +112,7 @@ function lineChart(b) {
     document, width: 680, height: 320,
     marginTop: 24, marginRight: 20, marginBottom: 40, marginLeft: 64,
     style: baseStyle,
-    x: { type: 'point', label: null, tickSize: 0, ticks: monthly ? yearTicks(b.data) : thinTicks(b.data), tickFormat: monthly ? ((d) => d.slice(0, 4)) : undefined },
+    x: { type: 'point', label: null, tickSize: 0, ticks: monthly ? yearTicks(b.data) : thinTicks(b.data), tickFormat: monthly ? ((d) => d.slice(0, 4)) : undefined, domain: b.ordered ? b.data.map(d => d.label) : undefined },
     y: { label: null, grid: true, ticks: 4, tickFormat: axisFmt(b.format), tickSize: 0 },
     marks,
   });
