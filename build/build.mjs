@@ -236,18 +236,12 @@ function buildStaticPage(p) {
 // ---------- sitemap.xml (published + 목록 페이지) ----------
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const homePages = Math.max(1, Math.ceil((published.length - 1) / PAGE_SIZE));
-  const homeExtra = Array.from({ length: homePages - 1 }, (_, i) => ({ loc: abs(`page/${i + 2}.html`), lastmod: today }));
-  const catExtra = Object.keys(CATEGORIES).flatMap(c => {
-    const n = Math.ceil(published.filter(p => p.category === c).length / PAGE_SIZE);
-    return Array.from({ length: Math.max(0, n - 1) }, (_, i) => ({ loc: abs(`category/${catSlug(c)}/${i + 2}.html`), lastmod: today }));
-  });
+  // 페이지네이션(page/N·category/*/N)은 목록 페이지라 sitemap에서 제외 —
+  // 크롤 예산을 실제 글에 집중, GSC '발견됨-색인안됨' 노이즈 제거.
   const urls = [
     { loc: `${SITE.baseUrl}/`, lastmod: published[0]?.dateModified || today },
-    ...homeExtra,
     ...staticPages.map(p => ({ loc: abs(`${p.slug}.html`), lastmod: today })),
     ...Object.keys(CATEGORIES).map(c => ({ loc: abs(`category/${catSlug(c)}.html`), lastmod: today })),
-    ...catExtra,
     ...published.map(p => ({ loc: abs(`posts/${p.slug}.html`), lastmod: p.dateModified || p.datePublished })),
   ];
   const body = urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n');
