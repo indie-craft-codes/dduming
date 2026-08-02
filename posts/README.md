@@ -6,6 +6,20 @@
 
 - `index.json` — 글 메타 목록(홈·카테고리 카드용). **빌드가 posts/*.json에서 자동 생성하는 파생물**(지금은 손 관리 샘플). 단일 소스는 각 post 파일.
 - 새 글은 기존 post JSON을 복사해 내용만 교체.
+
+### 파일명 규칙 / URL은 slug가 결정
+
+빌드는 `posts/*.json`을 모두 읽되 **URL·커버·index는 파일 안의 `slug` 필드로만** 생성한다(`posts/{slug}.html`). 즉 **파일명은 URL과 무관** — 파일명을 바꿔도 URL·SEO는 그대로다. 새 글은 `파일명 == slug`로 맞추는 걸 원칙으로 한다.
+
+**예외(파일명 ≠ slug):** 아래는 파일명만 통일하고 slug(=색인된 URL)는 SEO 보존을 위해 유지했다. 편집 시 URL은 slug 기준.
+
+| 파일명 | slug (실제 URL) |
+|---|---|
+| `apt-basics-guide.json` | `apartment-basics-guide` |
+| `apt-same-complex-price.json` | `apartment-same-complex-price` |
+| `president-apt-sale-2026.json` | `president-apartment-sale-2026` |
+| `real-estate-investing-guide.json` | `real-estate-investing-basics` |
+| `redevelopment-guide.json` | `redevelopment-basics` |
 - **전체 블록 타입 예시**는 `../docs/schema-example.json` 참고(14개 블록 타입 1:1, 발행 대상 아님).
 
 ## 핵심 원칙: 자동 파생이 기본, 수동은 optional override
