@@ -158,6 +158,25 @@ function buildHome() {
   const pages = chunk(others, PAGE_SIZE);
   const total = pages.length;
   const urlFor = n => n === 1 ? '/' : `/page/${n}.html`;
+  // 홈 전용 구조화데이터: 검색엔진이 dduming.com을 '뚜밍(dduming)' 대표 주체로 인식하도록.
+  // sameAs 는 공식 채널(SNS 등) 확정 시 추가.
+  const homeLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite', '@id': `${SITE.baseUrl}/#website`,
+        url: `${SITE.baseUrl}/`, name: SITE.title, alternateName: SITE.brand,
+        description: SITE.desc, inLanguage: 'ko-KR',
+        publisher: { '@id': `${SITE.baseUrl}/#org` },
+      },
+      {
+        '@type': 'Organization', '@id': `${SITE.baseUrl}/#org`,
+        name: SITE.title, alternateName: SITE.brand, url: `${SITE.baseUrl}/`,
+        description: SITE.desc, logo: `${SITE.baseUrl}/images/icon-512.png`,
+      },
+    ],
+  };
+  const homeLdJson = `\n<script type="application/ld+json">${JSON.stringify(homeLd)}</script>`;
   pages.forEach((items, i) => {
     const n = i + 1, base = n === 1 ? '' : '../';
     const label = n === 1 ? '최신 글' : `전체 글 · ${n}페이지`;
@@ -166,7 +185,7 @@ function buildHome() {
     if (n > 1) mkdirSync(join(DIST, 'page'), { recursive: true });
     writeFileSync(n === 1 ? join(DIST, 'index.html') : join(DIST, 'page', `${n}.html`), page({
       title: n === 1 ? `${SITE.title} · ${SITE.brand}` : `전체 글 ${n}페이지 · ${SITE.title}`,
-      desc: SITE.desc, active: 'all', main, base,
+      desc: SITE.desc, active: 'all', main, base, ldjson: n === 1 ? homeLdJson : '',
       path: n === 1 ? 'index.html' : `page/${n}.html`, ogType: 'website', image: coverSrc(featured),
     }));
   });
