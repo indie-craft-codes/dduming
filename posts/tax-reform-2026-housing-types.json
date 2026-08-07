@@ -1,0 +1,316 @@
+{
+  "slug": "tax-reform-2026-housing-types",
+  "category": "부동산",
+  "status": "published",
+  "featured": true,
+  "tags": [
+    "부동산",
+    "세금",
+    "종합부동산세",
+    "양도소득세",
+    "세제개편",
+    "다주택",
+    "장기보유특별공제"
+  ],
+  "title": "2026 세제개편 부동산 심층분석 — 주택 유형별·연도별 세금 어떻게 바뀌나",
+  "deck": "종부세는 2027~2028년, 양도세는 2027~2029년에 걸쳐 단계 시행된다. 그런데 그 영향은 주택 유형마다 다르다. 실거주 1주택·초고가 1주택·비거주 1주택·다주택·지방 세컨드홈까지, 여섯 가지 유형을 연도별로 나눠 비교했다.",
+  "answerBox": "2026 세제개편의 부동산 파트는 2027~2029년에 걸쳐 단계 시행되며, 주택 유형별로 유불리가 갈린다. ①실거주 1주택(시가 20억 이하)은 공제 12억→14억 상향으로 대체로 유리해진다. ②실거주 1주택이라도 초고가(30·40억 이상)는 세율 인상과 2029년 양도세 장기보유특별공제 10억 한도 신설로 불리해진다. ③비거주 1주택은 공제가 9억으로 줄고 실거주 혜택도 없어 계속 불리하다. ④조정대상지역 2주택·3주택 이상 다주택자는 2027~2028년 한시적으로 양도세 중과가 완화(2주택 +5%p→+10%p, 3주택 +10%p→+15%p)돼 '매도 유리 구간'이 열리지만, 2029년부터 원래 중과율(+20%p·+30%p)로 복귀한다. ⑤지방·인구감소지역 세컨드홈은 특례가 확대·연장돼 유리한 방향이다.",
+  "datePublished": "2026-08-07",
+  "dateModified": "2026-08-07",
+  "relatedPosts": [
+    "tax-reform-2026",
+    "housing-tax-guide-2026",
+    "president-apartment-sale-2026"
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "지난 글에서 2026 세제개편안의 큰 틀 — 종부세의 가액기준 전환, 양도세의 거주중심 재편 — 을 정리했다. 이번엔 한 걸음 더 들어가, '내 집은 어느 유형에 해당하고, 몇 년도에 무엇이 달라지는지'를 여섯 가지 주택 유형 × 네 개 연도(2026 현행~2029)로 나눠 비교한다. 종부세는 2027·2028년에, 양도세는 2027·2028·2029년에 각각 다른 규칙이 적용되므로, 유형별로 그림이 꽤 다르게 그려진다."
+    },
+    {
+      "type": "callout",
+      "text": "한눈에 — 실거주 1주택(일반가)은 대체로 유리해진다. 초고가·비거주 1주택은 단계적으로 불리해진다. 다주택자는 2027~2028년 한시적으로 양도세 중과가 완화돼 '매도 유리 구간'이 열렸다가 2029년 원래대로 돌아간다. 지방 세컨드홈은 특례가 넓어진다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-matrix",
+      "text": "주택 유형별 영향 한눈에 보기"
+    },
+    {
+      "type": "p",
+      "text": "아래는 여섯 가지 주택 유형이 연도별로 세 부담 방향에서 어느 쪽에 가까운지를 정리한 매트릭스다. '유리'는 세 부담이 줄거나 규제가 완화되는 방향, '불리'는 늘거나 강화되는 방향이다. 뒤에서 유형별로 구체적 수치를 짚는다."
+    },
+    {
+      "type": "svg",
+      "svg": "<svg viewBox=\"0 0 760 430\" width=\"100%\" style=\"max-width:700px;height:auto;display:block;margin:0 auto;font-family:inherit\">\n<text x=\"259\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">2026</text>\n<text x=\"259\" y=\"42\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">현행</text>\n<text x=\"396\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">2027</text>\n<text x=\"534\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">2028</text>\n<text x=\"671\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">2029</text>\n<text x=\"12\" y=\"81\" font-size=\"12\" fill=\"var(--ink)\">실거주 1주택(일반)</text>\n<rect x=\"194\" y=\"50\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"81\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"50\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"81\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"469\" y=\"50\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"81\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"606\" y=\"50\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"81\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<text x=\"12\" y=\"142\" font-size=\"12\" fill=\"var(--ink)\">실거주 1주택(초고가)</text>\n<rect x=\"194\" y=\"111\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"142\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"111\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"142\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<rect x=\"469\" y=\"111\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"142\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<rect x=\"606\" y=\"111\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"142\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<text x=\"12\" y=\"203\" font-size=\"12\" fill=\"var(--ink)\">비거주 1주택</text>\n<rect x=\"194\" y=\"171\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"203\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"171\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"203\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<rect x=\"469\" y=\"171\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"203\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<rect x=\"606\" y=\"171\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"203\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<text x=\"12\" y=\"263\" font-size=\"12\" fill=\"var(--ink)\">조정지역 2주택</text>\n<rect x=\"194\" y=\"232\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"263\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"232\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"263\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"469\" y=\"232\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"263\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"606\" y=\"232\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"263\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<text x=\"12\" y=\"324\" font-size=\"12\" fill=\"var(--ink)\">3주택 이상</text>\n<rect x=\"194\" y=\"293\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"324\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"293\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"324\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"469\" y=\"293\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"324\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"606\" y=\"293\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--orange)\" fill-opacity=\"0.16\" stroke=\"var(--orange)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"324\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--orange)\">불리</text>\n<text x=\"12\" y=\"385\" font-size=\"12\" fill=\"var(--ink)\">지방 세컨드홈</text>\n<rect x=\"194\" y=\"353\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--sub)\" fill-opacity=\"0.10\" stroke=\"var(--sub)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"259\" y=\"385\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--sub)\">기준/혼조</text>\n<rect x=\"332\" y=\"353\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"396\" y=\"385\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"469\" y=\"353\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"534\" y=\"385\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n<rect x=\"606\" y=\"353\" width=\"130\" height=\"53\" rx=\"7\" fill=\"var(--green)\" fill-opacity=\"0.16\" stroke=\"var(--green)\" stroke-opacity=\"0.5\" stroke-width=\"1\"/>\n<text x=\"671\" y=\"385\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--green)\">유리</text>\n</svg>",
+      "caption": "주택 유형(행) × 연도(열) 세 부담 방향성. 2026은 현행 기준선."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type1",
+      "text": "① 실거주 1주택 (일반가, 시가 20억 이하)"
+    },
+    {
+      "type": "p",
+      "text": "가장 보호받는 유형이다. 종부세 기본공제가 12억에서 14억(공시가 기준, 시가 약 20억)으로 오르면서 이 구간 실거주자는 종부세 부담이 줄거나 아예 면제로 빠진다. 양도세 쪽도 실거주자에게 불리한 변화가 거의 없다."
+    },
+    {
+      "type": "table",
+      "head": [
+        "연도",
+        "종부세",
+        "양도세"
+      ],
+      "rows": [
+        [
+          "2026(현행)",
+          "기본공제 12억 · 공정가액비율 60%",
+          "장특공제 보유+거주 최대 80%, 한도 없음"
+        ],
+        [
+          "2027",
+          "거주 1주택 공제 14억으로 상향, 공정가액비율 70%",
+          "현행 유지"
+        ],
+        [
+          "2028",
+          "단일세율표 적용되나 과표가 낮아 영향 미미",
+          "보유공제 폐지·거주공제 연 8%(최대80%) 방식 + 공제한도 20억 신설(고가 매도 시에만 체감)"
+        ],
+        [
+          "2029",
+          "공제 14억 유지",
+          "공제한도 10억으로 축소(단, 시가 20억 이하는 대체로 한도 안에 들어와 영향 적음)"
+        ]
+      ],
+      "caption": "시가 20억 이하 실거주 1주택은 공제 상향의 수혜만 크고, 후반부 규제(단일세율·공제한도)의 영향은 제한적이다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type2",
+      "text": "② 실거주 1주택 (초고가, 시가 30억·40억 이상)"
+    },
+    {
+      "type": "p",
+      "text": "같은 '실거주 1주택'이라도 초고가는 이야기가 다르다. 종부세는 과표 6~12억 구간 세율이 1.0%→1.3%로 오르고, 2028년 가액기준 단일세율표(과표 25~50억 3.0%, 50~94억 4.0%, 94억 초과 5.0%)가 적용되면 시가 30~40억 이상 구간부터 세율 상승이 뚜렷해진다. 40억 이상은 내년 종부세가 최대 2배까지 오른다는 전망도 나온다. 양도세 쪽은 더 직접적이다 — 2029년부터 장기보유특별공제 한도가 10억원으로 제한돼, 양도차익이 큰 강남권 등 초고가 주택 매도자는 그동안 받던 최대 80% 공제를 사실상 다 못 받게 된다."
+    },
+    {
+      "type": "table",
+      "head": [
+        "연도",
+        "종부세",
+        "양도세(장특공제)"
+      ],
+      "rows": [
+        [
+          "2026(현행)",
+          "6~12억 구간 1.0%",
+          "보유+거주 최대 80%, 한도 없음"
+        ],
+        [
+          "2027",
+          "6~12억 구간 1.3%로 인상, 공정가액비율 70%",
+          "현행 유지(80%, 한도 없음) — 매도 적기"
+        ],
+        [
+          "2028",
+          "가액기준 단일세율(25~50억 3.0%·50~94억 4.0%·94억↑ 5.0%)",
+          "거주중심 전환 + 공제 한도 20억원 신설"
+        ],
+        [
+          "2029",
+          "단일세율 유지, 40억↑ 최대 2배 전망",
+          "공제 한도 10억원으로 축소 — 초고가 매도 시 세부담 급증"
+        ]
+      ],
+      "caption": "핵심은 2029년 이후: 초고가·고차익 주택은 실거주여도 장특공제 한도(10억)에 걸려 절세 여지가 크게 줄어든다."
+    },
+    {
+      "type": "callout",
+      "text": "초고가 실거주 1주택자에게 실질적 의미: 매도를 고려 중이라면 장특공제가 아직 무제한(80%)인 2027년까지가 세제상 유리하고, 2028년(한도 20억)·2029년(한도 10억)으로 갈수록 불리해진다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type3",
+      "text": "③ 비거주 1주택 (전세 주고 따로 거주 등)"
+    },
+    {
+      "type": "p",
+      "text": "1주택이지만 실제로 그 집에 살지 않는 경우다. 종부세 기본공제가 12억에서 9억으로 줄고, 공정가액비율도 다주택·조정지역과 같은 궤도(70%→80%)를 따른다. 양도세 장특공제는 애초에 '거주기간'이 있어야 붙는 항목이 커서, 거주 실적이 없으면 최대 80% 자체를 받기 어렵다. 발표 사례 기준 시가 30억 주택의 종부세는 거주 76만원 vs 비거주 424.7만원으로 5배 이상 차이가 났다."
+    },
+    {
+      "type": "table",
+      "head": [
+        "연도",
+        "종부세",
+        "양도세"
+      ],
+      "rows": [
+        [
+          "2026(현행)",
+          "기본공제 12억(동일)",
+          "보유기간 공제만 최대 40%(거주분 없음)"
+        ],
+        [
+          "2027",
+          "비거주 1주택 공제 9억으로 축소, 공정가액비율 70%",
+          "현행 유지"
+        ],
+        [
+          "2028",
+          "단일세율표 적용, 공정가액비율 80%",
+          "보유공제 폐지 → 거주기간 없으면 공제 사실상 소멸"
+        ],
+        [
+          "2029",
+          "공제 9억 유지",
+          "공제 자체가 미미(거주실적 없음)"
+        ]
+      ],
+      "caption": "비거주 1주택은 '1주택'이라는 지위의 보호를 가장 적게 받는 유형이 된다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type4",
+      "text": "④ 조정대상지역 2주택자"
+    },
+    {
+      "type": "p",
+      "text": "다주택자 중에서는 상대적으로 가벼운 유형이지만, 종부세·양도세가 서로 다른 방향으로 움직여 헷갈리기 쉽다. 종부세는 공정가액비율이 서서히 오르며(70%→80%) 완만히 불리해진다. 반면 양도세 중과는 2027·2028년 한시적으로 크게 완화된다 — 2027년 양도분은 중과 +5%p(최고세율 50%), 2028년은 +10%p(최고 55%)로, 원래(2026 현행) 중과 +20%p·최고 65%보다 훨씬 가볍다. 다만 2029년부터는 원래 중과율로 돌아간다. 정부가 다주택자에게 '보유세는 오르니, 팔 거면 지금 팔라'는 신호를 주는 구간인 셈이다. 단, 보유기간 2년 미만 단기 매물은 이 완화 대상에서 빠진다."
+    },
+    {
+      "type": "table",
+      "head": [
+        "연도",
+        "종부세(보유)",
+        "양도세 중과(매도)"
+      ],
+      "rows": [
+        [
+          "2026(현행)",
+          "2주택 이하 일반세율 적용",
+          "조정지역 매도 시 +20%p, 최고세율 65%"
+        ],
+        [
+          "2027",
+          "공정가액비율 70%",
+          "+5%p로 완화, 최고세율 50% — 매도 유리"
+        ],
+        [
+          "2028",
+          "단일세율표 적용(가액 합산), 공정가액비율 80%",
+          "+10%p로 완화 축소, 최고세율 55%"
+        ],
+        [
+          "2029",
+          "단일세율 유지",
+          "원래 중과율 복귀 +20%p, 최고세율 65%"
+        ]
+      ],
+      "caption": "보유세는 완만히 오르고, 양도세는 2027~2028년만 크게 낮다. '팔 타이밍'이 있는 유형이다."
+    },
+    {
+      "type": "p",
+      "text": "여기에 더해, 조정대상지역 내 일시적 2주택(갈아타기)의 종전주택 처분기한이 3년에서 2년으로 단축된다. 신규주택 취득일로부터 2년 안에 종전주택을 팔아야 1세대 1주택 비과세 특례를 받을 수 있다는 뜻이라, 갈아타기 계획이 있다면 일정을 더 타이트하게 잡아야 한다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type5",
+      "text": "⑤ 3주택 이상 다주택자"
+    },
+    {
+      "type": "p",
+      "text": "가장 무거운 유형이지만, 여기도 2027·2028년엔 '매도 창'이 열린다. 종부세는 과표 12억 초과분부터 중과되던 현행 구조에서, 2028년 이후 가액기준 단일세율로 흡수되며 다주택 '전용' 중과세율표는 사라진다. 다만 3채 이상을 합산한 과표가 크기 때문에, 상위 구간(25억~94억 초과, 3.0~5.0%)에 걸릴 가능성이 높아 실질 부담이 크게 줄진 않는다. 양도세는 2주택자보다 더 큰 폭으로 완화된다 — 2027년 +10%p(최고 55%), 2028년 +15%p(최고 60%)로, 원래(현행) +30%p·최고 75%보다 확연히 가볍다. 2029년부터는 다시 +30%p·최고 75%로 복귀한다."
+    },
+    {
+      "type": "table",
+      "head": [
+        "연도",
+        "종부세(보유)",
+        "양도세 중과(매도)"
+      ],
+      "rows": [
+        [
+          "2026(현행)",
+          "과표 12억 초과분부터 중과, 최고 5.0%",
+          "조정지역 매도 시 +30%p, 최고세율 75%"
+        ],
+        [
+          "2027",
+          "공정가액비율 70%",
+          "+10%p로 완화, 최고세율 55% — 매도 유리"
+        ],
+        [
+          "2028",
+          "가액기준 단일세율 전환(다주택 전용 중과 폐지), 공정가액비율 80%",
+          "+15%p로 완화 축소, 최고세율 60%"
+        ],
+        [
+          "2029",
+          "단일세율 유지, 합산 과표로 상위 구간 노출 가능",
+          "원래 중과율 복귀 +30%p, 최고세율 75%"
+        ]
+      ],
+      "caption": "3주택 이상도 2027~2028년이 매도 관점에서 가장 가볍다. 이후엔 보유세·양도세 모두 무거워진다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-type6",
+      "text": "⑥ 지방·인구감소지역 세컨드홈"
+    },
+    {
+      "type": "p",
+      "text": "유일하게 뚜렷이 유리해지는 다주택 유형이다. 인구감소지역 등에서 세컨드홈(별장 성격의 두 번째 집)을 취득할 때 적용되는 양도세·종부세 1주택 특례의 적용 범위가 넓어지고, 적용기한도 2029년 말까지 연장된다. 즉 수도권 1주택 + 지방 세컨드홈 조합이면, 세컨드홈을 주택 수에서 사실상 빼주는 혜택을 계속(그리고 더 넓게) 받을 수 있다는 뜻이다. 지방 활성화를 위한 정책적 배려로, 다른 다주택 유형과 결이 다르다."
+    },
+    {
+      "type": "h2",
+      "id": "sec-strategy",
+      "text": "시사점 — 언제가 갈림길인가"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "2027년까지 — 양도세 장특공제(80%, 한도 없음)와 다주택 중과 완화가 모두 살아있는 마지막 구간. 초고가·다주택 매도를 고려 중이라면 세제상 가장 유리한 시점이다.",
+        "2028년 — 종부세 단일세율 전환, 양도세는 공제한도 20억·중과 완화 축소로 전환기. 여전히 2029년보다는 가볍다.",
+        "2029년 — 양도세 장특공제 10억 한도 완전 적용, 다주택 중과 원상복귀. 초고가·다주택 모두 세 부담이 가장 무거워지는 해.",
+        "실거주 1주택(일반가)은 타이밍을 크게 고민할 필요가 적다 — 어느 해든 대체로 보호받는 쪽이다.",
+        "조정대상지역 갈아타기는 처분기한이 3년→2년으로 짧아지므로 일정 여유를 더 타이트하게 잡아야 한다."
+      ]
+    },
+    {
+      "type": "h2",
+      "id": "sec-faq",
+      "text": "자주 묻는 질문"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "우리 집은 어느 유형에 해당하는지 어떻게 판단하나요?",
+          "a": "핵심 기준은 두 가지입니다. ①주택 수(1주택/2주택/3주택 이상), ②실거주 여부(그 집에 실제로 사는지). 여기에 조정대상지역 소재 여부, 시가대(일반가/초고가)를 더하면 이 글의 여섯 유형 중 하나에 대략 대응됩니다."
+        },
+        {
+          "q": "다주택자인데 2027~2028년에 팔면 정말 유리한가요?",
+          "a": "양도세 중과가 한시적으로 크게 낮아지는 건 맞습니다(2주택 +5%p→+10%p, 3주택+ +10%p→+15%p, 모두 2026 현행보다 낮음). 다만 종부세는 이 기간에도 공정가액비율이 오르며 완만히 늘어나고, 보유기간 2년 미만 단기 매물은 완화 대상에서 제외됩니다. 개별 상황에 따라 손익이 다르므로 세무사 상담을 권합니다."
+        },
+        {
+          "q": "양도세 장특공제 10억 한도가 정확히 뭔가요?",
+          "a": "1세대 1주택자가 양도차익에서 공제받는 장기보유특별공제(최대 80%)에 절대 금액 상한을 두는 제도입니다. 2027년까지는 한도 없이 현행대로, 2028년엔 20억원, 2029년부터는 10억원으로 제한됩니다. 양도차익이 10억원을 밑도는 대다수 주택은 체감 영향이 적고, 강남권 등 양도차익이 매우 큰 초고가 주택 매도자에게 실질적입니다."
+        },
+        {
+          "q": "지방 세컨드홈은 몇 채까지 특례를 받을 수 있나요?",
+          "a": "이 글 기준으로는 특례 '적용 범위 확대'와 '2029년 말까지 연장'만 확인됐고, 채수 제한 등 세부 요건은 시행령에서 구체화됩니다. 매입 전 관할 지자체·국세청 안내로 대상 지역·요건을 확인해야 합니다."
+        },
+        {
+          "q": "이 내용도 정부안이라 확정된 게 아니죠?",
+          "a": "맞습니다. 2026년 8월 발표된 정부 세제개편안 기준이며, 국회 의결과 시행령 마련을 거쳐야 확정됩니다. 연도별 수치·시행 시점은 최종 법안에서 달라질 수 있습니다."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "text": "이 글은 2026년 8월 발표된 정부 세제개편안을 주택 유형별로 재구성한 심층 분석이며, 국회 의결 전 정부안 기준입니다. 실제 세액은 개별 공시가격·보유현황·거주요건에 따라 달라지며, 매도·매수 결정 전 세무사·관할 지자체 확인이 필요합니다. 투자·처분 권유가 아닙니다."
+    }
+  ],
+  "publishedAt": "2026-08-07T09:00:00+09:00"
+}
